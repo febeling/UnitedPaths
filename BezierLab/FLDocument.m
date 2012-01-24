@@ -22,6 +22,24 @@
   return self;
 }
 
++ (NSSet *)keyPathsForValuesAffectingPathDescription
+{
+  return [NSSet setWithObject:@"shapes"];
+}
+
+- (NSAttributedString *)pathDescription
+{
+  NSAttributedString *attributedString;
+  if([self.shapes count] > 0) {
+    NSString *desc = [[self.shapes valueForKey:@"path"] componentsJoinedByString:@"\n"];
+    attributedString = [[NSAttributedString alloc] initWithString:desc];
+  } else {
+    attributedString = [[NSAttributedString alloc] initWithString:@""];
+  }
+  
+  return attributedString;
+}
+
 - (void)awakeFromNib
 {
   [canvas bind:@"shapes" toObject:self withKeyPath:@"shapes" options:nil];

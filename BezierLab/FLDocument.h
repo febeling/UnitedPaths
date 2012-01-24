@@ -24,5 +24,6 @@
 
 @property (strong) IBOutlet FLCanvas *canvas;
 @property (strong) NSArray *shapes;
+@property (readonly) NSAttributedString *pathDescription;
 
 @end
