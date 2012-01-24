@@ -36,20 +36,20 @@
 		50F886FB14CF427E007AEE2E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		50F886FC14CF427E007AEE2E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		50F886FD14CF427E007AEE2E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		50F8870014CF427E007AEE2E /* BezierLab-Info.plist */ = {isa = PBXFileReference; path = "BezierLab-Info.plist"; sourceTree = "<group>"; };
+		50F8870014CF427E007AEE2E /* BezierLab-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BezierLab-Info.plist"; sourceTree = "<group>"; };
 		50F8870214CF427E007AEE2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		50F8870414CF427E007AEE2E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		50F8870614CF427E007AEE2E /* BezierLab-Prefix.pch */ = {isa = PBXFileReference; path = "BezierLab-Prefix.pch"; sourceTree = "<group>"; };
+		50F8870614CF427E007AEE2E /* BezierLab-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BezierLab-Prefix.pch"; sourceTree = "<group>"; };
 		50F8870814CF427E007AEE2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		50F8870A14CF427E007AEE2E /* FLDocument.h */ = {isa = PBXFileReference; path = FLDocument.h; sourceTree = "<group>"; };
+		50F8870A14CF427E007AEE2E /* FLDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLDocument.h; sourceTree = "<group>"; };
 		50F8870B14CF427E007AEE2E /* FLDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLDocument.m; sourceTree = "<group>"; };
 		50F8870E14CF427E007AEE2E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FLDocument.xib; sourceTree = "<group>"; };
 		50F8871114CF427F007AEE2E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		50F8871814CF427F007AEE2E /* BezierLabTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BezierLabTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		50F8871914CF427F007AEE2E /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		50F8872014CF427F007AEE2E /* BezierLabTests-Info.plist */ = {isa = PBXFileReference; path = "BezierLabTests-Info.plist"; sourceTree = "<group>"; };
+		50F8872014CF427F007AEE2E /* BezierLabTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BezierLabTests-Info.plist"; sourceTree = "<group>"; };
 		50F8872214CF427F007AEE2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		50F8872414CF427F007AEE2E /* BezierLabTests.h */ = {isa = PBXFileReference; path = BezierLabTests.h; sourceTree = "<group>"; };
+		50F8872414CF427F007AEE2E /* BezierLabTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BezierLabTests.h; sourceTree = "<group>"; };
 		50F8872514CF427F007AEE2E /* BezierLabTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BezierLabTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
