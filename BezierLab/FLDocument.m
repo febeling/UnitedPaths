@@ -10,6 +10,8 @@
 
 @implementation FLDocument
 
+@synthesize canvas, shapes;
+
 - (id)init
 {
   self = [super init];
@@ -18,6 +20,54 @@
     // If an error occurs here, return nil.
   }
   return self;
+}
+
+- (void)awakeFromNib
+{
+  [canvas bind:@"shapes" toObject:self withKeyPath:@"shapes" options:nil];
+}
+
+- (IBAction)setAndOperation:(id)sender;
+{
+  
+}
+
+- (IBAction)resetOperation:(id)sender;
+{
+  
+}
+
+
+- (IBAction)setTwoRectangles:(id)sender;
+{
+  NSDictionary *rect1 = [NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRect:NSMakeRect(100, 100, 200, 100)], @"path",
+                         [NSColor redColor], @"color",
+                         nil];
+  NSDictionary *rect2 = [NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRect:NSMakeRect(150, 150, 200, 100)], @"path",
+                         [NSColor blueColor], @"color",
+                         nil];
+  self.shapes = [NSArray arrayWithObjects:rect1, rect2, nil];
+}
+
+- (IBAction)setTwoRoundedRectangles:(id)sender;
+{
+  NSDictionary *rect1 = [NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRoundedRect:NSMakeRect(100, 100, 200, 100)
+                                                                                                   xRadius:20
+                                                                                                   yRadius:20], @"path",
+                         [NSColor redColor], @"color",
+                         nil];
+  NSDictionary *rect2 = [NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRoundedRect:NSMakeRect(150, 150, 200, 100)
+                                                                                                   xRadius:20
+                                                                                                   yRadius:20], @"path",
+                         [NSColor blueColor], @"color",
+                         nil];
+  self.shapes = [NSArray arrayWithObjects:rect1, rect2, nil];
+
+}
+
+- (IBAction)clear:(id)sender;
+{
+  self.shapes = [NSArray array];
 }
 
 - (NSString *)windowNibName

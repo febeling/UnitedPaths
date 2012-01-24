@@ -18,6 +18,7 @@
 		50F8871B14CF427F007AEE2E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50F886F814CF427E007AEE2E /* Cocoa.framework */; };
 		50F8872314CF427F007AEE2E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50F8872114CF427F007AEE2E /* InfoPlist.strings */; };
 		50F8872614CF427F007AEE2E /* BezierLabTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F8872514CF427F007AEE2E /* BezierLabTests.m */; };
+		50F8873114CF4769007AEE2E /* FLCanvas.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F8873014CF4769007AEE2E /* FLCanvas.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		50F8872214CF427F007AEE2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		50F8872414CF427F007AEE2E /* BezierLabTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BezierLabTests.h; sourceTree = "<group>"; };
 		50F8872514CF427F007AEE2E /* BezierLabTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BezierLabTests.m; sourceTree = "<group>"; };
+		50F8872F14CF4769007AEE2E /* FLCanvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLCanvas.h; sourceTree = "<group>"; };
+		50F8873014CF4769007AEE2E /* FLCanvas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLCanvas.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +121,8 @@
 			children = (
 				50F8870A14CF427E007AEE2E /* FLDocument.h */,
 				50F8870B14CF427E007AEE2E /* FLDocument.m */,
+				50F8872F14CF4769007AEE2E /* FLCanvas.h */,
+				50F8873014CF4769007AEE2E /* FLCanvas.m */,
 				50F8870D14CF427E007AEE2E /* FLDocument.xib */,
 				50F8871014CF427F007AEE2E /* MainMenu.xib */,
 				50F886FF14CF427E007AEE2E /* Supporting Files */,
@@ -266,6 +271,7 @@
 			files = (
 				50F8870514CF427E007AEE2E /* main.m in Sources */,
 				50F8870C14CF427E007AEE2E /* FLDocument.m in Sources */,
+				50F8873114CF4769007AEE2E /* FLCanvas.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

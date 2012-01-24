@@ -7,7 +7,22 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "FLCanvas.h"
 
 @interface FLDocument : NSDocument
+{
+  FLCanvas *canvas;
+  NSArray *shapes;
+}
+
+- (IBAction)setAndOperation:(id)sender;
+- (IBAction)resetOperation:(id)sender;
+
+- (IBAction)setTwoRectangles:(id)sender;
+- (IBAction)setTwoRoundedRectangles:(id)sender;
+- (IBAction)clear:(id)sender;
+
+@property (strong) IBOutlet FLCanvas *canvas;
+@property (strong) NSArray *shapes;
 
 @end
