@@ -1221,6 +1221,15 @@
 									<reference key="NSOnImage" ref="1033313550"/>
 									<reference key="NSMixedImage" ref="310636482"/>
 								</object>
+								<object class="NSMenuItem" id="945328204">
+									<reference key="NSMenu" ref="666945448"/>
+									<string key="NSTitle">Keyboard</string>
+									<string key="NSKeyEquiv">3</string>
+									<int key="NSKeyEquivModMask">1048576</int>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="1033313550"/>
+									<reference key="NSMixedImage" ref="310636482"/>
+								</object>
 							</array>
 						</object>
 					</object>
@@ -1340,27 +1349,6 @@
 			</object>
 			<object class="NSCustomObject" id="739804602">
 				<string key="NSClassName">NSFontManager</string>
-			</object>
-			<object class="NSMenuItem" id="58462695">
-				<string key="NSTitle">Menu</string>
-				<string key="NSKeyEquiv"/>
-				<int key="NSMnemonicLoc">2147483647</int>
-				<reference key="NSOnImage" ref="1033313550"/>
-				<reference key="NSMixedImage" ref="310636482"/>
-				<string key="NSAction">submenuAction:</string>
-				<object class="NSMenu" key="NSSubmenu" id="466547761">
-					<string key="NSTitle">Menu</string>
-					<array class="NSMutableArray" key="NSMenuItems">
-						<object class="NSMenuItem" id="966436408">
-							<reference key="NSMenu" ref="466547761"/>
-							<string key="NSTitle">Item</string>
-							<string key="NSKeyEquiv"/>
-							<int key="NSMnemonicLoc">2147483647</int>
-							<reference key="NSOnImage" ref="1033313550"/>
-							<reference key="NSMixedImage" ref="310636482"/>
-						</object>
-					</array>
-				</object>
 			</object>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
@@ -2012,6 +2000,14 @@
 						<reference key="destination" ref="45443391"/>
 					</object>
 					<int key="connectionID">570</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">setKeyboardShapes:</string>
+						<reference key="source" ref="1014"/>
+						<reference key="destination" ref="945328204"/>
+					</object>
+					<int key="connectionID">573</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -2953,27 +2949,6 @@
 						<reference key="parent" ref="963351320"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">535</int>
-						<reference key="object" ref="58462695"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="466547761"/>
-						</array>
-						<reference key="parent" ref="0"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">536</int>
-						<reference key="object" ref="466547761"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="966436408"/>
-						</array>
-						<reference key="parent" ref="58462695"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">537</int>
-						<reference key="object" ref="966436408"/>
-						<reference key="parent" ref="466547761"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">81</int>
 						<reference key="object" ref="720053764"/>
 						<array class="NSMutableArray" key="children">
@@ -3072,6 +3047,7 @@
 							<reference ref="142945847"/>
 							<reference ref="986818062"/>
 							<reference ref="45443391"/>
+							<reference ref="945328204"/>
 						</array>
 						<reference key="parent" ref="15037701"/>
 					</object>
@@ -3093,6 +3069,11 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">569</int>
 						<reference key="object" ref="45443391"/>
+						<reference key="parent" ref="666945448"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">571</int>
+						<reference key="object" ref="945328204"/>
 						<reference key="parent" ref="666945448"/>
 					</object>
 				</array>
@@ -3233,9 +3214,6 @@
 				<string key="515.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="516.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="532.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="535.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="536.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="537.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="56.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="562.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="563.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3244,6 +3222,7 @@
 				<string key="568.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="569.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="57.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="571.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="58.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="72.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="73.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3261,7 +3240,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">570</int>
+			<int key="maxID">573</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3280,6 +3259,7 @@
 						<string key="clear:">id</string>
 						<string key="resetOperation:">id</string>
 						<string key="setAndOperation:">id</string>
+						<string key="setKeyboardShapes:">id</string>
 						<string key="setTwoRectangles:">id</string>
 						<string key="setTwoRoundedRectangles:">id</string>
 					</dictionary>
@@ -3294,6 +3274,10 @@
 						</object>
 						<object class="IBActionInfo" key="setAndOperation:">
 							<string key="name">setAndOperation:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="setKeyboardShapes:">
+							<string key="name">setKeyboardShapes:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="setTwoRectangles:">

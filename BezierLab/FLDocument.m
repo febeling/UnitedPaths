@@ -26,13 +26,13 @@
 {
   if(!colors) {
     colors = [NSArray arrayWithObjects:
-              [NSColor colorWithDeviceHue:0.594 saturation:0.300 brightness:0.7 alpha:1.000], 
-              [NSColor colorWithDeviceHue:0.594 saturation:0.400 brightness:0.6 alpha:1.000], 
-              [NSColor colorWithDeviceHue:0.594 saturation:0.500 brightness:0.5 alpha:1.000], 
-              [NSColor colorWithDeviceHue:0.594 saturation:0.600 brightness:0.4 alpha:1.000], 
-              [NSColor colorWithDeviceHue:0.594 saturation:0.700 brightness:0.3 alpha:1.000], 
-              [NSColor colorWithDeviceHue:0.594 saturation:0.800 brightness:0.2 alpha:1.000], 
-              [NSColor colorWithDeviceHue:0.594 saturation:0.900 brightness:0.1 alpha:1.000], 
+              [NSColor colorWithDeviceHue:0.594 saturation:0.300 brightness:0.7 alpha:0.9], 
+              [NSColor colorWithDeviceHue:0.594 saturation:0.400 brightness:0.6 alpha:0.9], 
+              [NSColor colorWithDeviceHue:0.594 saturation:0.500 brightness:0.5 alpha:0.9], 
+              [NSColor colorWithDeviceHue:0.594 saturation:0.600 brightness:0.4 alpha:0.9], 
+              [NSColor colorWithDeviceHue:0.594 saturation:0.700 brightness:0.3 alpha:0.9], 
+              [NSColor colorWithDeviceHue:0.594 saturation:0.800 brightness:0.2 alpha:0.9], 
+              [NSColor colorWithDeviceHue:0.594 saturation:0.900 brightness:0.1 alpha:0.9], 
               nil];
   }
   
@@ -72,6 +72,10 @@
   
 }
 
+- (IBAction)clear:(id)sender;
+{
+  self.shapes = [NSArray array];
+}
 
 - (IBAction)setTwoRectangles:(id)sender;
 {
@@ -97,12 +101,34 @@
                          [self colorWithIndex:2], @"color",
                          nil];
   self.shapes = [NSArray arrayWithObjects:rect1, rect2, nil];
-
 }
 
-- (IBAction)clear:(id)sender;
+- (IBAction)setKeyboardShapes:(id)sender
 {
-  self.shapes = [NSArray array];
+  NSMutableArray *newShapes = [NSMutableArray array];
+  [newShapes addObject:[NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRoundedRect:NSMakeRect(50, 250, 100, 100)
+                                                                                                   xRadius:20
+                                                                                                   yRadius:20], @"path",
+                         [self colorWithIndex:0], @"color",
+                         nil]];
+  [newShapes addObject:[NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRoundedRect:NSMakeRect(180, 250, 100, 100)
+                                                                                                   xRadius:20
+                                                                                                   yRadius:20], @"path",
+                         [self colorWithIndex:1], @"color",
+                         nil]];
+  [newShapes addObject:[NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRoundedRect:NSMakeRect(100, 120, 100, 100)
+                                                                                                   xRadius:20
+                                                                                                   yRadius:20], @"path",
+                         [self colorWithIndex:2], @"color",
+                         nil]];
+  [newShapes addObject:[NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRect:NSMakeRect(100, 250, 130, 100)], @"path",
+                         [self colorWithIndex:3], @"color",
+                         nil]];
+  [newShapes addObject:[NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRect:NSMakeRect(100, 170, 100, 130)], @"path",
+                         [self colorWithIndex:4], @"color",
+                         nil]];
+  
+  self.shapes = newShapes;
 }
 
 - (NSString *)windowNibName

@@ -19,9 +19,10 @@
 - (IBAction)setAndOperation:(id)sender;
 - (IBAction)resetOperation:(id)sender;
 
+- (IBAction)clear:(id)sender;
 - (IBAction)setTwoRectangles:(id)sender;
 - (IBAction)setTwoRoundedRectangles:(id)sender;
-- (IBAction)clear:(id)sender;
+- (IBAction)setKeyboardShapes:(id)sender;
 
 @property (strong) IBOutlet FLCanvas *canvas;
 @property (strong) NSArray *shapes;

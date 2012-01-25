@@ -41,7 +41,7 @@
   NSRectFill(self.bounds);
   NSDottedFrameRect(self.bounds);
   
-  [[NSColor colorWithDeviceWhite:0.4 alpha:1.0] setStroke];
+  [[NSColor colorWithDeviceWhite:0.4 alpha:0.8] setStroke];
   
   for(id shape in self.shapes) {
     NSColor *color = [shape valueForKey:@"color"];
