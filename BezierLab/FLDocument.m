@@ -131,6 +131,42 @@
   self.shapes = newShapes;
 }
 
+- (IBAction)setFlatnessShapes:(id)sender
+{
+  NSMutableArray *newShapes = [NSMutableArray array];
+  NSBezierPath *path = [NSBezierPath bezierPath];
+  [path moveToPoint:NSMakePoint(30,30)];
+  [path curveToPoint:NSMakePoint(260,260)
+       controlPoint1:NSMakePoint(30,210)
+       controlPoint2:NSMakePoint(80,260)];
+  [path lineToPoint:NSMakePoint(260,30)];
+  [path closePath];
+
+  [newShapes addObject:[NSDictionary dictionaryWithObjectsAndKeys:path, @"path",
+                        [self colorWithIndex:0], @"color",
+                        nil]];
+  
+  NSAffineTransform *transform = [NSAffineTransform transform];
+  [transform translateXBy:30 yBy:30];
+
+  [NSBezierPath setDefaultFlatness:2];
+  NSBezierPath *rough = [path bezierPathByFlatteningPath];
+  [rough transformUsingAffineTransform:transform];
+  [newShapes addObject:[NSDictionary dictionaryWithObjectsAndKeys:rough, @"path",
+                        [self colorWithIndex:3], @"color",
+                        nil]];
+
+  [NSBezierPath setDefaultFlatness:10];
+  NSBezierPath *fine = [path bezierPathByFlatteningPath];
+  [fine transformUsingAffineTransform:transform];
+  [fine transformUsingAffineTransform:transform];
+  [newShapes addObject:[NSDictionary dictionaryWithObjectsAndKeys:fine, @"path",
+                        [self colorWithIndex:5], @"color",
+                        nil]];
+  
+  self.shapes = newShapes;
+}
+
 - (NSString *)windowNibName
 {
   // Override returning the nib file name of the document
