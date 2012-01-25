@@ -23,6 +23,7 @@
 - (IBAction)setTwoRectangles:(id)sender;
 - (IBAction)setTwoRoundedRectangles:(id)sender;
 - (IBAction)setKeyboardShapes:(id)sender;
+- (IBAction)setFlatnessShapes:(id)sender;
 
 @property (strong) IBOutlet FLCanvas *canvas;
 @property (strong) NSArray *shapes;
