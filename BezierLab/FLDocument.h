@@ -13,6 +13,7 @@
 {
   FLCanvas *canvas;
   NSArray *shapes;
+  NSArray *colors;
 }
 
 - (IBAction)setAndOperation:(id)sender;

@@ -22,6 +22,23 @@
   return self;
 }
 
+- (NSArray *)colorWithIndex:(NSUInteger)index
+{
+  if(!colors) {
+    colors = [NSArray arrayWithObjects:
+              [NSColor colorWithDeviceHue:0.594 saturation:0.300 brightness:0.7 alpha:1.000], 
+              [NSColor colorWithDeviceHue:0.594 saturation:0.400 brightness:0.6 alpha:1.000], 
+              [NSColor colorWithDeviceHue:0.594 saturation:0.500 brightness:0.5 alpha:1.000], 
+              [NSColor colorWithDeviceHue:0.594 saturation:0.600 brightness:0.4 alpha:1.000], 
+              [NSColor colorWithDeviceHue:0.594 saturation:0.700 brightness:0.3 alpha:1.000], 
+              [NSColor colorWithDeviceHue:0.594 saturation:0.800 brightness:0.2 alpha:1.000], 
+              [NSColor colorWithDeviceHue:0.594 saturation:0.900 brightness:0.1 alpha:1.000], 
+              nil];
+  }
+  
+  return [colors objectAtIndex:index];
+}
+
 + (NSSet *)keyPathsForValuesAffectingPathDescription
 {
   return [NSSet setWithObject:@"shapes"];
@@ -59,10 +76,10 @@
 - (IBAction)setTwoRectangles:(id)sender;
 {
   NSDictionary *rect1 = [NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRect:NSMakeRect(100, 100, 200, 100)], @"path",
-                         [NSColor redColor], @"color",
+                         [self colorWithIndex:1], @"color",
                          nil];
   NSDictionary *rect2 = [NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRect:NSMakeRect(150, 150, 200, 100)], @"path",
-                         [NSColor blueColor], @"color",
+                         [self colorWithIndex:4], @"color",
                          nil];
   self.shapes = [NSArray arrayWithObjects:rect1, rect2, nil];
 }
@@ -72,12 +89,12 @@
   NSDictionary *rect1 = [NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRoundedRect:NSMakeRect(100, 100, 200, 100)
                                                                                                    xRadius:20
                                                                                                    yRadius:20], @"path",
-                         [NSColor redColor], @"color",
+                         [self colorWithIndex:0], @"color",
                          nil];
   NSDictionary *rect2 = [NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRoundedRect:NSMakeRect(150, 150, 200, 100)
                                                                                                    xRadius:20
                                                                                                    yRadius:20], @"path",
-                         [NSColor blueColor], @"color",
+                         [self colorWithIndex:2], @"color",
                          nil];
   self.shapes = [NSArray arrayWithObjects:rect1, rect2, nil];
 
