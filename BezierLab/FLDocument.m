@@ -163,6 +163,7 @@
   [newShapes addObject:[NSDictionary dictionaryWithObjectsAndKeys:fine, @"path",
                         [self colorWithIndex:5], @"color",
                         nil]];
+  [NSBezierPath setDefaultFlatness:0.6];
   
   self.shapes = newShapes;
 }
