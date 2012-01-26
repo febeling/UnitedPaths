@@ -9,6 +9,8 @@
 #import "FLGeometryCurveToSegmentsTest.h"
 #import "FLGeometry.h"
 
+#define D 1.0e-5
+
 @implementation FLGeometryCurveToSegmentsTest
 
 - (void)setUp
@@ -73,6 +75,30 @@
   STAssertEquals(segments[1].end, NSMakePoint(5,5), nil);
   STAssertEquals(segments[1].t0, 0.5, nil);
   STAssertEquals(segments[1].t1, 1.0, nil);
+  
+  free(segments);
+}
+
+- (void)testCurveToSegments_MoreSegments
+{
+  NSUInteger n = 3;
+  FLSegment *segments = malloc(n*sizeof(FLSegment));
+  FLCurveToSegments(startpoint, points, n, segments);
+  
+  STAssertEquals(segments[0].start, NSMakePoint(0,0), nil);
+  STAssertEquals(segments[0].end, NSMakePoint(0.62962962962962954, 2.6296296296296298), nil);
+  STAssertEquals(segments[0].t0, 0.0, nil);
+  STAssertEqualsWithAccuracy(segments[0].t1, 0.333333333333, D, nil);
+  
+  STAssertEquals(segments[1].start, NSMakePoint(0.62962962962962954, 2.6296296296296298), nil);
+  STAssertEquals(segments[1].end, NSMakePoint(2.3703703703703702, 4.3703703703703702), nil);
+  STAssertEqualsWithAccuracy(segments[1].t0, 0.333333333, D, nil);
+  STAssertEqualsWithAccuracy(segments[1].t1, 0.666666666, D, nil);
+  
+  STAssertEquals(segments[2].start, NSMakePoint(2.3703703703703702, 4.3703703703703702), nil);
+  STAssertEquals(segments[2].end, NSMakePoint(5,5), nil);
+  STAssertEqualsWithAccuracy(segments[2].t0, 0.666666666, D, nil);
+  STAssertEquals(segments[2].t1, 1.0, nil);
   
   free(segments);
 }
