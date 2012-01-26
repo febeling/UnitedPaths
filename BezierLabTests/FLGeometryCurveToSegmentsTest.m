@@ -13,6 +13,7 @@
 
 - (void)setUp
 {
+  [NSBezierPath setDefaultFlatness:0.6];
   startpoint = NSMakePoint(0,0);
   points[0] = NSMakePoint(0,3); // control 1
   points[1] = NSMakePoint(2,5); // control 2
@@ -20,6 +21,11 @@
   path = [NSBezierPath bezierPath];
   [path moveToPoint:startpoint];
   [path curveToPoint:points[0] controlPoint1:points[1] controlPoint2:points[2]];
+}
+
+- (void)tearDown
+{
+  [NSBezierPath setDefaultFlatness:0.6];
 }
 
 - (void)testFindCurvePointForT_0
@@ -69,6 +75,22 @@
   STAssertEquals(segments[1].t1, 1.0, nil);
   
   free(segments);
+}
+
+- (void)testDefaultFlatness
+{
+  STAssertEquals([path flatness], 0.6, nil);
+  [NSBezierPath setDefaultFlatness:10.0];
+  STAssertEquals([path flatness], 0.6, nil);
+  STAssertEquals([[NSBezierPath bezierPath] flatness], 10.0, nil);
+}
+
+- (void)testDefaultFlatnessDeterminesFlatteningSegments
+{
+  [NSBezierPath setDefaultFlatness:10.0];
+  STAssertEquals([[path bezierPathByFlatteningPath] elementCount], 2l, nil);
+  [NSBezierPath setDefaultFlatness:0.6];
+  STAssertEquals([[path bezierPathByFlatteningPath] elementCount], 5l, nil);
 }
 
 @end
