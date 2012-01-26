@@ -80,11 +80,9 @@
 - (IBAction)setTwoRectangles:(id)sender;
 {
   NSDictionary *rect1 = [NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRect:NSMakeRect(100, 100, 200, 100)], @"path",
-                         [self colorWithIndex:1], @"color",
-                         nil];
+                         [self colorWithIndex:1], @"color", nil];
   NSDictionary *rect2 = [NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRect:NSMakeRect(150, 150, 200, 100)], @"path",
-                         [self colorWithIndex:4], @"color",
-                         nil];
+                         [self colorWithIndex:4], @"color", nil];
   self.shapes = [NSArray arrayWithObjects:rect1, rect2, nil];
 }
 
@@ -93,13 +91,11 @@
   NSDictionary *rect1 = [NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRoundedRect:NSMakeRect(100, 100, 200, 100)
                                                                                                    xRadius:20
                                                                                                    yRadius:20], @"path",
-                         [self colorWithIndex:0], @"color",
-                         nil];
+                         [self colorWithIndex:0], @"color", nil];
   NSDictionary *rect2 = [NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRoundedRect:NSMakeRect(150, 150, 200, 100)
                                                                                                    xRadius:20
                                                                                                    yRadius:20], @"path",
-                         [self colorWithIndex:2], @"color",
-                         nil];
+                         [self colorWithIndex:2], @"color", nil];
   self.shapes = [NSArray arrayWithObjects:rect1, rect2, nil];
 }
 
@@ -109,24 +105,19 @@
   [newShapes addObject:[NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRoundedRect:NSMakeRect(50, 250, 100, 100)
                                                                                                    xRadius:20
                                                                                                    yRadius:20], @"path",
-                         [self colorWithIndex:0], @"color",
-                         nil]];
+                         [self colorWithIndex:0], @"color", nil]];
   [newShapes addObject:[NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRoundedRect:NSMakeRect(180, 250, 100, 100)
                                                                                                    xRadius:20
                                                                                                    yRadius:20], @"path",
-                         [self colorWithIndex:1], @"color",
-                         nil]];
+                         [self colorWithIndex:1], @"color", nil]];
   [newShapes addObject:[NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRoundedRect:NSMakeRect(100, 120, 100, 100)
                                                                                                    xRadius:20
                                                                                                    yRadius:20], @"path",
-                         [self colorWithIndex:2], @"color",
-                         nil]];
+                         [self colorWithIndex:2], @"color", nil]];
   [newShapes addObject:[NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRect:NSMakeRect(100, 250, 130, 100)], @"path",
-                         [self colorWithIndex:3], @"color",
-                         nil]];
+                         [self colorWithIndex:3], @"color", nil]];
   [newShapes addObject:[NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRect:NSMakeRect(100, 170, 100, 130)], @"path",
-                         [self colorWithIndex:4], @"color",
-                         nil]];
+                         [self colorWithIndex:4], @"color", nil]];
   
   self.shapes = newShapes;
 }
@@ -143,8 +134,7 @@
   [path closePath];
 
   [newShapes addObject:[NSDictionary dictionaryWithObjectsAndKeys:path, @"path",
-                        [self colorWithIndex:0], @"color",
-                        nil]];
+                        [self colorWithIndex:0], @"color", nil]];
   
   NSAffineTransform *transform = [NSAffineTransform transform];
   [transform translateXBy:30 yBy:30];
@@ -153,16 +143,14 @@
   NSBezierPath *rough = [path bezierPathByFlatteningPath];
   [rough transformUsingAffineTransform:transform];
   [newShapes addObject:[NSDictionary dictionaryWithObjectsAndKeys:rough, @"path",
-                        [self colorWithIndex:3], @"color",
-                        nil]];
+                        [self colorWithIndex:3], @"color", nil]];
 
   [NSBezierPath setDefaultFlatness:10];
   NSBezierPath *fine = [path bezierPathByFlatteningPath];
   [fine transformUsingAffineTransform:transform];
   [fine transformUsingAffineTransform:transform];
   [newShapes addObject:[NSDictionary dictionaryWithObjectsAndKeys:fine, @"path",
-                        [self colorWithIndex:5], @"color",
-                        nil]];
+                        [self colorWithIndex:5], @"color", nil]];
   [NSBezierPath setDefaultFlatness:0.6];
   
   self.shapes = newShapes;
