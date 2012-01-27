@@ -3,7 +3,7 @@
 //  BezierLab
 //
 //  Created by Florian Ebeling on 25.01.12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 40lines. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -23,6 +23,12 @@ struct FLSegment {
 };
 typedef struct FLSegment FLSegment;
 
+struct FLCurve {
+  NSPoint p;
+  NSPoint c[3];
+};
+typedef struct FLCurve FLCurve;
+
 CGFloat FLLineSegmentLength(NSPoint p1, NSPoint p2);
 BOOL FLLinePointOnSegment(NSPoint p1, NSPoint p2, NSPoint x);
 FLLine FLLineFromPoints(NSPoint p1, NSPoint p2);
@@ -37,3 +43,5 @@ NSArray *FLPathElementIntersections(NSBezierPathElement element1,
                                     NSPoint start2,
                                     NSPoint points2[],
                                     NSUInteger num);
+void FLSplitCurveFromPoints(double t, NSPoint p, NSPoint *points, FLCurve *splits);
+void FLSplitCurve(double t, FLCurve curve, FLCurve *splits);
