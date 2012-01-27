@@ -8,6 +8,8 @@
 
 #import "FLGeometry.h"
 
+#define MAX_INTERSECTIONS_CUBIC 3
+
 // This function does not check if the point is really 
 // a point on the line.
 inline
@@ -129,7 +131,7 @@ NSMutableArray *FLIntersectionsLineAndCurve(NSPoint lineStart, NSPoint lineEnd, 
         numIntersections++;
         [array addObject:[NSValue valueWithPoint:curve_point]];
         
-        if(numIntersections==3) break;
+        if(numIntersections == MAX_INTERSECTIONS_CUBIC) break;
       }
     }
   }
@@ -152,12 +154,9 @@ NSArray *FLPathElementIntersections(NSBezierPathElement element1,
     BOOL intersect = FLLineSegmentIntersection(start1, points1[0], start2, points2[0], &x);
     if(intersect) {
       array = [NSArray arrayWithObject:[NSValue valueWithPoint:x]];
-    } else {
-      array = [NSArray array];
     }
   } else if(NSCurveToBezierPathElement == element1 && NSLineToBezierPathElement == element2) {
-    // TODO here next
-//    array = FLIntersectionsLineAndCurve(start1, points1[0], start2, points2, num);
+    array = FLIntersectionsLineAndCurve(start2, points2[0], start1, points1, num);
   } else if(NSLineToBezierPathElement == element1 && NSCurveToBezierPathElement == element2) {
     array = FLIntersectionsLineAndCurve(start1, points1[0], start2, points2, num);
   } else if(NSCurveToBezierPathElement == element1 && NSCurveToBezierPathElement == element2) {
