@@ -96,6 +96,47 @@ BOOL FLPointsAreClose(NSPoint p1, NSPoint p2)
   return fabs(d) < MIN_DIST;
 }
 
+static
+NSMutableArray *FLIntersectionsLineAndCurve(NSPoint lineStart, NSPoint lineEnd, NSPoint startCurve, NSPoint* curvePoints, NSUInteger n)
+{
+  NSMutableArray *array = [NSMutableArray array];
+  
+  FLSegment segments[n];
+  FLCurveToSegments(startCurve, curvePoints, n, segments);
+  
+  BOOL isIntersection = NO;
+  NSPoint intersection = NSZeroPoint;
+  int numIntersections = 0;
+  
+  for(int i = 0; i < n; i++) {
+    isIntersection = FLLineSegmentIntersection(lineStart, lineEnd, segments[i].start, segments[i].end, &intersection);
+    
+    if(isIntersection) {
+      CGFloat seglen = FLLineSegmentLength(segments[i].start, segments[i].end); // distance of segment points
+      CGFloat x_dist = FLLineSegmentLength(segments[i].start, intersection);    // dist of intersection point from segment start point
+      CGFloat x_t = segments[i].t0 + x_dist/seglen*(segments[i].t1-segments[i].t0); // intersection dist in terms of t + t of segment start point
+      NSPoint curve_point = FLCurvePoint(startCurve, curvePoints, x_t);
+      
+      //        NSLog(@"intersection at segment: %d", i);
+      //        NSLog(@"seglen: %.2f x_dist: %.2f", seglen, x_dist);
+      //        NSLog(@"t of intersection: %.4f t0: %.4f t1: %.4f", x_t, segments[i].t0, segments[i].t1);
+      //        NSLog(@"segstart: %@", NSStringFromPoint(segments[i].start));
+      //        NSLog(@"seg end : %@", NSStringFromPoint(segments[i].end));
+      //        NSLog(@"x point : %@", NSStringFromPoint(intersection));
+      //        NSLog(@"curve p : %@", NSStringFromPoint(curve_point));
+      
+      if(!FLPointsAreClose([[array lastObject] pointValue], curve_point)) {
+        numIntersections++;
+        [array addObject:[NSValue valueWithPoint:curve_point]];
+        
+        if(numIntersections==3) break;
+      }
+    }
+  }
+  
+  return array;
+}
+
 NSArray *FLPathElementIntersections(NSBezierPathElement element1,
                                     NSPoint start1,
                                     NSPoint points1[],
@@ -116,41 +157,11 @@ NSArray *FLPathElementIntersections(NSBezierPathElement element1,
     }
   } else if(NSCurveToBezierPathElement == element1 && NSLineToBezierPathElement == element2) {
     // TODO here next
+//    array = FLIntersectionsLineAndCurve(start1, points1[0], start2, points2, num);
   } else if(NSLineToBezierPathElement == element1 && NSCurveToBezierPathElement == element2) {
-    FLSegment segments[num];
-    FLCurveToSegments(start2, points2, num, segments);
-    
-    BOOL isIntersection = NO;
-    NSPoint intersection = NSZeroPoint;
-    int numIntersections = 0;
-    
-    for(int i = 0; i < num; i++) {
-      isIntersection = FLLineSegmentIntersection(start1, points1[0], segments[i].start, segments[i].end, &intersection);
-      
-      if(isIntersection) {
-        CGFloat seglen = FLLineSegmentLength(segments[i].start, segments[i].end); // distance of segment points
-        CGFloat x_dist = FLLineSegmentLength(segments[i].start, intersection);    // dist of intersection point from segment start point
-        CGFloat x_t = segments[i].t0 + x_dist/seglen*(segments[i].t1-segments[i].t0); // intersection dist in terms of t + t of segment start point
-        NSPoint curve_point = FLCurvePoint(start2, points2, x_t);
-        
-//        NSLog(@"intersection at segment: %d", i);
-//        NSLog(@"seglen: %.2f x_dist: %.2f", seglen, x_dist);
-//        NSLog(@"t of intersection: %.4f t0: %.4f t1: %.4f", x_t, segments[i].t0, segments[i].t1);
-//        NSLog(@"segstart: %@", NSStringFromPoint(segments[i].start));
-//        NSLog(@"seg end : %@", NSStringFromPoint(segments[i].end));
-//        NSLog(@"x point : %@", NSStringFromPoint(intersection));
-//        NSLog(@"curve p : %@", NSStringFromPoint(curve_point));
-        
-        if(!FLPointsAreClose([[array lastObject] pointValue], curve_point)) {
-          numIntersections++;
-          [array addObject:[NSValue valueWithPoint:curve_point]];
-
-          if(numIntersections==3) break;
-        }
-      }
-    }
+    array = FLIntersectionsLineAndCurve(start1, points1[0], start2, points2, num);
   } else if(NSCurveToBezierPathElement == element1 && NSCurveToBezierPathElement == element2) {
-
+    
   }
   
   return array;
