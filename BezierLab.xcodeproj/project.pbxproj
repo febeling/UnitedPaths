@@ -165,9 +165,9 @@
 				500FCC0814D02CD600F8689C /* FLGeometryLineIntersectionTest.m */,
 				500FCC0B14D0445A00F8689C /* FLGeometryCurveToSegmentsTest.h */,
 				500FCC0C14D0445A00F8689C /* FLGeometryCurveToSegmentsTest.m */,
-				50F8871F14CF427F007AEE2E /* Supporting Files */,
 				5047F4A014D198910068AFE4 /* FLGeometryPathElementIntersectionsTest.h */,
 				5047F4A114D198910068AFE4 /* FLGeometryPathElementIntersectionsTest.m */,
+				50F8871F14CF427F007AEE2E /* Supporting Files */,
 			);
 			path = BezierLabTests;
 			sourceTree = "<group>";
