@@ -13,18 +13,19 @@
 
 @implementation FLGeometryPathElementIntersectionsTest
 
-//NSPoint s1 = {.x=0, .y=0};
-//NSPoint points1[3] = {
-//  {.x=0, .y=0},
-//  {.x=1, .y=1},
-//  {.x=2, .y=2}
-//};
-//NSPoint s2 = {.x=0, .y=0};
-//NSPoint points2[3] = {
-//  {.x=0, .y=0},
-//  {.x=1, .y=1},
-//  {.x=2, .y=2}
-//};
+- (void)testLineSegmentLength
+{
+  STAssertEqualsWithAccuracy(FLLineSegmentLength(NSMakePoint(1,1), NSMakePoint(2,2)), 1.41421, D, nil);
+}
+
+- (void)testPointAreClose
+{
+  STAssertFalse(FLPointsAreClose(NSMakePoint(0,0), NSMakePoint(1,1)), nil);
+  STAssertFalse(FLPointsAreClose(NSMakePoint(1.0,1.0), NSMakePoint(1.1,1.1)), nil);
+  STAssertTrue(FLPointsAreClose(NSMakePoint(1.11111111,1.11111111), NSMakePoint(1.11111112,1.11111112)), nil);
+}
+
+#pragma mark FLPathElementIntersections
 
 - (void)testLineIntersectsLine
 {
@@ -50,18 +51,6 @@
                                                       NSLineToBezierPathElement, s2, points2, 50);
   
   STAssertEqualObjects(intersections, [NSArray array], nil);
-}
-
-- (void)testLineSegmentLength
-{
-  STAssertEqualsWithAccuracy(FLLineSegmentLength(NSMakePoint(1,1), NSMakePoint(2,2)), 1.41421, D, nil);
-}
-
-- (void)testPointAreClose
-{
-  STAssertFalse(FLPointsAreClose(NSMakePoint(0,0), NSMakePoint(1,1)), nil);
-  STAssertFalse(FLPointsAreClose(NSMakePoint(1.0,1.0), NSMakePoint(1.1,1.1)), nil);
-  STAssertTrue(FLPointsAreClose(NSMakePoint(1.11111111,1.11111111), NSMakePoint(1.11111112,1.11111112)), nil);
 }
 
 - (void)testLineIntersectsCurve_ActuallyStraigthCurve
@@ -138,11 +127,27 @@
   
   NSArray *intersections = FLPathElementIntersections(NSLineToBezierPathElement, s1, points1,                                                      
                                                       NSCurveToBezierPathElement, s2, points2, 50);
-
+  
   NSArray *points = [NSArray arrayWithObjects:[NSValue valueWithPoint:NSMakePoint(0.57196642028061473, 0.10636256144262296)],
                      [NSValue valueWithPoint:NSMakePoint(1.5, 1.5)],
                      [NSValue valueWithPoint:NSMakePoint(2.428033579719385, 2.8936374385573771)],
                      nil];
+  STAssertEqualObjects(intersections, points, nil);
+}
+
+- (void)testCurveIntersectsLine
+{
+  NSPoint s1 = {0.5, 0};
+  NSPoint points1[3] = {{2.5, 3}};
+  NSPoint s2 = {0, 0};
+  NSPoint points2[3] = {{2, 0},{1, 3},{3, 3}};
+  
+  NSArray *intersections = FLPathElementIntersections(NSCurveToBezierPathElement, s2, points2,                                                      
+                                                      NSLineToBezierPathElement, s1, points1, 50);
+  
+  NSArray *points = [NSArray arrayWithObjects:[NSValue valueWithPoint:NSMakePoint(0.57196642028061473, 0.10636256144262296)],
+                     [NSValue valueWithPoint:NSMakePoint(1.5, 1.5)],
+                     [NSValue valueWithPoint:NSMakePoint(2.428033579719385, 2.8936374385573771)], nil];
   STAssertEqualObjects(intersections, points, nil);
 }
 
