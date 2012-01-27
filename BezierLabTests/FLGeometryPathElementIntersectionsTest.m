@@ -25,7 +25,7 @@
   STAssertTrue(FLPointsAreClose(NSMakePoint(1.11111111,1.11111111), NSMakePoint(1.11111112,1.11111112)), nil);
 }
 
-#pragma mark FLPathElementIntersections
+#pragma mark FLPathElementIntersections Line x Line
 
 - (void)testLineIntersectsLine
 {
@@ -52,6 +52,8 @@
   
   STAssertEqualObjects(intersections, [NSArray array], nil);
 }
+
+#pragma mark FLPathElementIntersections Line x Curve
 
 - (void)testLineIntersectsCurve_ActuallyStraigthCurve
 {
@@ -148,6 +150,42 @@
   NSArray *points = [NSArray arrayWithObjects:[NSValue valueWithPoint:NSMakePoint(0.57196642028061473, 0.10636256144262296)],
                      [NSValue valueWithPoint:NSMakePoint(1.5, 1.5)],
                      [NSValue valueWithPoint:NSMakePoint(2.428033579719385, 2.8936374385573771)], nil];
+  STAssertEqualObjects(intersections, points, nil);
+}
+
+#pragma mark FLPathElementIntersections Curve x Curve
+
+- (void)testCurveIntersectsCurve
+{
+  // Both curves rising with larger x
+  NSPoint s1 = {0, 0.5};
+  NSPoint points1[3] = {{3, 0.5},{0,2.5},{3,2.5}};
+  NSPoint s2 = {0.5, 0};
+  NSPoint points2[3] = {{0.5,3},{2.5,0},{2.5,3}};
+  
+  NSArray *intersections = FLPathElementIntersections(NSCurveToBezierPathElement, s1, points1,                                                      
+                                                      NSCurveToBezierPathElement, s2, points2, 500);
+  
+  NSArray *points = [NSArray arrayWithObjects:[NSValue valueWithPoint:NSMakePoint(0.52574480100680365, 0.52572401863277296)],
+                     [NSValue valueWithPoint:NSMakePoint(1.5, 1.5)],
+                     [NSValue valueWithPoint:NSMakePoint(2.4742551989931956, 2.4742759813672266)], nil];
+  STAssertEqualObjects(intersections, points, nil);
+}
+
+- (void)testCurveIntersectsCurve_Other
+{
+  // Both curves falling with larger x
+  NSPoint s1 = {0, 2.5};
+  NSPoint points1[3] = {{3, 2.5},{0,0.5},{3,0.5}};
+  NSPoint s2 = {0.5, 3};
+  NSPoint points2[3] = {{0.5,0},{2.5,3},{2.5,0}};
+  
+  NSArray *intersections = FLPathElementIntersections(NSCurveToBezierPathElement, s1, points1,                                                      
+                                                      NSCurveToBezierPathElement, s2, points2, 500);
+  
+  NSArray *points = [NSArray arrayWithObjects:[NSValue valueWithPoint:NSMakePoint(0.52574480100680343, 2.474275981367227)],
+                     [NSValue valueWithPoint:NSMakePoint(1.5, 1.5)],
+                     [NSValue valueWithPoint:NSMakePoint(2.4742551989931965, 0.52572401863277296)], nil];
   STAssertEqualObjects(intersections, points, nil);
 }
 
