@@ -115,7 +115,7 @@ NSArray *FLPathElementIntersections(NSBezierPathElement element1,
       array = [NSArray array];
     }
   } else if(NSCurveToBezierPathElement == element1 && NSLineToBezierPathElement == element2) {
-  
+    // TODO here next
   } else if(NSLineToBezierPathElement == element1 && NSCurveToBezierPathElement == element2) {
     FLSegment segments[num];
     FLCurveToSegments(start2, points2, num, segments);
@@ -128,18 +128,14 @@ NSArray *FLPathElementIntersections(NSBezierPathElement element1,
       isIntersection = FLLineSegmentIntersection(start1, points1[0], segments[i].start, segments[i].end, &intersection);
       
       if(isIntersection) {
-        CGFloat seglen = FLLineSegmentLength(segments[i].start, segments[i].end);
-        CGFloat x_dist = FLLineSegmentLength(segments[i].start, intersection);
+        CGFloat seglen = FLLineSegmentLength(segments[i].start, segments[i].end); // distance of segment points
+        CGFloat x_dist = FLLineSegmentLength(segments[i].start, intersection);    // dist of intersection point from segment start point
+        CGFloat x_t = segments[i].t0 + x_dist/seglen*(segments[i].t1-segments[i].t0); // intersection dist in terms of t + t of segment start point
+        NSPoint curve_point = FLCurvePoint(start2, points2, x_t);
         
 //        NSLog(@"intersection at segment: %d", i);
 //        NSLog(@"seglen: %.2f x_dist: %.2f", seglen, x_dist);
-        
-        CGFloat x_t = segments[i].t0 + x_dist/seglen*(segments[i].t1-segments[i].t0);
-        
 //        NSLog(@"t of intersection: %.4f t0: %.4f t1: %.4f", x_t, segments[i].t0, segments[i].t1);
-
-        NSPoint curve_point = FLCurvePoint(start2, points2, x_t);
-        
 //        NSLog(@"segstart: %@", NSStringFromPoint(segments[i].start));
 //        NSLog(@"seg end : %@", NSStringFromPoint(segments[i].end));
 //        NSLog(@"x point : %@", NSStringFromPoint(intersection));
