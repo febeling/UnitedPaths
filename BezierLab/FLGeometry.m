@@ -224,16 +224,16 @@ void FLSplitCurveFromPoints(CGFloat t, NSPoint p, NSPoint *points, FLCurve *spli
   p2 = points[0];
   p3 = points[1];
   p4 = points[2];
-  
+
   q1 = LineSegmentPoint(t, p, p2);
   q2 = LineSegmentPoint(t, p2, p3);
   q3 = LineSegmentPoint(t, p3, p4);
-  
+
   l1 = LineSegmentPoint(t, q1, q2);
   l2 = LineSegmentPoint(t, q2, q3);
-  
+
   pt = LineSegmentPoint(t, l1, l2);
-  
+
   splits[0].p = p;
   splits[0].c[0] = q1;
   splits[0].c[1] = l1;
