@@ -234,19 +234,6 @@ void FLSplitCurveFromPoints(CGFloat t, NSPoint p, NSPoint *points, FLCurve *spli
   
   pt = LineSegmentPoint(t, l1, l2);
   
-  /*
-   Point p5 = new Point((1-t)*xa + t*xb, (1-t)*ya + t*yb);
-   Point p6 = new Point((1-t)*xb + t*xc, (1-t)*yb + t*yc);
-   Point p7 = new Point((1-t)*xc + t*xd, (1-t)*yc + t*yd);
-
-   Point p8 = new Point((1-t)*p5.getX() + t*p6.getX(), (1-t)*p5.getY() + t*p6.getY());
-   Point p9 = new Point((1-t)*p6.getX() + t*p7.getX(), (1-t)*p6.getY() + t*p7.getY());
-
-   Point p10 = new Point((1-t)*p8.getX() + t*p9.getX(), (1-t)*p8.getY() + t*p9.getY());
-
-   curves[0] = new Bezier3(xa,ya, p5.getX(), p5.getY(), p8.getX(), p8.getY(), p10.getX(), p10.getY());
-   curves[1] = new Bezier3(p10.getX(), p10.getY(), p9.getX(), p9.getY(), p7.getX(), p7.getY(), xd, yd);
-   */
   splits[0].p = p;
   splits[0].c[0] = q1;
   splits[0].c[1] = l1;
