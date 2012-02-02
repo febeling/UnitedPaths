@@ -23,7 +23,7 @@
   NSPoint p3 = {0,2};
   NSPoint p4 = {2,0};
   
-  STAssertTrue(FLLineSegmentIntersection(p1,p2,p3,p4, &x), nil);
+  STAssertTrue(FLIntersectionLineAndLine(p1,p2,p3,p4, &x), nil);
   STAssertEquals(x, NSMakePoint(1,1), nil);
 }
 
@@ -34,7 +34,7 @@
   NSPoint p3 = {2,1};
   NSPoint p4 = {2,3};
   
-  STAssertFalse(FLLineSegmentIntersection(p1,p2,p3,p4, &x), nil);
+  STAssertFalse(FLIntersectionLineAndLine(p1,p2,p3,p4, &x), nil);
 }
 
 - (void)testLineIntersection_AnotherMiss
@@ -44,7 +44,7 @@
   NSPoint p3 = {1,1};
   NSPoint p4 = {2,0};
   
-  STAssertFalse(FLLineSegmentIntersection(p1,p2,p3,p4, &x), nil);
+  STAssertFalse(FLIntersectionLineAndLine(p1,p2,p3,p4, &x), nil);
 }
 
 - (void)testLineIntersection_AnotherPlainIntersection
@@ -54,7 +54,7 @@
   NSPoint p3 = {1,0};
   NSPoint p4 = {1,2};
   
-  STAssertTrue(FLLineSegmentIntersection(p1,p2,p3,p4, &x), nil);
+  STAssertTrue(FLIntersectionLineAndLine(p1,p2,p3,p4, &x), nil);
   STAssertEquals(x, NSMakePoint(1,0.5), nil);
 }
 
@@ -65,7 +65,7 @@
   NSPoint p3 = {2,0};
   NSPoint p4 = {2,2};
   
-  STAssertFalse(FLLineSegmentIntersection(p1,p2,p3,p4, &x), nil);
+  STAssertFalse(FLIntersectionLineAndLine(p1,p2,p3,p4, &x), nil);
 }
 
 - (void)testLineIntersection_SameDifferentSegments
@@ -75,7 +75,7 @@
   NSPoint p3 = {2,2};
   NSPoint p4 = {2,3};
   
-  STAssertFalse(FLLineSegmentIntersection(p1,p2,p3,p4, &x), nil);
+  STAssertFalse(FLIntersectionLineAndLine(p1,p2,p3,p4, &x), nil);
 }
 
 @end
