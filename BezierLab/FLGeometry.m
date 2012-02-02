@@ -35,7 +35,7 @@ FLLine FLLineFromPoints(NSPoint p1, NSPoint p2)
   return line;
 }
 
-BOOL FLLineSegmentIntersection(NSPoint p1, NSPoint p2, NSPoint p3, NSPoint p4, NSPointPointer x)
+BOOL FLIntersectionLineAndLine(NSPoint p1, NSPoint p2, NSPoint p3, NSPoint p4, NSPointPointer x)
 {
   FLLine line1 = FLLineFromPoints(p1, p2);
   FLLine line2 = FLLineFromPoints(p3, p4);
@@ -111,7 +111,7 @@ NSArray *FLIntersectionsLineAndCurve(NSPoint lineStart, NSPoint lineEnd, NSPoint
   int numIntersections = 0;
   
   for(int i = 0; i < n; i++) {
-    isIntersection = FLLineSegmentIntersection(lineStart, lineEnd, segments[i].start, segments[i].end, &intersection);
+    isIntersection = FLIntersectionLineAndLine(lineStart, lineEnd, segments[i].start, segments[i].end, &intersection);
     
     if(isIntersection) {
       CGFloat seglen = FLLineSegmentLength(segments[i].start, segments[i].end); // distance of segment points
@@ -158,7 +158,7 @@ NSArray *FLIntersectionsCurveAndCurve(NSPoint start1, NSPoint *points1, NSPoint 
   
   for(int i = 0; i < n; i++) {
     for(int j = 0; j < n; j++) {
-      isIntersection = FLLineSegmentIntersection(segments1[i].start, segments1[i].end,
+      isIntersection = FLIntersectionLineAndLine(segments1[i].start, segments1[i].end,
                                                  segments2[j].start, segments2[j].end,
                                                  &intersection);
       
@@ -193,7 +193,7 @@ NSArray *FLPathElementIntersections(NSBezierPathElement element1,
   
   if(NSLineToBezierPathElement == element1 && NSLineToBezierPathElement == element2) {
     NSPoint x;
-    BOOL intersect = FLLineSegmentIntersection(start1, points1[0], start2, points2[0], &x);
+    BOOL intersect = FLIntersectionLineAndLine(start1, points1[0], start2, points2[0], &x);
     if(intersect) {
       array = [NSArray arrayWithObject:[NSValue valueWithPoint:x]];
     } else {
