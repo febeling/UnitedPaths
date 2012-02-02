@@ -37,8 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		500FCBFE14D02BF700F8689C /* FLGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLGeometry.h; sourceTree = "<group>"; };
-		500FCBFF14D02BF700F8689C /* FLGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLGeometry.m; sourceTree = "<group>"; };
+		500FCBFE14D02BF700F8689C /* FLGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = FLGeometry.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		500FCBFF14D02BF700F8689C /* FLGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FLGeometry.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		500FCC0714D02CD600F8689C /* FLGeometryLineIntersectionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLGeometryLineIntersectionTest.h; sourceTree = "<group>"; };
 		500FCC0814D02CD600F8689C /* FLGeometryLineIntersectionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLGeometryLineIntersectionTest.m; sourceTree = "<group>"; };
 		500FCC0B14D0445A00F8689C /* FLGeometryCurveToSegmentsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLGeometryCurveToSegmentsTest.h; sourceTree = "<group>"; };
@@ -46,7 +46,7 @@
 		5047F4A014D198910068AFE4 /* FLGeometryPathElementIntersectionsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLGeometryPathElementIntersectionsTest.h; sourceTree = "<group>"; };
 		5047F4A114D198910068AFE4 /* FLGeometryPathElementIntersectionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLGeometryPathElementIntersectionsTest.m; sourceTree = "<group>"; };
 		505D876C14D2D24F0091BB4D /* FLGeometryCurveSplit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLGeometryCurveSplit.h; sourceTree = "<group>"; };
-		505D876D14D2D24F0091BB4D /* FLGeometryCurveSplit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLGeometryCurveSplit.m; sourceTree = "<group>"; };
+		505D876D14D2D24F0091BB4D /* FLGeometryCurveSplit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FLGeometryCurveSplit.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		50F886F414CF427E007AEE2E /* BezierLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BezierLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50F886F814CF427E007AEE2E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		50F886FB14CF427E007AEE2E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };

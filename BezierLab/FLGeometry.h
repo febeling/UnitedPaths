@@ -32,16 +32,19 @@ typedef struct FLCurve FLCurve;
 CGFloat FLLineSegmentLength(NSPoint p1, NSPoint p2);
 BOOL FLLinePointOnSegment(NSPoint p1, NSPoint p2, NSPoint x);
 FLLine FLLineFromPoints(NSPoint p1, NSPoint p2);
-BOOL FLIntersectionLineAndLine(NSPoint p1, NSPoint p2, NSPoint p3, NSPoint p4, NSPointPointer x);
+BOOL FLIntersectionLineAndLine(NSPoint p1, NSPoint p2, NSPoint p3, NSPoint p4, NSPoint *x);
 NSPoint FLCurvePoint(NSPoint start, NSPoint points[], CGFloat t);
 void FLCurveToSegments(NSPoint start, NSPoint points[], NSUInteger n, FLSegment segments[]);
 BOOL FLPointsAreClose(NSPoint p1, NSPoint p2);
+NSPoint InterpolateCurvePoint(NSPoint segStart, NSPoint segEnd, NSPoint segIntersec, CGFloat segStartT, CGFloat segEndT, NSPoint curveStart, NSPoint *curvePoints);
+CGFloat InterpolateCurveT(NSPoint segStart, NSPoint segEnd, NSPoint segIntersec, CGFloat segStartT, CGFloat segEndT, NSPoint curveStart, NSPoint *curvePoints);
 NSArray *FLPathElementIntersections(NSBezierPathElement element1,
                                     NSPoint start1,
                                     NSPoint points1[],
                                     NSBezierPathElement element2,
                                     NSPoint start2,
                                     NSPoint points2[],
-                                    NSUInteger num);
+                                    NSUInteger num,
+                                    NSArray **info);
 void FLSplitCurveFromPoints(double t, NSPoint p, NSPoint *points, FLCurve **splits);
 void FLSplitCurve(double t, FLCurve curve, FLCurve **splits);
