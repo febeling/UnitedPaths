@@ -217,7 +217,7 @@ NSPoint LineSegmentPoint(CGFloat t, NSPoint a, NSPoint b)
   return NSMakePoint((1.0-t)*a.x + t*b.x, (1.0-t)*a.y + t*b.y);
 }
 
-void FLSplitCurveFromPoints(CGFloat t, NSPoint p, NSPoint *points, FLCurve *splits)
+void FLSplitCurveFromPoints(CGFloat t, NSPoint p, NSPoint *points, FLCurve **splits)
 {
   NSPoint p2, p3, p4, q1, q2, q3, l1, l2, pt;
   
@@ -234,17 +234,18 @@ void FLSplitCurveFromPoints(CGFloat t, NSPoint p, NSPoint *points, FLCurve *spli
 
   pt = LineSegmentPoint(t, l1, l2);
 
-  splits[0].p = p;
-  splits[0].c[0] = q1;
-  splits[0].c[1] = l1;
-  splits[0].c[2] = pt;
-  splits[1].p = pt;
-  splits[1].c[0] = l2;
-  splits[1].c[1] = q3;
-  splits[1].c[2] = p4;
+  *splits = malloc(2*sizeof(FLCurve));
+  (*splits)[0].p = p;
+  (*splits)[0].c[0] = q1;
+  (*splits)[0].c[1] = l1;
+  (*splits)[0].c[2] = pt;
+  (*splits)[1].p = pt;
+  (*splits)[1].c[0] = l2;
+  (*splits)[1].c[1] = q3;
+  (*splits)[1].c[2] = p4;
 }
 
-void FLSplitCurve(double t, FLCurve curve, FLCurve *splits)
+void FLSplitCurve(double t, FLCurve curve, FLCurve **splits)
 {
   FLSplitCurveFromPoints(t, curve.p, curve.c, splits);
 }

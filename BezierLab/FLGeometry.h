@@ -43,5 +43,5 @@ NSArray *FLPathElementIntersections(NSBezierPathElement element1,
                                     NSPoint start2,
                                     NSPoint points2[],
                                     NSUInteger num);
-void FLSplitCurveFromPoints(double t, NSPoint p, NSPoint *points, FLCurve *splits);
-void FLSplitCurve(double t, FLCurve curve, FLCurve *splits);
+void FLSplitCurveFromPoints(double t, NSPoint p, NSPoint *points, FLCurve **splits);
+void FLSplitCurve(double t, FLCurve curve, FLCurve **splits);

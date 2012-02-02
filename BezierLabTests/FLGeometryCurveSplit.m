@@ -20,9 +20,9 @@
 
 - (void)testSplitCurve_Half
 {
-  FLCurve *splits = malloc(2*sizeof(FLCurve));
+  FLCurve *splits;
   
-  FLSplitCurve(0.5, curve, splits);
+  FLSplitCurve(0.5, curve, &splits);
   
   STAssertEquals(splits[0].p, NSMakePoint(0, 0), nil);
   STAssertEquals(splits[0].c[0], NSMakePoint(0.5, 0), nil);
@@ -32,13 +32,15 @@
   STAssertEquals(splits[1].c[0], NSMakePoint(2, 2.25), nil);
   STAssertEquals(splits[1].c[1], NSMakePoint(2.5, 3), nil);
   STAssertEquals(splits[1].c[2], NSMakePoint(3, 3), nil);
+  
+  free(splits);
 }
 
 - (void)testSplitCurve_ThreeTenth
 {
-  FLCurve *splits = malloc(2*sizeof(FLCurve));
+  FLCurve *splits;
   
-  FLSplitCurve(0.4, curve, splits);
+  FLSplitCurve(0.4, curve, &splits);
   
   STAssertEquals(splits[0].p, NSMakePoint(0, 0), nil);
   STAssertEquals(splits[0].c[0], NSMakePoint(0.4, 0), nil);
@@ -48,6 +50,8 @@
   STAssertEquals(splits[1].c[0], NSMakePoint(1.8000000000000003, 1.9200000000000004), nil);
   STAssertEquals(splits[1].c[1], NSMakePoint(2.4000000000000004, 3), nil);
   STAssertEquals(splits[1].c[2], NSMakePoint(3, 3), nil);
+
+  free(splits);
 }
 
 @end
