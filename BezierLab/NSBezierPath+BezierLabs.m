@@ -33,6 +33,58 @@
   }
 }
 
+- (NSMutableArray *)intersectionsWithBezierPath:(NSBezierPath *)modifier
+{
+  NSMutableArray *intersections = [NSMutableArray array];
+  
+  
+  
+  return intersections;
+}
+
+- (NSMutableArray *)segments
+{
+  NSPoint currentPoint;
+  NSPoint pathStartPoint;
+  
+  NSMutableArray *segments = [NSMutableArray array];
+  
+  for(NSInteger i = 0; i < [self elementCount]; i++) {
+    NSPoint points[3];
+    NSBezierPathElement element = [self elementAtIndex:i associatedPoints:points];
+    
+    if(i == 0) {
+      pathStartPoint = points[0];
+    }
+
+    FLPathSegment *segment;
+    
+    switch(element) {
+      case NSLineToBezierPathElement:
+        segment = [[FLPathLineSegment alloc] initWithStartPoint:currentPoint endPoint:points[0]];
+        [segments addObject:segment];
+        currentPoint = points[0];
+        break;
+      case NSCurveToBezierPathElement:
+        segment = [[FLPathCurveSegment alloc] initWithStartPoint:currentPoint points:points];
+        [segments addObject:segment];
+        currentPoint = points[2];
+        break;
+      case NSMoveToBezierPathElement:
+        currentPoint = points[0];
+        break;
+      case NSClosePathBezierPathElement:
+        segment = [[FLPathLineSegment alloc] initWithStartPoint:currentPoint endPoint:pathStartPoint];
+        [segments addObject:segment];
+        break;
+      default:
+        [NSException raise:@"Illegal path element" format:@"element id: %dl", element];
+    }
+  }
+
+  return segments;
+}
+
 - (NSBezierPath *)bezierPathByUnionWith:(NSBezierPath *)modifier
 {
   return nil;

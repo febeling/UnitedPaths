@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FLPathSegment.h"
 
 @interface NSBezierPath (BezierLabs)
 
 - (NSBezierPath *)bezierPathByUnionWith:(NSBezierPath *)modifier;
 - (void)appendBezierPathWithElement:(NSBezierPathElement)element associatedPoints:(NSPointArray)points;
+- (NSMutableArray *)intersectionsWithBezierPath:(NSBezierPath *)modifier;
+- (NSMutableArray *)segments;
 
 @end
