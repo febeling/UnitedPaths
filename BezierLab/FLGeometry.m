@@ -99,7 +99,7 @@ BOOL FLPointsAreClose(NSPoint p1, NSPoint p2)
 }
 
 static
-NSArray *FLIntersectionsLineAndCurve(NSPoint lineStart, NSPoint lineEnd, NSPoint startCurve, NSPoint* curvePoints, NSUInteger n, NSArray **info)
+NSArray *FLIntersectionsLineAndCurve(NSPoint lineStart, NSPoint lineEnd, NSPoint startCurve, NSPoint* curvePoints, NSUInteger n, NSInteger pos, NSArray **info)
 {
   NSMutableArray *array = [NSMutableArray array];
   NSMutableArray *intersectionInfo = [NSMutableArray array];
@@ -120,11 +120,10 @@ NSArray *FLIntersectionsLineAndCurve(NSPoint lineStart, NSPoint lineEnd, NSPoint
       CGFloat x_t = segments[i].t0 + x_dist/seglen*(segments[i].t1-segments[i].t0); // intersection dist in terms of t + t of segment start point
       NSPoint curve_point = FLCurvePoint(startCurve, curvePoints, x_t);
 
-
       if(!FLPointsAreClose([[array lastObject] pointValue], curve_point)) {
         numIntersections++;
         [array addObject:[NSValue valueWithPoint:curve_point]];
-        [intersectionInfo addObject:[NSDictionary dictionaryWithObject:[NSNumber numberWithDouble:x_t] forKey:@"t"]];
+        [intersectionInfo addObject:[NSDictionary dictionaryWithObject:[NSNumber numberWithDouble:x_t] forKey:[NSString stringWithFormat:@"t%d", pos]]];
         *info = intersectionInfo;
 
         if(numIntersections == MAX_INTERSECTIONS_CUBIC) break;
@@ -204,31 +203,31 @@ NSArray *FLIntersectionsCurveAndCurve(NSPoint start1, NSPoint *points1, NSPoint 
   return array;
 }
 
-NSArray *FLPathElementIntersections(NSBezierPathElement element1,
+NSArray *FLPathElementIntersections(NSBezierPathElement element0,
+                                    NSPoint start0,
+                                    NSPoint points0[],
+                                    NSBezierPathElement element1, 
                                     NSPoint start1,
                                     NSPoint points1[],
-                                    NSBezierPathElement element2, 
-                                    NSPoint start2,
-                                    NSPoint points2[],
                                     NSUInteger num,
                                     NSArray **info)
 {
   NSArray *array;
   
-  if(NSLineToBezierPathElement == element1 && NSLineToBezierPathElement == element2) {
+  if(NSLineToBezierPathElement == element0 && NSLineToBezierPathElement == element1) {
     NSPoint x;
-    BOOL intersect = FLIntersectionLineAndLine(start1, points1[0], start2, points2[0], &x);
+    BOOL intersect = FLIntersectionLineAndLine(start0, points0[0], start1, points1[0], &x);
     if(intersect) {
       array = [NSArray arrayWithObject:[NSValue valueWithPoint:x]];
     } else {
       array = [NSArray array];
     }
-  } else if(NSCurveToBezierPathElement == element1 && NSLineToBezierPathElement == element2) {
-    array = FLIntersectionsLineAndCurve(start2, points2[0], start1, points1, num, info);
-  } else if(NSLineToBezierPathElement == element1 && NSCurveToBezierPathElement == element2) {
-    array = FLIntersectionsLineAndCurve(start1, points1[0], start2, points2, num, info);
-  } else if(NSCurveToBezierPathElement == element1 && NSCurveToBezierPathElement == element2) {
-    array = FLIntersectionsCurveAndCurve(start1, points1, start2, points2, num, info);
+  } else if(NSCurveToBezierPathElement == element0 && NSLineToBezierPathElement == element1) {
+    array = FLIntersectionsLineAndCurve(start1, points1[0], start0, points0, num, 0, info);
+  } else if(NSLineToBezierPathElement == element0 && NSCurveToBezierPathElement == element1) {
+    array = FLIntersectionsLineAndCurve(start0, points0[0], start1, points1, num, 1, info);
+  } else if(NSCurveToBezierPathElement == element0 && NSCurveToBezierPathElement == element1) {
+    array = FLIntersectionsCurveAndCurve(start0, points0, start1, points1, num, info);
   }
   
   return array;
@@ -259,19 +258,19 @@ void FLSplitCurveFromPoints(CGFloat t, NSPoint p, NSPoint *points, FLCurve **spl
   pt = LineSegmentPoint(t, l1, l2);
 
   *splits = malloc(2*sizeof(FLCurve));
-  (*splits)[0].p = p;
-  (*splits)[0].c[0] = q1;
-  (*splits)[0].c[1] = l1;
-  (*splits)[0].c[2] = pt;
-  (*splits)[1].p = pt;
-  (*splits)[1].c[0] = l2;
-  (*splits)[1].c[1] = q3;
-  (*splits)[1].c[2] = p4;
+  (*splits)[0].startPoint = p;
+  (*splits)[0].controlPoints[0] = q1;
+  (*splits)[0].controlPoints[1] = l1;
+  (*splits)[0].controlPoints[2] = pt;
+  (*splits)[1].startPoint = pt;
+  (*splits)[1].controlPoints[0] = l2;
+  (*splits)[1].controlPoints[1] = q3;
+  (*splits)[1].controlPoints[2] = p4;
 }
 
 void FLSplitCurve(double t, FLCurve curve, FLCurve **splits)
 {
-  FLSplitCurveFromPoints(t, curve.p, curve.c, splits);
+  FLSplitCurveFromPoints(t, curve.startPoint, curve.controlPoints, splits);
 }
 
 

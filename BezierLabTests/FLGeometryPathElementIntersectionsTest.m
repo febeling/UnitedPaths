@@ -77,7 +77,7 @@ NSDictionary *makeIntersection(CGFloat t)
                                                       NSCurveToBezierPathElement, s2, points2, 50, &info);
 
   STAssertEqualObjects(intersections, [NSArray arrayWithObject:[NSValue valueWithPoint:NSMakePoint(1.5006202471811767, 1.5006202471811767)]], nil);
-  STAssertEqualsWithAccuracy([[[info objectAtIndex:0] objectForKey:@"t"] doubleValue], 0.2064, D, nil);
+  STAssertEqualsWithAccuracy([[[info objectAtIndex:0] objectForKey:@"t1"] doubleValue], 0.2064, D, nil);
 }
 
 - (void)testLineIntersectsCurve_ConvexToTopLeftCurve
@@ -92,7 +92,7 @@ NSDictionary *makeIntersection(CGFloat t)
                                                       NSCurveToBezierPathElement, s2, points2, 50, &info);
   
   STAssertEqualObjects(intersections, [NSArray arrayWithObject:[NSValue valueWithPoint:NSMakePoint(1.125, 1.875)]], nil);
-  STAssertEqualsWithAccuracy([[[info objectAtIndex:0] objectForKey:@"t"] doubleValue], 0.5, D, nil);
+  STAssertEqualsWithAccuracy([[[info objectAtIndex:0] objectForKey:@"t1"] doubleValue], 0.5, D, nil);
 }
 
 - (void)testLineIntersectsCurve_ConvexToBottomRightCurve
@@ -107,7 +107,7 @@ NSDictionary *makeIntersection(CGFloat t)
                                                       NSCurveToBezierPathElement, s2, points2, 50, &info);
   
   STAssertEqualObjects(intersections, [NSArray arrayWithObject:[NSValue valueWithPoint:NSMakePoint(1.875, 1.125)]], nil);
-  STAssertEqualsWithAccuracy([[[info objectAtIndex:0] objectForKey:@"t"] doubleValue], 0.5, D, nil);
+  STAssertEqualsWithAccuracy([[[info objectAtIndex:0] objectForKey:@"t1"] doubleValue], 0.5, D, nil);
 }
 
 - (void)testLineIntersectsCurve_SShapedCurveMetInCenter
@@ -122,7 +122,7 @@ NSDictionary *makeIntersection(CGFloat t)
                                                       NSCurveToBezierPathElement, s2, points2, 50, &info);
   
   STAssertEqualObjects(intersections, [NSArray arrayWithObject:[NSValue valueWithPoint:NSMakePoint(1.5, 1.5)]], nil);
-  STAssertEqualsWithAccuracy([[[info objectAtIndex:0] objectForKey:@"t"] doubleValue], 0.5, D, nil);
+  STAssertEqualsWithAccuracy([[[info objectAtIndex:0] objectForKey:@"t1"] doubleValue], 0.5, D, nil);
 }
 
 - (void)testLineIntersectsCurve_DiscardDuplicates
@@ -137,7 +137,7 @@ NSDictionary *makeIntersection(CGFloat t)
                                                       NSCurveToBezierPathElement, s2, points2, 2, &info);
   
   STAssertEqualObjects(intersections, [NSArray arrayWithObject:[NSValue valueWithPoint:NSMakePoint(1.5, 1.5)]], nil);
-  STAssertEqualsWithAccuracy([[[info objectAtIndex:0] objectForKey:@"t"] doubleValue], 0.5, D, nil);
+  STAssertEqualsWithAccuracy([[[info objectAtIndex:0] objectForKey:@"t1"] doubleValue], 0.5, D, nil);
 }
 
 - (void)testLineIntersectsCurve_FindThreeIntersections
@@ -156,9 +156,9 @@ NSDictionary *makeIntersection(CGFloat t)
                      [NSValue valueWithPoint:NSMakePoint(2.428033579719385, 2.8936374385573771)],
                      nil];
   STAssertEqualObjects(intersections, points, nil);
-  STAssertEqualsWithAccuracy([[[info objectAtIndex:0] objectForKey:@"t"] doubleValue], 0.1130, D, nil);
-  STAssertEqualsWithAccuracy([[[info objectAtIndex:1] objectForKey:@"t"] doubleValue], 0.5, D, nil);
-  STAssertEqualsWithAccuracy([[[info objectAtIndex:2] objectForKey:@"t"] doubleValue], 0.8869, D, nil);
+  STAssertEqualsWithAccuracy([[[info objectAtIndex:0] objectForKey:@"t1"] doubleValue], 0.1130, D, nil);
+  STAssertEqualsWithAccuracy([[[info objectAtIndex:1] objectForKey:@"t1"] doubleValue], 0.5, D, nil);
+  STAssertEqualsWithAccuracy([[[info objectAtIndex:2] objectForKey:@"t1"] doubleValue], 0.8869, D, nil);
 }
 
 - (void)testCurveIntersectsLine_ReverseParameterOrder
@@ -176,6 +176,9 @@ NSDictionary *makeIntersection(CGFloat t)
                      [NSValue valueWithPoint:NSMakePoint(1.5, 1.5)],
                      [NSValue valueWithPoint:NSMakePoint(2.428033579719385, 2.8936374385573771)], nil];
   STAssertEqualObjects(intersections, points, nil);
+  STAssertEqualsWithAccuracy([[[info objectAtIndex:0] objectForKey:@"t0"] doubleValue], 0.1130, D, nil);
+  STAssertEqualsWithAccuracy([[[info objectAtIndex:1] objectForKey:@"t0"] doubleValue], 0.5, D, nil);
+  STAssertEqualsWithAccuracy([[[info objectAtIndex:2] objectForKey:@"t0"] doubleValue], 0.8869, D, nil);
 }
 
 #pragma mark FLPathElementIntersections Curve x Curve
