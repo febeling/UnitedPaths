@@ -203,6 +203,11 @@ NSArray *FLIntersectionsCurveAndCurve(NSPoint start1, NSPoint *points1, NSPoint 
   return array;
 }
 
+NSArray *FLPathSegmentIntersections(FLPathSegment *segment1, FLPathSegment *segment2)
+{
+  return nil;
+}
+
 NSArray *FLPathElementIntersections(NSBezierPathElement element0,
                                     NSPoint start0,
                                     NSPoint points0[],

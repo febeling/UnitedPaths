@@ -9,5 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface FLIntersection : NSObject
-
+{
+  NSPoint point;
+  CGFloat t;
+}
 @end

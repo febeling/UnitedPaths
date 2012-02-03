@@ -48,18 +48,26 @@
   STAssertEquals([one endPoint], [other endPoint], nil);
 }
 
-- (void)testHashThrowsException_Line
+- (void)testHash_Line
 {
   one = [[FLPathLineSegment alloc] initWithStartPoint:NSMakePoint(1,1) endPoint:NSMakePoint(2,2)];
   
-  STAssertThrows([one hash], nil);
+  STAssertNoThrow([one hash], nil);
 }
 
-- (void)testHashThrowsException_Curve
+- (void)testHash_Curve
 {
-  one = [[FLPathCurveSegment alloc] initWithStartPoint:NSMakePoint(1,1) controlPoint1:NSMakePoint(2,2) controlPoint2:NSMakePoint(3,3) endPoint:NSMakePoint(4,4)];
+  one = [[FLPathCurveSegment alloc] initWithStartPoint:NSMakePoint(1,1) controlPoint1:NSMakePoint(2,2) controlPoint2:NSMakePoint(3,3) endPoint:NSMakePoint(2,2)];
   
-  STAssertThrows([one hash], nil);
+  STAssertNoThrow([one hash], nil);
+}
+
+- (void)testHash_CurveAndLineHashDiffer
+{
+  one = [[FLPathLineSegment alloc] initWithStartPoint:NSMakePoint(1,1) endPoint:NSMakePoint(2,2)];
+  other = [[FLPathCurveSegment alloc] initWithStartPoint:NSMakePoint(1,1) controlPoint1:NSMakePoint(2,2) controlPoint2:NSMakePoint(3,3) endPoint:NSMakePoint(2,2)];
+
+  STAssertFalse([one hash] == [other hash], nil);
 }
 
 - (void)testNotEqual_DifferentControlPoint1
@@ -72,7 +80,7 @@
                                            controlPoint1:NSMakePoint(2,2)
                                            controlPoint2:NSMakePoint(3,3)
                                                 endPoint:NSMakePoint(4,4)];
-  
+
   STAssertFalse(one == other, nil);
   STAssertFalse([one isEqual:other], nil);
 }

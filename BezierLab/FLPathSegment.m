@@ -8,6 +8,9 @@
 
 #import "FLPathSegment.h"
 
+#define NSUINT_BIT (8 * sizeof(NSUInteger))
+#define NSUINTROTATE(val, howmuch) ((((NSUInteger)val) << howmuch) | (((NSUInteger)val) >> (NSUINT_BIT - howmuch)))
+
 #pragma mark FLPathSegment
 
 @implementation FLPathSegment
@@ -16,8 +19,8 @@
 {
   self = [super init];
   if(self) {
-    startPoint = [NSValue valueWithPoint:theStartPoint];
-    endPoint = [NSValue valueWithPoint:theEndPoint];
+    startPoint = theStartPoint;
+    endPoint = theEndPoint;
   }
   
   return self;
@@ -30,20 +33,17 @@
 
 - (NSPoint)startPoint
 {
-  return [startPoint pointValue];
+  return startPoint;
 }
 
 - (NSPoint)endPoint
 {
-  return [endPoint pointValue];
+  return endPoint;
 }
 
 - (NSUInteger)hash
 {
-  [NSException raise:@"Not Implemented" format:@"this class does not implement hash for now"];
-  // TODO if needed
-  
-  return 0;
+  return NSUINTROTATE([NSStringFromPoint(startPoint) hash], NSUINT_BIT / 2) ^ [NSStringFromPoint(endPoint) hash];
 }
 
 - (BOOL)isEqual:(id)other
@@ -52,8 +52,11 @@
   
   FLPathSegment *otherSegment = (FLPathSegment *)other;
   
-  return NSEqualPoints([otherSegment startPoint], self.startPoint) && NSEqualPoints([otherSegment endPoint], self.endPoint);
+  return NSEqualPoints([otherSegment startPoint], startPoint) &&
+         NSEqualPoints([otherSegment endPoint], endPoint);
 }
+
+
 
 @end
 
@@ -84,8 +87,8 @@
 {
   self = [super initWithStartPoint:theStartPoint endPoint:theEndPoint];
   if(self) {
-    controlPoint1 = [NSValue valueWithPoint:theControlPoint1];
-    controlPoint2 = [NSValue valueWithPoint:theControlPoint2];
+    controlPoint1 = theControlPoint1;
+    controlPoint2 = theControlPoint2;
   }
   
   return self;
@@ -103,12 +106,12 @@
 
 - (NSPoint)controlPoint1
 {
-  return [controlPoint1 pointValue];
+  return controlPoint1;
 }
 
 - (NSPoint)controlPoint2
 {
-  return [controlPoint2 pointValue];
+  return controlPoint2;
 }
 
 - (NSString *)description
@@ -123,5 +126,16 @@
   
   return result && NSEqualPoints([(FLPathCurveSegment *)other controlPoint1], self.controlPoint1) && NSEqualPoints([(FLPathCurveSegment *)other controlPoint2], self.controlPoint2);
 }
+
+- (NSUInteger)hash
+{
+  int i = 0;
+  NSUInteger value = [super hash];
+  return NSUINTROTATE(value, i++ * NSUINT_BIT / 3) 
+         ^ NSUINTROTATE([NSStringFromPoint(controlPoint1) hash], i++ * NSUINT_BIT / 3)
+         ^ NSUINTROTATE([NSStringFromPoint(controlPoint1) hash], i++ * NSUINT_BIT / 3);
+}
+
+
 
 @end

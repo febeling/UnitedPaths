@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FLPathSegment.h"
 
 struct FLLine {
   CGFloat a;
@@ -38,6 +39,7 @@ void FLCurveToSegments(NSPoint start, NSPoint points[], NSUInteger n, FLSegment 
 BOOL FLPointsAreClose(NSPoint p1, NSPoint p2);
 NSPoint InterpolateCurvePoint(NSPoint segStart, NSPoint segEnd, NSPoint segIntersec, CGFloat segStartT, CGFloat segEndT, NSPoint curveStart, NSPoint *curvePoints);
 CGFloat InterpolateCurveT(NSPoint segStart, NSPoint segEnd, NSPoint segIntersec, CGFloat segStartT, CGFloat segEndT, NSPoint curveStart, NSPoint *curvePoints);
+NSArray *FLPathSegmentIntersections(FLPathSegment *segment1, FLPathSegment *segment2);
 NSArray *FLPathElementIntersections(NSBezierPathElement element1,
                                     NSPoint start1,
                                     NSPoint points1[],

@@ -18,6 +18,7 @@
   NSArray *intersections = [rect intersectionsWithBezierPath:oval];
   
   STAssertNotNil(intersections, nil);
+//  STAssertEquals([intersections count], 2ul, nil);
 }
 
 @end
