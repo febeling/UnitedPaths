@@ -24,8 +24,8 @@ struct FLSegment {
 typedef struct FLSegment FLSegment;
 
 struct FLCurve {
-  NSPoint p;
-  NSPoint c[3];
+  NSPoint startPoint;
+  NSPoint controlPoints[3];
 };
 typedef struct FLCurve FLCurve;
 
