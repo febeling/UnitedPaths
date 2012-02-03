@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		500EBCEF14DC13F700F541D6 /* FLPathSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 500EBCEE14DC13F700F541D6 /* FLPathSegment.m */; };
+		500EBCF414DC146700F541D6 /* FLIntersection.m in Sources */ = {isa = PBXBuildFile; fileRef = 500EBCF314DC146700F541D6 /* FLIntersection.m */; };
+		500EBCF714DC19C600F541D6 /* NSBezierPathIntersectionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 500EBCF614DC19C600F541D6 /* NSBezierPathIntersectionsTest.m */; };
+		500EBCFA14DC207E00F541D6 /* NSBezierPathSegmentsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 500EBCF914DC207D00F541D6 /* NSBezierPathSegmentsTest.m */; };
+		500EBCFD14DC275A00F541D6 /* FLPathSegmentEqualityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 500EBCFC14DC275A00F541D6 /* FLPathSegmentEqualityTest.m */; };
 		500FCC0014D02BF700F8689C /* FLGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 500FCBFF14D02BF700F8689C /* FLGeometry.m */; };
 		500FCC0A14D02CFE00F8689C /* FLGeometryLineIntersectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 500FCC0814D02CD600F8689C /* FLGeometryLineIntersectionTest.m */; };
 		500FCC1514D0477A00F8689C /* FLGeometryCurveToSegmentsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 500FCC0C14D0445A00F8689C /* FLGeometryCurveToSegmentsTest.m */; };
@@ -39,6 +44,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		500EBCED14DC13F700F541D6 /* FLPathSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLPathSegment.h; sourceTree = "<group>"; };
+		500EBCEE14DC13F700F541D6 /* FLPathSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLPathSegment.m; sourceTree = "<group>"; };
+		500EBCF214DC146700F541D6 /* FLIntersection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLIntersection.h; sourceTree = "<group>"; };
+		500EBCF314DC146700F541D6 /* FLIntersection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLIntersection.m; sourceTree = "<group>"; };
+		500EBCF514DC19C600F541D6 /* NSBezierPathIntersectionsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSBezierPathIntersectionsTest.h; sourceTree = "<group>"; };
+		500EBCF614DC19C600F541D6 /* NSBezierPathIntersectionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSBezierPathIntersectionsTest.m; sourceTree = "<group>"; };
+		500EBCF814DC207D00F541D6 /* NSBezierPathSegmentsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSBezierPathSegmentsTest.h; sourceTree = "<group>"; };
+		500EBCF914DC207D00F541D6 /* NSBezierPathSegmentsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSBezierPathSegmentsTest.m; sourceTree = "<group>"; };
+		500EBCFB14DC275A00F541D6 /* FLPathSegmentEqualityTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLPathSegmentEqualityTest.h; sourceTree = "<group>"; };
+		500EBCFC14DC275A00F541D6 /* FLPathSegmentEqualityTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLPathSegmentEqualityTest.m; sourceTree = "<group>"; };
 		500FCBFE14D02BF700F8689C /* FLGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = FLGeometry.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		500FCBFF14D02BF700F8689C /* FLGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FLGeometry.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		500FCC0714D02CD600F8689C /* FLGeometryLineIntersectionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLGeometryLineIntersectionTest.h; sourceTree = "<group>"; };
@@ -96,6 +111,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		500EBCF114DC141500F541D6 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				50F8872F14CF4769007AEE2E /* FLCanvas.h */,
+				50F8873014CF4769007AEE2E /* FLCanvas.m */,
+				50F8870A14CF427E007AEE2E /* FLDocument.h */,
+				50F8870B14CF427E007AEE2E /* FLDocument.m */,
+				500FCBFE14D02BF700F8689C /* FLGeometry.h */,
+				500FCBFF14D02BF700F8689C /* FLGeometry.m */,
+				500EBCF214DC146700F541D6 /* FLIntersection.h */,
+				500EBCF314DC146700F541D6 /* FLIntersection.m */,
+				500EBCED14DC13F700F541D6 /* FLPathSegment.h */,
+				500EBCEE14DC13F700F541D6 /* FLPathSegment.m */,
+				5015CB5E14DAB5E500BE3345 /* NSBezierPath+BezierLabs.h */,
+				5015CB5F14DAB5E500BE3345 /* NSBezierPath+BezierLabs.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
 		50F886E914CF427E007AEE2E = {
 			isa = PBXGroup;
 			children = (
@@ -138,15 +172,8 @@
 		50F886FE14CF427E007AEE2E /* BezierLab */ = {
 			isa = PBXGroup;
 			children = (
-				50F8872F14CF4769007AEE2E /* FLCanvas.h */,
-				50F8873014CF4769007AEE2E /* FLCanvas.m */,
-				50F8870A14CF427E007AEE2E /* FLDocument.h */,
-				50F8870B14CF427E007AEE2E /* FLDocument.m */,
+				500EBCF114DC141500F541D6 /* Classes */,
 				50F8870D14CF427E007AEE2E /* FLDocument.xib */,
-				500FCBFE14D02BF700F8689C /* FLGeometry.h */,
-				500FCBFF14D02BF700F8689C /* FLGeometry.m */,
-				5015CB5E14DAB5E500BE3345 /* NSBezierPath+BezierLabs.h */,
-				5015CB5F14DAB5E500BE3345 /* NSBezierPath+BezierLabs.m */,
 				50F8871014CF427F007AEE2E /* MainMenu.xib */,
 				50F886FF14CF427E007AEE2E /* Supporting Files */,
 			);
@@ -170,14 +197,20 @@
 			children = (
 				50F8872414CF427F007AEE2E /* BezierLabTests.h */,
 				50F8872514CF427F007AEE2E /* BezierLabTests.m */,
-				500FCC0714D02CD600F8689C /* FLGeometryLineIntersectionTest.h */,
-				500FCC0814D02CD600F8689C /* FLGeometryLineIntersectionTest.m */,
-				500FCC0B14D0445A00F8689C /* FLGeometryCurveToSegmentsTest.h */,
-				500FCC0C14D0445A00F8689C /* FLGeometryCurveToSegmentsTest.m */,
-				5047F4A014D198910068AFE4 /* FLGeometryPathElementIntersectionsTest.h */,
-				5047F4A114D198910068AFE4 /* FLGeometryPathElementIntersectionsTest.m */,
 				505D876C14D2D24F0091BB4D /* FLGeometryCurveSplit.h */,
 				505D876D14D2D24F0091BB4D /* FLGeometryCurveSplit.m */,
+				500FCC0B14D0445A00F8689C /* FLGeometryCurveToSegmentsTest.h */,
+				500FCC0C14D0445A00F8689C /* FLGeometryCurveToSegmentsTest.m */,
+				500FCC0714D02CD600F8689C /* FLGeometryLineIntersectionTest.h */,
+				500FCC0814D02CD600F8689C /* FLGeometryLineIntersectionTest.m */,
+				5047F4A014D198910068AFE4 /* FLGeometryPathElementIntersectionsTest.h */,
+				5047F4A114D198910068AFE4 /* FLGeometryPathElementIntersectionsTest.m */,
+				500EBCFB14DC275A00F541D6 /* FLPathSegmentEqualityTest.h */,
+				500EBCFC14DC275A00F541D6 /* FLPathSegmentEqualityTest.m */,
+				500EBCF514DC19C600F541D6 /* NSBezierPathIntersectionsTest.h */,
+				500EBCF614DC19C600F541D6 /* NSBezierPathIntersectionsTest.m */,
+				500EBCF814DC207D00F541D6 /* NSBezierPathSegmentsTest.h */,
+				500EBCF914DC207D00F541D6 /* NSBezierPathSegmentsTest.m */,
 				50F8871F14CF427F007AEE2E /* Supporting Files */,
 			);
 			path = BezierLabTests;
@@ -306,6 +339,8 @@
 				500FCC0014D02BF700F8689C /* FLGeometry.m in Sources */,
 				5090856714D492E300DF6565 /* (null) in Sources */,
 				5015CB6014DAB5E500BE3345 /* NSBezierPath+BezierLabs.m in Sources */,
+				500EBCEF14DC13F700F541D6 /* FLPathSegment.m in Sources */,
+				500EBCF414DC146700F541D6 /* FLIntersection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +353,9 @@
 				500FCC1514D0477A00F8689C /* FLGeometryCurveToSegmentsTest.m in Sources */,
 				5047F4A414D198AB0068AFE4 /* FLGeometryPathElementIntersectionsTest.m in Sources */,
 				505D876E14D2D24F0091BB4D /* FLGeometryCurveSplit.m in Sources */,
+				500EBCF714DC19C600F541D6 /* NSBezierPathIntersectionsTest.m in Sources */,
+				500EBCFA14DC207E00F541D6 /* NSBezierPathSegmentsTest.m in Sources */,
+				500EBCFD14DC275A00F541D6 /* FLPathSegmentEqualityTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
