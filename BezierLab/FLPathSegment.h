@@ -10,8 +10,8 @@
 
 @interface FLPathSegment : NSObject
 {
-  NSValue *startPoint;
-  NSValue *endPoint;
+  NSPoint startPoint;
+  NSPoint endPoint;
 }
 
 @property (readonly) NSBezierPathElement element;
@@ -28,8 +28,8 @@
 
 @interface FLPathCurveSegment : FLPathSegment
 {
-  NSValue *controlPoint1;
-  NSValue *controlPoint2;
+  NSPoint controlPoint1;
+  NSPoint controlPoint2;
 }
 
 - (id)initWithStartPoint:(NSPoint)theStartPoint

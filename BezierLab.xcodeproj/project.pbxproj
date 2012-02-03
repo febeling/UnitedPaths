@@ -130,6 +130,29 @@
 			name = Classes;
 			sourceTree = "<group>";
 		};
+		500EBCFE14DC4CA800F541D6 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				50F8872414CF427F007AEE2E /* BezierLabTests.h */,
+				50F8872514CF427F007AEE2E /* BezierLabTests.m */,
+				505D876C14D2D24F0091BB4D /* FLGeometryCurveSplit.h */,
+				505D876D14D2D24F0091BB4D /* FLGeometryCurveSplit.m */,
+				500FCC0B14D0445A00F8689C /* FLGeometryCurveToSegmentsTest.h */,
+				500FCC0C14D0445A00F8689C /* FLGeometryCurveToSegmentsTest.m */,
+				500FCC0714D02CD600F8689C /* FLGeometryLineIntersectionTest.h */,
+				500FCC0814D02CD600F8689C /* FLGeometryLineIntersectionTest.m */,
+				5047F4A014D198910068AFE4 /* FLGeometryPathElementIntersectionsTest.h */,
+				5047F4A114D198910068AFE4 /* FLGeometryPathElementIntersectionsTest.m */,
+				500EBCFB14DC275A00F541D6 /* FLPathSegmentEqualityTest.h */,
+				500EBCFC14DC275A00F541D6 /* FLPathSegmentEqualityTest.m */,
+				500EBCF514DC19C600F541D6 /* NSBezierPathIntersectionsTest.h */,
+				500EBCF614DC19C600F541D6 /* NSBezierPathIntersectionsTest.m */,
+				500EBCF814DC207D00F541D6 /* NSBezierPathSegmentsTest.h */,
+				500EBCF914DC207D00F541D6 /* NSBezierPathSegmentsTest.m */,
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
 		50F886E914CF427E007AEE2E = {
 			isa = PBXGroup;
 			children = (
@@ -195,22 +218,7 @@
 		50F8871E14CF427F007AEE2E /* BezierLabTests */ = {
 			isa = PBXGroup;
 			children = (
-				50F8872414CF427F007AEE2E /* BezierLabTests.h */,
-				50F8872514CF427F007AEE2E /* BezierLabTests.m */,
-				505D876C14D2D24F0091BB4D /* FLGeometryCurveSplit.h */,
-				505D876D14D2D24F0091BB4D /* FLGeometryCurveSplit.m */,
-				500FCC0B14D0445A00F8689C /* FLGeometryCurveToSegmentsTest.h */,
-				500FCC0C14D0445A00F8689C /* FLGeometryCurveToSegmentsTest.m */,
-				500FCC0714D02CD600F8689C /* FLGeometryLineIntersectionTest.h */,
-				500FCC0814D02CD600F8689C /* FLGeometryLineIntersectionTest.m */,
-				5047F4A014D198910068AFE4 /* FLGeometryPathElementIntersectionsTest.h */,
-				5047F4A114D198910068AFE4 /* FLGeometryPathElementIntersectionsTest.m */,
-				500EBCFB14DC275A00F541D6 /* FLPathSegmentEqualityTest.h */,
-				500EBCFC14DC275A00F541D6 /* FLPathSegmentEqualityTest.m */,
-				500EBCF514DC19C600F541D6 /* NSBezierPathIntersectionsTest.h */,
-				500EBCF614DC19C600F541D6 /* NSBezierPathIntersectionsTest.m */,
-				500EBCF814DC207D00F541D6 /* NSBezierPathSegmentsTest.h */,
-				500EBCF914DC207D00F541D6 /* NSBezierPathSegmentsTest.m */,
+				500EBCFE14DC4CA800F541D6 /* Tests */,
 				50F8871F14CF427F007AEE2E /* Supporting Files */,
 			);
 			path = BezierLabTests;

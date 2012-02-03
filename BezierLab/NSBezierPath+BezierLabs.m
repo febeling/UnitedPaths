@@ -37,7 +37,18 @@
 {
   NSMutableArray *intersections = [NSMutableArray array];
   
+  NSMutableArray *segments = [self segments];
+  NSMutableArray *segmentsModifier = [modifier segments];
   
+  for(FLPathSegment *segmentSelf in segments) {
+    for(FLPathSegment *segmentModifier in segmentsModifier) {
+// FLPathElementIntersections(
+      
+// intersection: point, segment0_t, segment1_t
+      
+      
+    }
+  }
   
   return intersections;
 }
