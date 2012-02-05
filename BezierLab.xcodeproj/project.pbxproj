@@ -20,6 +20,8 @@
 		505D876E14D2D24F0091BB4D /* FLGeometryCurveSplit.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D876D14D2D24F0091BB4D /* FLGeometryCurveSplit.m */; };
 		5090856714D492E300DF6565 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		50C36CB814DEAB4B00D1FC51 /* NSValueWithPointBugTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C36CB714DEAB4B00D1FC51 /* NSValueWithPointBugTest.m */; };
+		50C36CBC14DED08700D1FC51 /* FLPathSegmentIntersectionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C36CBB14DED08700D1FC51 /* FLPathSegmentIntersectionsTest.m */; };
+		50C36CBF14DED0F200D1FC51 /* FLGeometryHelpersTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C36CBE14DED0F200D1FC51 /* FLGeometryHelpersTest.m */; };
 		50F886F914CF427E007AEE2E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50F886F814CF427E007AEE2E /* Cocoa.framework */; };
 		50F8870314CF427E007AEE2E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50F8870114CF427E007AEE2E /* InfoPlist.strings */; };
 		50F8870514CF427E007AEE2E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F8870414CF427E007AEE2E /* main.m */; };
@@ -69,6 +71,10 @@
 		505D876D14D2D24F0091BB4D /* FLGeometryCurveSplit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLGeometryCurveSplit.m; sourceTree = "<group>"; };
 		50C36CB614DEAB4B00D1FC51 /* NSValueWithPointBugTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSValueWithPointBugTest.h; sourceTree = "<group>"; };
 		50C36CB714DEAB4B00D1FC51 /* NSValueWithPointBugTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSValueWithPointBugTest.m; sourceTree = "<group>"; };
+		50C36CBA14DED08700D1FC51 /* FLPathSegmentIntersectionsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLPathSegmentIntersectionsTest.h; sourceTree = "<group>"; };
+		50C36CBB14DED08700D1FC51 /* FLPathSegmentIntersectionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLPathSegmentIntersectionsTest.m; sourceTree = "<group>"; };
+		50C36CBD14DED0F200D1FC51 /* FLGeometryHelpersTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLGeometryHelpersTest.h; sourceTree = "<group>"; };
+		50C36CBE14DED0F200D1FC51 /* FLGeometryHelpersTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLGeometryHelpersTest.m; sourceTree = "<group>"; };
 		50F886F414CF427E007AEE2E /* BezierLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BezierLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50F886F814CF427E007AEE2E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		50F886FB14CF427E007AEE2E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -154,6 +160,10 @@
 				500EBCF914DC207D00F541D6 /* NSBezierPathSegmentsTest.m */,
 				50C36CB614DEAB4B00D1FC51 /* NSValueWithPointBugTest.h */,
 				50C36CB714DEAB4B00D1FC51 /* NSValueWithPointBugTest.m */,
+				50C36CBA14DED08700D1FC51 /* FLPathSegmentIntersectionsTest.h */,
+				50C36CBB14DED08700D1FC51 /* FLPathSegmentIntersectionsTest.m */,
+				50C36CBD14DED0F200D1FC51 /* FLGeometryHelpersTest.h */,
+				50C36CBE14DED0F200D1FC51 /* FLGeometryHelpersTest.m */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -370,6 +380,8 @@
 				500EBCFA14DC207E00F541D6 /* NSBezierPathSegmentsTest.m in Sources */,
 				500EBCFD14DC275A00F541D6 /* FLPathSegmentEqualityTest.m in Sources */,
 				50C36CB814DEAB4B00D1FC51 /* NSValueWithPointBugTest.m in Sources */,
+				50C36CBC14DED08700D1FC51 /* FLPathSegmentIntersectionsTest.m in Sources */,
+				50C36CBF14DED0F200D1FC51 /* FLGeometryHelpersTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

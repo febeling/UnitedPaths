@@ -7,6 +7,7 @@
 //
 
 #import "FLGeometry.h"
+#import "FLIntersection.h"
 
 #define MAX_INTERSECTIONS_CUBIC 3
 
@@ -203,9 +204,30 @@ NSArray *FLIntersectionsCurveAndCurve(NSPoint start1, NSPoint *points1, NSPoint 
   return array;
 }
 
-NSArray *FLPathSegmentIntersections(FLPathSegment *segment1, FLPathSegment *segment2)
+void FLPathSegmentIntersections(FLPathSegment *segment, FLPathSegment *modifier)
 {
-  return nil;
+  NSPoint *points = malloc(3*sizeof(NSPoint));
+  NSPoint *pointsMod = malloc(3*sizeof(NSPoint));
+  
+  [segment points:points];
+  [modifier points:pointsMod];
+  
+  NSArray *info;
+  
+  NSArray *intersections = FLPathElementIntersections([segment element], 
+                                                      [segment startPoint],
+                                                      points,
+                                                      [modifier element],
+                                                      [modifier startPoint],
+                                                      pointsMod,
+                                                      50,
+                                                      &info);
+  
+  [segment addClippingsWithIntersections:intersections info:info isFirst:YES];
+  [modifier addClippingsWithIntersections:intersections info:info isFirst:NO];
+                                               
+  free(points);
+  free(pointsMod);
 }
 
 NSArray *FLPathElementIntersections(NSBezierPathElement element0,

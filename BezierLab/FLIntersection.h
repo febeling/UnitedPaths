@@ -7,10 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FLPathSegment.h"
 
 @interface FLIntersection : NSObject
 {
   NSPoint point;
   CGFloat t;
 }
+
+@property (readonly) NSPoint point;
+@property (readonly) CGFloat time;
+
+- (id)initWithPoint:(NSPoint)point time:(CGFloat)t;
+- (id)initWithPoint:(NSPoint)point;
+
 @end

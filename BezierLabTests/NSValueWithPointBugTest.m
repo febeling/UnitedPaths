@@ -25,10 +25,17 @@
 {
   NSValue *v1 = [NSValue valueWithPoint:NSMakePoint(1,1)];
   
-  for(int i = -100000; i < 100000; i++) {
+  for(int i = -1000; i < 1000; i++) {
     NSValue *v2 = [NSValue valueWithPoint:NSMakePoint(i,i)];
     STAssertTrue([v1 hash] == [v2 hash], @"fail with i: %dl", i);
   }
+}
+
+- (void)testPointValueEquality
+{
+  STAssertEqualObjects([NSValue valueWithPoint:NSMakePoint(1,1)], [NSValue valueWithPoint:NSMakePoint(1,1)], nil);
+  STAssertFalse([[NSValue valueWithPoint:NSMakePoint(1,1)] isEqual:[NSValue valueWithPoint:NSMakePoint(2,2)]], nil);
+  STAssertFalse([[NSValue valueWithPoint:NSMakePoint(1,1)] isEqual:[NSValue valueWithPoint:NSMakePoint(2,0)]], nil);
 }
 
 @end
