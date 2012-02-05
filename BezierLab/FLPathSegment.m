@@ -7,6 +7,8 @@
 //
 
 #import "FLPathSegment.h"
+#import "FLGeometry.h"
+#import "FLIntersection.h"
 
 #define NSUINT_BIT (8 * sizeof(NSUInteger))
 #define NSUINTROTATE(val, howmuch) ((((NSUInteger)val) << howmuch) | (((NSUInteger)val) >> (NSUINT_BIT - howmuch)))
@@ -15,20 +17,58 @@
 
 @implementation FLPathSegment
 
++ (id)pathSegmentWithStartPoint:(NSPoint)theStartPoint endPoint:(NSPoint)theEndPoint
+{
+  return [[FLPathLineSegment alloc] initWithStartPoint:theStartPoint endPoint:theEndPoint];
+}
+
++ (id)pathSegmentWithStartPoint:(NSPoint)theStartPoint points:(NSPoint *)points
+{
+  return [[FLPathCurveSegment alloc] initWithStartPoint:theStartPoint points:points];
+}
+
++ (id)pathSegmentWithStartPoint:(NSPoint)theStartPoint
+                  controlPoint1:(NSPoint)theControlPoint1
+                  controlPoint2:(NSPoint)theControlPoint2
+                       endPoint:(NSPoint)theEndPoint
+{
+  return [[FLPathCurveSegment alloc] initWithStartPoint:theStartPoint
+                                          controlPoint1:theControlPoint1
+                                          controlPoint2:theControlPoint2
+                                               endPoint:theEndPoint];
+}
+
 - (id)initWithStartPoint:(NSPoint)theStartPoint endPoint:(NSPoint)theEndPoint
 {
   self = [super init];
   if(self) {
     startPoint = theStartPoint;
     endPoint = theEndPoint;
+    clippings = [NSMutableArray array];
   }
   
   return self;
 }
 
+@synthesize clippings;
+
 - (NSBezierPathElement)element
 {
+  [NSException raise:@"Abstract" format:@"this method must be overridden"];
+
   return 0;
+}
+
+- (void)clipWith:(FLPathSegment *)modifier
+{
+  [[self clippings] removeAllObjects];
+  [[modifier clippings] removeAllObjects];
+  FLPathSegmentIntersections(self, modifier);
+}
+
+- (void)addClippingsWithIntersections:(NSArray *)intersections info:(NSArray *)info isFirst:(BOOL)first
+{
+  [NSException raise:@"Abstract" format:@"this method must be overridden"];
 }
 
 - (NSPoint)startPoint
@@ -39,6 +79,11 @@
 - (NSPoint)endPoint
 {
   return endPoint;
+}
+
+- (void)points:(NSPoint *)points
+{
+  // overridden.
 }
 
 - (NSUInteger)hash
@@ -56,8 +101,6 @@
          NSEqualPoints([otherSegment endPoint], endPoint);
 }
 
-
-
 @end
 
 #pragma mark FLPathLineSegment
@@ -71,7 +114,21 @@
 
 - (NSString *)description
 {
-  return [NSString stringWithFormat:@"<%@, startPoint: %@, endPoint: %@>", [self className], startPoint, endPoint];
+  return [NSString stringWithFormat:@"<%@ startPoint: %@, endPoint: %@>", [self className], startPoint, endPoint];
+}
+
+- (void)points:(NSPoint *)points
+{
+  points[0] = [self endPoint];
+}
+
+- (void)addClippingsWithIntersections:(NSArray *)intersections info:(NSArray *)info isFirst:(BOOL)first
+{
+  for(int i = 0; i < [intersections count]; i++) {
+    NSPoint point = [[intersections objectAtIndex:i] pointValue];
+    FLIntersection *intersection = [[FLIntersection alloc] initWithPoint:point];
+    [[self clippings] addObject:intersection];
+  }
 }
 
 @end
@@ -114,6 +171,13 @@
   return controlPoint2;
 }
 
+- (void)points:(NSPoint *)points
+{
+  points[0] = [self controlPoint1];
+  points[1] = [self controlPoint2];
+  points[2] = [self endPoint];
+}
+
 - (NSString *)description
 {
   return [NSString stringWithFormat:@"<%@\n   startPoint: %@,\n   controlPoint1: %@,\n   controlPoint2: %@,\n   endPoint: %@>",
@@ -136,6 +200,16 @@
          ^ NSUINTROTATE([NSStringFromPoint(controlPoint1) hash], i++ * NSUINT_BIT / 3);
 }
 
-
+- (void)addClippingsWithIntersections:(NSArray *)intersections info:(NSArray *)info isFirst:(BOOL)first
+{
+  NSString *timeKey = first ? @"t0" : @"t1";
+  
+  for(int i = 0; i < [intersections count]; i++) {
+    NSPoint point = [[intersections objectAtIndex:i] pointValue];
+    CGFloat t0 = [[[info objectAtIndex:i] objectForKey:timeKey] doubleValue];
+    FLIntersection *intersection = [[FLIntersection alloc] initWithPoint:point time:t0];
+    [[self clippings] addObject:intersection];
+  }
+}
 
 @end

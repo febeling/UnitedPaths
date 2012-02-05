@@ -12,13 +12,25 @@
 {
   NSPoint startPoint;
   NSPoint endPoint;
+  NSMutableArray *clippings;
 }
+
++ (id)pathSegmentWithStartPoint:(NSPoint)theStartPoint endPoint:(NSPoint)theEndPoint;
++ (id)pathSegmentWithStartPoint:(NSPoint)theStartPoint points:(NSPoint *)points;
++ (id)pathSegmentWithStartPoint:(NSPoint)theStartPoint
+                  controlPoint1:(NSPoint)theControlPoint1
+                  controlPoint2:(NSPoint)theControlPoint2
+                       endPoint:(NSPoint)theEndPoint;
+
+- (id)initWithStartPoint:(NSPoint)theStartPoint endPoint:(NSPoint)theEndPoint;
+- (void)points:(NSPoint *)points;
+- (void)clipWith:(FLPathSegment *)modifier;
+- (void)addClippingsWithIntersections:(NSArray *)intersections info:(NSArray *)info isFirst:(BOOL)first;
 
 @property (readonly) NSBezierPathElement element;
 @property (readonly) NSPoint startPoint;
 @property (readonly) NSPoint endPoint;
-
-- (id)initWithStartPoint:(NSPoint)theStartPoint endPoint:(NSPoint)theEndPoint;
+@property (strong) NSMutableArray *clippings;
 
 @end
 
@@ -36,7 +48,6 @@
            controlPoint1:(NSPoint)theControlPoint1
            controlPoint2:(NSPoint)theControlPoint2
                 endPoint:(NSPoint)theEndPoint;
-
 - (id)initWithStartPoint:(NSPoint)theStartPoint points:(NSPoint *)points;
 
 @property (readonly) NSPoint controlPoint1;

@@ -49,4 +49,52 @@
                                                              endPoint:NSMakePoint(1.4393398282201788, 2.70710678118654754)], nil);
 }
 
+- (void)testClassCluster_Line
+{
+  FLPathSegment *line = [FLPathSegment pathSegmentWithStartPoint:NSMakePoint(0,1)
+                                                        endPoint:NSMakePoint(5,4)];
+  
+  STAssertTrue([line isKindOfClass:[FLPathLineSegment class]], nil);
+  STAssertTrue([line isKindOfClass:[FLPathSegment class]], nil);
+}
+
+- (void)testClassCluster_Curve
+{
+  FLPathSegment *curve = [FLPathSegment pathSegmentWithStartPoint:NSMakePoint(0,1)
+                                                    controlPoint1:NSMakePoint(5,1)
+                                                    controlPoint2:NSMakePoint(0,4)
+                                                         endPoint:NSMakePoint(5,4)];
+  
+  STAssertTrue([curve isKindOfClass:[FLPathCurveSegment class]], nil);
+  STAssertTrue([curve isKindOfClass:[FLPathSegment class]], nil);
+}
+
+#pragma mark points:
+
+- (void)testPoints_Curve
+{
+  FLPathSegment *curve = [FLPathSegment pathSegmentWithStartPoint:NSMakePoint(0,1)
+                                                    controlPoint1:NSMakePoint(0,2)
+                                                    controlPoint2:NSMakePoint(0,3)
+                                                         endPoint:NSMakePoint(0,4)];
+  NSPoint *points = malloc(3*sizeof(NSPoint));
+  
+  [curve points:points];
+  
+  STAssertEquals(points[0], NSMakePoint(0,2), nil);
+  STAssertEquals(points[1], NSMakePoint(0,3), nil);
+  STAssertEquals(points[2], NSMakePoint(0,4), nil);
+}
+
+- (void)testPoints_Line
+{
+  FLPathSegment *line = [FLPathSegment pathSegmentWithStartPoint:NSMakePoint(0,1)
+                                                        endPoint:NSMakePoint(0,4)];
+  NSPoint *points = malloc(1*sizeof(NSPoint));
+  
+  [line points:points];
+  
+  STAssertEquals(points[0], NSMakePoint(0,4), nil);
+}
+
 @end
