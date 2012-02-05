@@ -28,14 +28,6 @@
   STAssertFalse([one isEqual:other], nil);
 }
 
-//- (void)testNSValuePointHash
-//{ // bug filed: radar://10803970
-//  NSValue *v1 = [NSValue valueWithPoint:NSMakePoint(1,1)];
-//  NSValue *v2 = [NSValue valueWithPoint:NSMakePoint(2,2)];
-//  
-//  STAssertTrue([v1 hash] != [v2 hash], nil);
-//}
-
 - (void)testNotEqual_DifferentStartPoint
 {
   one = [[FLPathLineSegment alloc] initWithStartPoint:NSMakePoint(1,1) endPoint:NSMakePoint(2,2)];
