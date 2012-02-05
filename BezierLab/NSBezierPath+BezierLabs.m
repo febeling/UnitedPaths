@@ -42,13 +42,21 @@
   
   for(FLPathSegment *segmentSelf in segments) {
     for(FLPathSegment *segmentModifier in segmentsModifier) {
-// FLPathElementIntersections(
-      
-// intersection: point, segment0_t, segment1_t
-      
-      
+      [segmentSelf clipWith:segmentModifier];
     }
   }
+  
+  // resolve clipping / resegment segments (both)
+  
+//  NSMutableArray *newSegmentsSelf = [NSMutableArray array];
+//  for(FLPathSegment *segment in segments) {
+//    [newSegmentSelf addObjectsFromArray:[segment resegement]];
+//  }
+//
+//  NSMutableArray *newSegmentsModifier = [NSMutableArray array];
+//  for(FLPathSegment *segment in segmentsModifier) {
+//    [newSegmentsModifier addObjectsFromArray:[segment resegement]];
+//  }
   
   return intersections;
 }

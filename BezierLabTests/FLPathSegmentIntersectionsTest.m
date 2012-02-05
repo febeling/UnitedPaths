@@ -61,26 +61,6 @@
   STAssertEqualObjects([segment2 clippings], [NSArray array], nil);
 }
 
-- (void)testLineIntersectsLine_ClearsClipping
-{
-  NSPoint s1 = {0, 2};
-  NSPoint e1 = {3, 0};
-  
-  NSPoint s2 = {0, 3};
-  NSPoint e2 = {0, 3};
-  
-  FLPathSegment *segment1 = [FLPathSegment pathSegmentWithStartPoint:s1 endPoint:e1];
-  FLPathSegment *segment2 = [FLPathSegment pathSegmentWithStartPoint:s2 endPoint:e2];
-  
-  [[segment1 clippings] addObject:@"obsolete"];
-  [[segment1 clippings] addObject:@"obsolete"];
-  
-  [segment1 clipWith:segment2];
-  
-  STAssertEqualObjects([segment1 clippings], [NSArray array], nil);
-  STAssertEqualObjects([segment2 clippings], [NSArray array], nil);
-}
-
 #pragma mark FLPathElementIntersections Line x Curve
 
 - (void)testLineIntersectsCurve_ActuallyStraigthCurve

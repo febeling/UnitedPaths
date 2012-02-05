@@ -61,14 +61,19 @@
 
 - (void)clipWith:(FLPathSegment *)modifier
 {
-  [[self clippings] removeAllObjects];
-  [[modifier clippings] removeAllObjects];
   FLPathSegmentIntersections(self, modifier);
 }
 
 - (void)addClippingsWithIntersections:(NSArray *)intersections info:(NSArray *)info isFirst:(BOOL)first
 {
   [NSException raise:@"Abstract" format:@"this method must be overridden"];
+}
+
+- (NSArray *)resegment
+{
+  [NSException raise:@"Abstract" format:@"this method must be overridden"];
+
+  return nil;
 }
 
 - (NSPoint)startPoint
@@ -114,7 +119,10 @@
 
 - (NSString *)description
 {
-  return [NSString stringWithFormat:@"<%@ startPoint: %@, endPoint: %@>", [self className], startPoint, endPoint];
+  return [NSString stringWithFormat:@"<%@ startPoint: %@, endPoint: %@>",
+          [self className],
+          NSStringFromPoint(startPoint),
+          NSStringFromPoint(endPoint)];
 }
 
 - (void)points:(NSPoint *)points
@@ -181,7 +189,11 @@
 - (NSString *)description
 {
   return [NSString stringWithFormat:@"<%@\n   startPoint: %@,\n   controlPoint1: %@,\n   controlPoint2: %@,\n   endPoint: %@>",
-          [self className], startPoint, controlPoint1, controlPoint2, endPoint];
+          [self className],
+          NSStringFromPoint(startPoint),
+          NSStringFromPoint(controlPoint1),
+          NSStringFromPoint(controlPoint2),
+          NSStringFromPoint(endPoint)];
 }
 
 - (BOOL)isEqual:(id)other
@@ -210,6 +222,32 @@
     FLIntersection *intersection = [[FLIntersection alloc] initWithPoint:point time:t0];
     [[self clippings] addObject:intersection];
   }
+}
+
+- (NSArray *)resegment
+{
+  NSMutableArray *array = [NSMutableArray array];
+  NSPoint points[3];
+  FLCurve *splits;
+  
+  for(FLIntersection *intersection in [self clippings]) {
+    NSLog(@"intersection: %@", intersection);
+    // TODO this only works for one clipping point now. If there are
+    // more, then after the first split, the recorded time value for
+    // the clips are not correct any longer.
+    // In theory it works this way:
+    // t3 = (t2-t1) * 1/(1-t1). This represents the value of t2 projected onto the — smaller than the original — subcurve. (from: Bezier Info)
+    
+    [self points:points];
+    FLSplitCurveFromPoints([intersection time], startPoint, points, &splits);
+    
+    FLPathSegment *newSegment0 = [FLPathSegment pathSegmentWithStartPoint:splits[0].startPoint points:splits[0].controlPoints];
+    FLPathSegment *newSegment1 = [FLPathSegment pathSegmentWithStartPoint:splits[1].startPoint points:splits[1].controlPoints];
+    [array addObject:newSegment0];
+    [array addObject:newSegment1];
+  }
+  
+  return array;
 }
 
 @end
