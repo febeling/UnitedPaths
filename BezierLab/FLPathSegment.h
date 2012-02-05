@@ -26,6 +26,7 @@
 - (void)points:(NSPoint *)points;
 - (void)clipWith:(FLPathSegment *)modifier;
 - (void)addClippingsWithIntersections:(NSArray *)intersections info:(NSArray *)info isFirst:(BOOL)first;
+- (NSArray *)resegment;
 
 @property (readonly) NSBezierPathElement element;
 @property (readonly) NSPoint startPoint;

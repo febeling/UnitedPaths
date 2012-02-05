@@ -87,7 +87,7 @@ void FLCurveToSegments(NSPoint start, NSPoint points[], NSUInteger n, FLSegment 
 }
 
 // TODO find a sensible number of sections, involving calculating curve length.
-// Till the use this workaround fixed number:
+// Till then use this workaround fixed number:
 #define N_SEGMENTS 50
 
 #define MIN_DIST   1.0e-5
@@ -206,6 +206,7 @@ NSArray *FLIntersectionsCurveAndCurve(NSPoint start1, NSPoint *points1, NSPoint 
 
 void FLPathSegmentIntersections(FLPathSegment *segment, FLPathSegment *modifier)
 {
+  // TODO check for overlapping as shortcut
   NSPoint *points = malloc(3*sizeof(NSPoint));
   NSPoint *pointsMod = malloc(3*sizeof(NSPoint));
   
@@ -222,7 +223,7 @@ void FLPathSegmentIntersections(FLPathSegment *segment, FLPathSegment *modifier)
                                                       pointsMod,
                                                       50,
                                                       &info);
-  
+
   [segment addClippingsWithIntersections:intersections info:info isFirst:YES];
   [modifier addClippingsWithIntersections:intersections info:info isFirst:NO];
                                                
@@ -269,6 +270,7 @@ NSPoint LineSegmentPoint(CGFloat t, NSPoint a, NSPoint b)
 
 void FLSplitCurveFromPoints(CGFloat t, NSPoint p, NSPoint *points, FLCurve **splits)
 {
+  *splits = malloc(2*sizeof(FLCurve));
   NSPoint p2, p3, p4, q1, q2, q3, l1, l2, pt;
   
   p2 = points[0];
@@ -284,7 +286,6 @@ void FLSplitCurveFromPoints(CGFloat t, NSPoint p, NSPoint *points, FLCurve **spl
 
   pt = LineSegmentPoint(t, l1, l2);
 
-  *splits = malloc(2*sizeof(FLCurve));
   (*splits)[0].startPoint = p;
   (*splits)[0].controlPoints[0] = q1;
   (*splits)[0].controlPoints[1] = l1;

@@ -7,12 +7,15 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+#import "FLPathSegment.h"
 #import "NSBezierPath+BezierLabs.h"
 
-@interface NSBezierPathIntersectionsTest : SenTestCase
+@interface FLPathSegmentResegmentTest : SenTestCase
 {
   NSBezierPath *rect;
   NSBezierPath *oval;
+  NSMutableArray *rectSegs;
+  NSMutableArray *ovalSegs;
 }
 
 @end
