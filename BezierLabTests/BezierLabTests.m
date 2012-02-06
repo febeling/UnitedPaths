@@ -20,19 +20,16 @@
   [translation translateXBy:20 yBy:10];
 }
 
-/*
 - (void)testUnionRectAndAnotherRect
 {
   NSBezierPath *anotherRectPath = [rectPath copy];
   [anotherRectPath transformUsingAffineTransform:translation];
-  NSBezierPath *newPath;
-  newPath = [rectPath bezierPathByUnionWith:anotherRectPath];
+//  NSBezierPath *newPath;
+  [rectPath unionWithBezierPath:anotherRectPath];
   
-  STAssertNotNil(newPath, nil);
-  STAssertEquals([newPath elementCount], 17L, nil);// == [rectPath elementCount], nil);
-  NSLog(@"newPath: %@", newPath);
 }
- 
+
+/*
 - (void)testUnionRectAndRoundedRect
 {
   NSBezierPath *newPath = [rectPath bezierPathByUnionWith:roundedRectPath];

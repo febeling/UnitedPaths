@@ -9,6 +9,9 @@
 #import "NSBezierPath+BezierLabs.h"
 #import "FLGeometry.h"
 
+// Maximum number of fragments that will be tried to reassemble.
+#define MAX_FRAGMENTS 1000
+
 @implementation NSBezierPath (BezierLabs)
 
 - (void)appendBezierPathWithElement:(NSBezierPathElement)element associatedPoints:(NSPointArray)points
@@ -33,7 +36,14 @@
   }
 }
 
-- (NSMutableArray *)intersectionsWithBezierPath:(NSBezierPath *)modifier
+- (NSPoint)externalPointWithModifier:(NSBezierPath *)modifier
+{
+  NSRect boundingBox = NSUnionRect([self bounds], [modifier bounds]);
+
+  return NSMakePoint(NSMidX(boundingBox), NSMaxY(boundingBox) + 1.0);
+}
+
+- (NSMutableArray *)unionWithBezierPath:(NSBezierPath *)modifier
 {
   NSMutableArray *intersections = [NSMutableArray array];
   
@@ -45,18 +55,44 @@
       [segmentSelf clipWith:segmentModifier];
     }
   }
+
+  [FLPathSegment replaceClippedSegments:segments];
+  [FLPathSegment replaceClippedSegments:segmentsModifier];
+
+  NSPoint outsidePoint = [self externalPointWithModifier:modifier];
+
+  [FLPathSegment markUnionOf:segments withModifiers:segmentsModifier outsidePoint:outsidePoint];
+  [FLPathSegment markUnionOf:segmentsModifier withModifiers:segments outsidePoint:outsidePoint];
   
-  // resolve clipping / resegment segments (both)
+  [segments filterUsingPredicate:[NSPredicate predicateWithFormat:@"keep == YES"]];
+  [segmentsModifier filterUsingPredicate:[NSPredicate predicateWithFormat:@"keep == YES"]];
   
-//  NSMutableArray *newSegmentsSelf = [NSMutableArray array];
-//  for(FLPathSegment *segment in segments) {
-//    [newSegmentSelf addObjectsFromArray:[segment resegement]];
-//  }
-//
-//  NSMutableArray *newSegmentsModifier = [NSMutableArray array];
-//  for(FLPathSegment *segment in segmentsModifier) {
-//    [newSegmentsModifier addObjectsFromArray:[segment resegement]];
-//  }
+  // reassemble point-wise
+  
+  NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithCapacity:[segments count]+[segmentsModifier count]];
+  for(FLPathSegment *segment in segments) {
+    NSValue *key = [NSValue valueWithPoint:[segment startPoint]];
+    if([dictionary objectForKey:key]) {
+      [NSException raise:@"non-unique start point" format:@"segment: %@", segments];
+    }
+    [dictionary setObject:segment forKey:key];
+  }
+  for(FLPathSegment *segment in segmentsModifier) {
+    NSValue *key = [NSValue valueWithPoint:[segment startPoint]];
+    if([dictionary objectForKey:key]) {
+      [NSException raise:@"non-unique start point" format:@"segment: %@", segments];
+    }
+    [dictionary setObject:segment forKey:key];
+  }
+  
+  // create path from segments
+  
+  NSMutableArray *unionSegments = [NSMutableArray array];
+  
+  for(int i = 0; i < MAX_FRAGMENTS; i++) {
+    // NEXT
+  }
+                            
   
   return intersections;
 }
