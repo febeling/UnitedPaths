@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "FLPathSegment.h"
 
-@interface FLIntersection : NSObject
+@interface FLIntersection : NSObject <NSCopying>
 {
   NSPoint point;
   CGFloat t;
@@ -20,5 +20,6 @@
 
 - (id)initWithPoint:(NSPoint)point time:(CGFloat)t;
 - (id)initWithPoint:(NSPoint)point;
+- (void)reprojectWithTime:(CGFloat)time;
 
 @end

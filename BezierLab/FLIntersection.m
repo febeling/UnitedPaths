@@ -26,6 +26,18 @@
   return [self initWithPoint:aPoint time:-1];
 }
 
+- (id)copyWithZone:(NSZone *)zone
+{
+  FLIntersection *copy = [[[self class] allocWithZone:zone] initWithPoint:point time:t];
+  
+  return copy;
+}
+
+- (void)reprojectWithTime:(CGFloat)sectionTime
+{
+  t = (t-sectionTime) * 1/(1-sectionTime);
+}
+
 - (NSPoint)point
 {
   return point;

@@ -22,6 +22,7 @@
 		50C36CB814DEAB4B00D1FC51 /* NSValueWithPointBugTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C36CB714DEAB4B00D1FC51 /* NSValueWithPointBugTest.m */; };
 		50C36CBC14DED08700D1FC51 /* FLPathSegmentIntersectionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C36CBB14DED08700D1FC51 /* FLPathSegmentIntersectionsTest.m */; };
 		50C36CBF14DED0F200D1FC51 /* FLGeometryHelpersTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C36CBE14DED0F200D1FC51 /* FLGeometryHelpersTest.m */; };
+		50F55FFD14DFCF4F0097425A /* FLIntersectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F55FFC14DFCF4F0097425A /* FLIntersectionTest.m */; };
 		50F886F914CF427E007AEE2E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50F886F814CF427E007AEE2E /* Cocoa.framework */; };
 		50F8870314CF427E007AEE2E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50F8870114CF427E007AEE2E /* InfoPlist.strings */; };
 		50F8870514CF427E007AEE2E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F8870414CF427E007AEE2E /* main.m */; };
@@ -51,7 +52,7 @@
 		500EBCEE14DC13F700F541D6 /* FLPathSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLPathSegment.m; sourceTree = "<group>"; };
 		500EBCF214DC146700F541D6 /* FLIntersection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLIntersection.h; sourceTree = "<group>"; };
 		500EBCF314DC146700F541D6 /* FLIntersection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLIntersection.m; sourceTree = "<group>"; };
-		500EBCF514DC19C600F541D6 /* FLPathSegmentResegmentTest.h */ = {isa = PBXFileReference; fileEncoding = 4; path = FLPathSegmentResegmentTest.h; sourceTree = "<group>"; };
+		500EBCF514DC19C600F541D6 /* FLPathSegmentResegmentTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLPathSegmentResegmentTest.h; sourceTree = "<group>"; };
 		500EBCF614DC19C600F541D6 /* FLPathSegmentResegmentTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLPathSegmentResegmentTest.m; sourceTree = "<group>"; };
 		500EBCF814DC207D00F541D6 /* NSBezierPathSegmentsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSBezierPathSegmentsTest.h; sourceTree = "<group>"; };
 		500EBCF914DC207D00F541D6 /* NSBezierPathSegmentsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSBezierPathSegmentsTest.m; sourceTree = "<group>"; };
@@ -75,6 +76,9 @@
 		50C36CBB14DED08700D1FC51 /* FLPathSegmentIntersectionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLPathSegmentIntersectionsTest.m; sourceTree = "<group>"; };
 		50C36CBD14DED0F200D1FC51 /* FLGeometryHelpersTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLGeometryHelpersTest.h; sourceTree = "<group>"; };
 		50C36CBE14DED0F200D1FC51 /* FLGeometryHelpersTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLGeometryHelpersTest.m; sourceTree = "<group>"; };
+		50F55FF914DFC3DE0097425A /* TestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHelper.h; sourceTree = "<group>"; };
+		50F55FFB14DFCF4F0097425A /* FLIntersectionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLIntersectionTest.h; sourceTree = "<group>"; };
+		50F55FFC14DFCF4F0097425A /* FLIntersectionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLIntersectionTest.m; sourceTree = "<group>"; };
 		50F886F414CF427E007AEE2E /* BezierLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BezierLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50F886F814CF427E007AEE2E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		50F886FB14CF427E007AEE2E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -164,6 +168,9 @@
 				50C36CBB14DED08700D1FC51 /* FLPathSegmentIntersectionsTest.m */,
 				50C36CBD14DED0F200D1FC51 /* FLGeometryHelpersTest.h */,
 				50C36CBE14DED0F200D1FC51 /* FLGeometryHelpersTest.m */,
+				50F55FF914DFC3DE0097425A /* TestHelper.h */,
+				50F55FFB14DFCF4F0097425A /* FLIntersectionTest.h */,
+				50F55FFC14DFCF4F0097425A /* FLIntersectionTest.m */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -382,6 +389,7 @@
 				50C36CB814DEAB4B00D1FC51 /* NSValueWithPointBugTest.m in Sources */,
 				50C36CBC14DED08700D1FC51 /* FLPathSegmentIntersectionsTest.m in Sources */,
 				50C36CBF14DED0F200D1FC51 /* FLGeometryHelpersTest.m in Sources */,
+				50F55FFD14DFCF4F0097425A /* FLIntersectionTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

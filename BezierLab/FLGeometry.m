@@ -207,6 +207,7 @@ NSArray *FLIntersectionsCurveAndCurve(NSPoint start1, NSPoint *points1, NSPoint 
 void FLPathSegmentIntersections(FLPathSegment *segment, FLPathSegment *modifier)
 {
   // TODO check for overlapping as shortcut
+  // TODO check for application to self (no sensible clippings possible)
   NSPoint *points = malloc(3*sizeof(NSPoint));
   NSPoint *pointsMod = malloc(3*sizeof(NSPoint));
   

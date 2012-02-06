@@ -16,6 +16,8 @@
   NSBezierPath *oval;
   NSMutableArray *rectSegs;
   NSMutableArray *ovalSegs;
+  FLPathSegment *lineSegment;
+  FLPathSegment *curveSegment;
 }
 
 @end
