@@ -139,6 +139,24 @@
   }
 }
 
+- (NSArray *)resegment
+{
+  NSMutableArray *array = [NSMutableArray array];
+  NSPoint currentPoint;
+
+  currentPoint = [self startPoint];
+  for(FLIntersection *intersection in [self clippings]) {
+    FLPathSegment *nextIntersectionSegment = [FLPathSegment pathSegmentWithStartPoint:currentPoint endPoint:[intersection point]];
+    [array addObject:nextIntersectionSegment];
+    currentPoint = [intersection point];
+  }
+
+  FLPathSegment *lastSegment = [FLPathSegment pathSegmentWithStartPoint:currentPoint endPoint:[self endPoint]];
+  [array addObject:lastSegment];
+  
+  return array;
+}
+
 @end
 
 #pragma mark FLPathCurveSegment
@@ -230,22 +248,31 @@
   NSPoint points[3];
   FLCurve *splits;
   
-  for(FLIntersection *intersection in [self clippings]) {
+  NSArray *intersections = [[NSArray alloc] initWithArray:[self clippings] copyItems:YES]; 
+  
+  FLPathSegment *remainingSegment = self;
+  for(int i = 0; i < [intersections count]; i++) {
+    FLIntersection *intersection = [intersections objectAtIndex:i];
+    
     NSLog(@"intersection: %@", intersection);
-    // TODO this only works for one clipping point now. If there are
-    // more, then after the first split, the recorded time value for
-    // the clips are not correct any longer.
-    // In theory it works this way:
-    // t3 = (t2-t1) * 1/(1-t1). This represents the value of t2 projected onto the — smaller than the original — subcurve. (from: Bezier Info)
     
-    [self points:points];
-    FLSplitCurveFromPoints([intersection time], startPoint, points, &splits);
+    CGFloat t = [intersection time];
     
-    FLPathSegment *newSegment0 = [FLPathSegment pathSegmentWithStartPoint:splits[0].startPoint points:splits[0].controlPoints];
-    FLPathSegment *newSegment1 = [FLPathSegment pathSegmentWithStartPoint:splits[1].startPoint points:splits[1].controlPoints];
-    [array addObject:newSegment0];
-    [array addObject:newSegment1];
+    for(int j = i+1; j < [intersections count]; j++) {
+      FLIntersection *furtherIntersection = [intersections objectAtIndex:j];
+      [furtherIntersection reprojectWithTime:t];
+    }
+    
+    [remainingSegment points:points];
+    FLSplitCurveFromPoints([intersection time], [remainingSegment startPoint], points, &splits);
+    
+    FLPathSegment *newSegment = [FLPathSegment pathSegmentWithStartPoint:splits[0].startPoint points:splits[0].controlPoints];
+    [array addObject:newSegment];
+    remainingSegment = [FLPathSegment pathSegmentWithStartPoint:splits[1].startPoint points:splits[1].controlPoints];
+    free(splits);
   }
+
+  [array addObject:remainingSegment];
   
   return array;
 }

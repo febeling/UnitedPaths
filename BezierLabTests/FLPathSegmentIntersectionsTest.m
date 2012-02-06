@@ -7,19 +7,13 @@
 //
 
 #import "FLPathSegmentIntersectionsTest.h"
+#import "TestHelper.h"
 #import "FLGeometry.h"
 #import "FLIntersection.h"
 #import "FLPathSegment.h"
 
-#define D 1.0e-3
 
-#define AssertPointsEqualWithAccuracy(P1, P2, D)                  \
-  {                                                               \
-    NSPoint __p1 = (P1);                                          \
-    NSPoint __p2 = (P2);                                          \
-    STAssertEqualsWithAccuracy(__p1.x, __p2.x, D, @"x of point"); \
-    STAssertEqualsWithAccuracy(__p1.y, __p2.y, D, @"y of point"); \
-  }
+#define D 1.0e-3
 
 @implementation FLPathSegmentIntersectionsTest
 
