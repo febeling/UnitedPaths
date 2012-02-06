@@ -10,12 +10,60 @@
 #import "FLGeometry.h"
 #import "FLIntersection.h"
 
-#define NSUINT_BIT (8 * sizeof(NSUInteger))
+#define NSUINT_BIT (CHAR_BIT * sizeof(NSUInteger))
 #define NSUINTROTATE(val, howmuch) ((((NSUInteger)val) << howmuch) | (((NSUInteger)val) >> (NSUINT_BIT - howmuch)))
 
 #pragma mark FLPathSegment
 
 @implementation FLPathSegment
+
++ (void)replaceClippedSegments:(NSMutableArray *)segments
+{
+  NSMutableDictionary *originals = [NSMutableDictionary dictionary];
+  for(id segment in segments) {
+    NSNumber *key = [NSNumber numberWithUnsignedInteger:[segment hash]];
+    [originals setObject:segment forKey:key];
+  }
+  
+  NSMutableDictionary *replacements = [NSMutableDictionary dictionary];
+  for(FLPathSegment *segment in segments) {
+    NSArray *replacement = [segment resegment];
+    if([replacement count] > 0) {
+      NSNumber *key = [NSNumber numberWithUnsignedInteger:[segment hash]];
+      [replacements setObject:replacement forKey:key];
+    }
+  }
+  
+  for(NSNumber *segmentKey in replacements) {
+    FLPathSegment *segment = [originals objectForKey:segmentKey];
+    NSRange range = NSMakeRange([segments indexOfObject:segment], 1);
+    [segments replaceObjectsInRange:range withObjectsFromArray:[replacements objectForKey:segmentKey]];
+  }
+}
+
++ (void)markCombinationOf:(NSArray *)segments
+             withModifier:(NSArray *)segmentsModifier
+             outsidePoint:(NSPoint)outsidePoint
+                     even:(BOOL)even
+{
+  for(FLPathSegment *segment in segments) {
+    NSUInteger num = 0;
+    FLPathSegment *lineToOutside = [FLPathSegment pathSegmentWithStartPoint:[segment midPoint] endPoint:outsidePoint];
+    
+    for(FLPathSegment *modSegment in segmentsModifier) {
+      num += FLPathSegmentIntersectionCount(modSegment, lineToOutside);
+    }
+    
+    segment.keep = (num%2 == even ? 0 : 1);
+  }
+}
+
++ (void)markUnionOf:(NSArray *)segments
+      withModifiers:(NSArray *)segmentsModifier
+       outsidePoint:(NSPoint)point
+{
+  [self markCombinationOf:segments withModifier:segmentsModifier outsidePoint:point even:YES];
+}
 
 + (id)pathSegmentWithStartPoint:(NSPoint)theStartPoint endPoint:(NSPoint)theEndPoint
 {
@@ -51,6 +99,7 @@
 }
 
 @synthesize clippings;
+@synthesize keep;
 
 - (NSBezierPathElement)element
 {
@@ -86,9 +135,17 @@
   return endPoint;
 }
 
+- (NSPoint)midPoint
+{
+  CGFloat x = (endPoint.x - startPoint.x) / 2 + startPoint.x;
+  CGFloat y = (endPoint.y - startPoint.y) / 2 + startPoint.y;
+  
+  return NSMakePoint(x,y);
+}
+
 - (void)points:(NSPoint *)points
 {
-  // overridden.
+  [NSException raise:@"Abstract" format:@"this method must be overridden"];
 }
 
 - (NSUInteger)hash
@@ -119,10 +176,11 @@
 
 - (NSString *)description
 {
-  return [NSString stringWithFormat:@"<%@ startPoint: %@, endPoint: %@>",
+  return [NSString stringWithFormat:@"<%@ startPoint: %@, endPoint: %@, keep: %@>",
           [self className],
           NSStringFromPoint(startPoint),
-          NSStringFromPoint(endPoint)];
+          NSStringFromPoint(endPoint),
+          self.keep ? @"YES" : @"NO"];
 }
 
 - (void)points:(NSPoint *)points
@@ -211,7 +269,8 @@
           NSStringFromPoint(startPoint),
           NSStringFromPoint(controlPoint1),
           NSStringFromPoint(controlPoint2),
-          NSStringFromPoint(endPoint)];
+          NSStringFromPoint(endPoint),
+          self.keep ? @"YES" : @"NO"];
 }
 
 - (BOOL)isEqual:(id)other
@@ -245,22 +304,18 @@
 - (NSArray *)resegment
 {
   NSMutableArray *array = [NSMutableArray array];
-  NSPoint points[3];
-  FLCurve *splits;
   
   NSArray *intersections = [[NSArray alloc] initWithArray:[self clippings] copyItems:YES]; 
   
   FLPathSegment *remainingSegment = self;
   for(int i = 0; i < [intersections count]; i++) {
+    NSPoint points[3];
+    FLCurve *splits;
     FLIntersection *intersection = [intersections objectAtIndex:i];
-    
-    NSLog(@"intersection: %@", intersection);
-    
-    CGFloat t = [intersection time];
-    
+
     for(int j = i+1; j < [intersections count]; j++) {
       FLIntersection *furtherIntersection = [intersections objectAtIndex:j];
-      [furtherIntersection reprojectWithTime:t];
+      [furtherIntersection reprojectWithTime:[intersection time]];
     }
     
     [remainingSegment points:points];

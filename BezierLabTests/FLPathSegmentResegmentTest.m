@@ -115,4 +115,15 @@
   }
 }
 
+#pragma mark replaceClippedSegments:
+
+- (void)testReplaceSegments
+{
+  STAssertEquals([rectSegs count], 4ul, nil);
+
+  [FLPathSegment replaceClippedSegments:rectSegs];
+  
+  STAssertEquals([rectSegs count], 6ul, nil);
+}
+
 @end

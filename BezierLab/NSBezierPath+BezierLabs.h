@@ -13,7 +13,7 @@
 
 - (NSBezierPath *)bezierPathByUnionWith:(NSBezierPath *)modifier;
 - (void)appendBezierPathWithElement:(NSBezierPathElement)element associatedPoints:(NSPointArray)points;
-- (NSMutableArray *)intersectionsWithBezierPath:(NSBezierPath *)modifier;
+- (NSMutableArray *)unionWithBezierPath:(NSBezierPath *)modifier;
 - (NSMutableArray *)segments;
 
 @end

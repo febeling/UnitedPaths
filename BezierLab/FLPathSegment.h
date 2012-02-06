@@ -15,6 +15,15 @@
   NSMutableArray *clippings;
 }
 
++ (void)replaceClippedSegments:(NSMutableArray *)segments;
++ (void)markCombinationOf:(NSArray *)segments
+             withModifier:(NSArray *)modifiers
+             outsidePoint:(NSPoint)outsidePoint
+                     even:(BOOL)even;
++ (void)markUnionOf:(NSArray *)segments
+      withModifiers:(NSArray *)modifiers
+       outsidePoint:(NSPoint)point;
+
 + (id)pathSegmentWithStartPoint:(NSPoint)theStartPoint endPoint:(NSPoint)theEndPoint;
 + (id)pathSegmentWithStartPoint:(NSPoint)theStartPoint points:(NSPoint *)points;
 + (id)pathSegmentWithStartPoint:(NSPoint)theStartPoint
@@ -31,7 +40,9 @@
 @property (readonly) NSBezierPathElement element;
 @property (readonly) NSPoint startPoint;
 @property (readonly) NSPoint endPoint;
+@property (readonly) NSPoint midPoint;
 @property (strong) NSMutableArray *clippings;
+@property (assign) BOOL keep;
 
 @end
 
