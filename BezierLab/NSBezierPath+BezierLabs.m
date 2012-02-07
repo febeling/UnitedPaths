@@ -90,15 +90,15 @@
   [FLPathSegment markUnionOf:segments withModifiers:segmentsModifier outsidePoint:outsidePoint];
   [FLPathSegment markUnionOf:segmentsModifier withModifiers:segments outsidePoint:outsidePoint];
 
-  NSLog(@"segments: %@", segments);
-  NSLog(@"modifier: %@", segmentsModifier);
+//  NSLog(@"segments: %@", segments);
+//  NSLog(@"modifier: %@", segmentsModifier);
   
   [segments filterUsingPredicate:[NSPredicate predicateWithFormat:@"keep == YES"]];
   [segmentsModifier filterUsingPredicate:[NSPredicate predicateWithFormat:@"keep == YES"]];
 
   NSMutableArray *unionSegments = [self reassembleSegments:segments modifier:segmentsModifier];
   
-  NSLog(@"union segments: %@", unionSegments);
+//  NSLog(@"union segments: %@", unionSegments);
   
   return unionSegments;
 }
@@ -149,6 +149,42 @@
 - (NSBezierPath *)bezierPathByUnionWith:(NSBezierPath *)modifier
 {
   return nil;
+}
+
+- (BOOL)isEqualToBezierPath:(NSBezierPath *)aPath
+{
+  if(self == aPath) return YES;
+  if([self elementCount] != [aPath elementCount]) return NO;
+  
+  NSPoint pointsSelf[3];
+  NSPoint pointsOther[3];
+  NSUInteger count = [self elementCount];
+  
+  
+  for(int i = 0; i<count; i++) {
+    NSBezierPathElement elementSelf = [self elementAtIndex:i associatedPoints:pointsSelf];
+    NSBezierPathElement elementOther = [aPath elementAtIndex:i associatedPoints:pointsOther];
+    
+    if(elementSelf != elementOther) {
+      return NO;
+    } else {
+      if(NSLineToBezierPathElement == elementSelf && !NSEqualPoints(pointsSelf[0], pointsOther[0])) {
+        return NO;
+      }
+      if(NSCurveToBezierPathElement == elementSelf &&
+         !(NSEqualPoints(pointsSelf[0], pointsOther[0]) &&
+           NSEqualPoints(pointsSelf[1], pointsOther[1]) &&
+           NSEqualPoints(pointsSelf[2], pointsOther[2]))) {
+        return NO;
+      }
+      if(NSMoveToBezierPathElement == elementSelf && !NSEqualPoints(pointsSelf[0], pointsOther[0])) {
+        return NO;
+      } 
+      // NSClosePathBezierPathElement has not additional information.
+    }
+  }
+  
+  return YES;
 }
 
 @end
