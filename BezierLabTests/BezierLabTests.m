@@ -20,23 +20,40 @@
   [translation translateXBy:20 yBy:10];
 }
 
-- (void)testUnionRectAndAnotherRect
+- (void)testUnionRectAndAnotherRect_ToTheTopRight
 {
   NSBezierPath *anotherRectPath = [rectPath copy];
   [anotherRectPath transformUsingAffineTransform:translation];
-//  NSBezierPath *newPath;
-  [rectPath unionWithBezierPath:anotherRectPath];
-  
+
+  STAssertNoThrow([rectPath unionWithBezierPath:anotherRectPath], nil);  
 }
 
-/*
+- (void)testUnionRectAndAnotherRect_TShapedUnion
+{
+  NSBezierPath *top = [NSBezierPath bezierPathWithRect:NSMakeRect(0,10,30,20)];
+  NSBezierPath *trunk = [NSBezierPath bezierPathWithRect:NSMakeRect(10,0,10,20)];
+
+  STAssertNoThrow([trunk unionWithBezierPath:top], nil);
+
+//  NSArray *segments = [NSArray arrayWithObjects:
+//                       @"<FLPathLineSegment startPoint: {10, 0}, endPoint: {20, 0}, keep: YES>",
+//                       @"<FLPathLineSegment startPoint: {20, 0}, endPoint: {20, 10}, keep: YES>",
+//                       @"<FLPathLineSegment startPoint: {20, 10}, endPoint: {30, 10}, keep: YES>",
+//                       @"<FLPathLineSegment startPoint: {30, 10}, endPoint: {30, 30}, keep: YES>",
+//                       @"<FLPathLineSegment startPoint: {30, 30}, endPoint: {0, 30}, keep: YES>",
+//                       @"<FLPathLineSegment startPoint: {0, 30}, endPoint: {0, 10}, keep: YES>",
+//                       @"<FLPathLineSegment startPoint: {0, 10}, endPoint: {10, 10}, keep: YES>",
+//                       @"<FLPathLineSegment startPoint: {10, 10}, endPoint: {10, 0}, keep: YES>", nil];
+//  
+//  STAssertEqualObjects([unionSegments valueForKey:@"description"], segments, nil);
+}
+
 - (void)testUnionRectAndRoundedRect
 {
-  NSBezierPath *newPath = [rectPath bezierPathByUnionWith:roundedRectPath];
+  [roundedRectPath transformUsingAffineTransform:translation];
   
-  STAssertNotNil(newPath, nil);
+  STAssertNoThrow([rectPath unionWithBezierPath:roundedRectPath], nil);
 }
- */
 
 - (void)testCreatingPathFristNeedsAMoveToCommand
 {

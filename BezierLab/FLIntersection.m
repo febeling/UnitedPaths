@@ -10,12 +10,12 @@
 
 @implementation FLIntersection
 
-- (id)initWithPoint:(NSPoint)aPoint time:(CGFloat)time
+- (id)initWithPoint:(NSPoint)aPoint time:(CGFloat)t
 {
   self = [super init];
   if(self) {
     point = aPoint;
-    t = time;
+    time = t;
   }
   
   return self;
@@ -28,38 +28,31 @@
 
 - (id)copyWithZone:(NSZone *)zone
 {
-  FLIntersection *copy = [[[self class] allocWithZone:zone] initWithPoint:point time:t];
+  FLIntersection *copy = [[[self class] allocWithZone:zone] initWithPoint:point time:time];
   
   return copy;
 }
 
 - (void)reprojectWithTime:(CGFloat)sectionTime
 {
-  t = (t-sectionTime) * 1/(1-sectionTime);
+  time = (time-sectionTime) * 1.0/(1.0-sectionTime);
 }
 
-- (NSPoint)point
-{
-  return point;
-}
+@synthesize point = point;
+@synthesize time = time;
 
-- (CGFloat)time
-{
-  return t;
-}
-
-- (BOOL)isEqual:(id)other // test
+- (BOOL)isEqual:(id)other // TODO test
 {
   if(![other isKindOfClass:[self class]]) return NO;
   
   FLIntersection *otherIntersection = (FLIntersection *)other;
   
-  return NSEqualPoints([otherIntersection point], point) && [otherIntersection time] == t;
+  return NSEqualPoints([otherIntersection point], point) && [otherIntersection time] == time;
 }
 
 - (NSString *)description
 {
-  return [NSString stringWithFormat:@"<%@ point: %@, time: %.16f>", [self className], NSStringFromPoint(point), t];
+  return [NSString stringWithFormat:@"<%@ point: %@, time: %.16f>", [self className], NSStringFromPoint(point), time];
 }
 
 @end

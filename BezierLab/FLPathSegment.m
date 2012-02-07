@@ -108,9 +108,9 @@
   return 0;
 }
 
-- (void)clipWith:(FLPathSegment *)modifier
+- (NSArray *)clipWith:(FLPathSegment *)modifier
 {
-  FLPathSegmentIntersections(self, modifier);
+  return FLPathSegmentIntersections(self, modifier);
 }
 
 - (void)addClippingsWithIntersections:(NSArray *)intersections info:(NSArray *)info isFirst:(BOOL)first
@@ -192,7 +192,8 @@
 {
   for(int i = 0; i < [intersections count]; i++) {
     NSPoint point = [[intersections objectAtIndex:i] pointValue];
-    FLIntersection *intersection = [[FLIntersection alloc] initWithPoint:point];
+    CGFloat t = FLLineSegmentLength(startPoint, point) / FLLineSegmentLength(startPoint, endPoint);
+    FLIntersection *intersection = [[FLIntersection alloc] initWithPoint:point time:t];
     [[self clippings] addObject:intersection];
   }
 }
@@ -200,9 +201,10 @@
 - (NSArray *)resegment
 {
   NSMutableArray *array = [NSMutableArray array];
-  NSPoint currentPoint;
 
-  currentPoint = [self startPoint];
+  [[self clippings] sortUsingSelector:@selector(time)];
+  
+  NSPoint currentPoint = [self startPoint];
   for(FLIntersection *intersection in [self clippings]) {
     FLPathSegment *nextIntersectionSegment = [FLPathSegment pathSegmentWithStartPoint:currentPoint endPoint:[intersection point]];
     [array addObject:nextIntersectionSegment];
