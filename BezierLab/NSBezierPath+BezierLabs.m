@@ -43,6 +43,32 @@
   return NSMakePoint(NSMidX(boundingBox), NSMaxY(boundingBox) + 1.0);
 }
 
+- (NSMutableArray *)reassembleSegments:(NSArray *)segments modifier:(NSArray *)segmentsModifier
+{
+  NSMutableArray *assembled = [NSMutableArray array];
+
+  NSMutableDictionary *segmentByStartPoint = [[segments dictionaryWithKeysUsing:^(id segment) {
+    return (id)[NSValue valueWithPoint:[(FLPathSegment *)segment startPoint]];
+  }] mutableCopy];
+  [segmentByStartPoint addEntriesFromDictionary:[segmentsModifier dictionaryWithKeysUsing:^(id segment) {
+    return (id)[NSValue valueWithPoint:[(FLPathSegment *)segment startPoint]];
+  }]];
+  
+  FLPathSegment *nextSegment = [segments objectAtIndex:0];
+  [segmentByStartPoint removeObjectForKey:[NSValue valueWithPoint:[nextSegment startPoint]]];
+  
+  // TODO This algorithm only works when the resulting path is
+  //      continuous. Make work for multiple subpaths as well.
+  while(nextSegment) {
+    [assembled addObject:nextSegment];
+    NSValue *key = [NSValue valueWithPoint:[nextSegment endPoint]];
+    nextSegment = [segmentByStartPoint objectForKey:key];
+    [segmentByStartPoint removeObjectForKey:key];
+  }
+
+  return assembled;
+}
+
 - (NSMutableArray *)unionWithBezierPath:(NSBezierPath *)modifier
 {
   NSMutableArray *intersections = [NSMutableArray array];
@@ -52,7 +78,7 @@
   
   for(FLPathSegment *segmentSelf in segments) {
     for(FLPathSegment *segmentModifier in segmentsModifier) {
-      [segmentSelf clipWith:segmentModifier];
+      [intersections addObjectsFromArray:[segmentSelf clipWith:segmentModifier]];
     }
   }
 
@@ -63,38 +89,18 @@
 
   [FLPathSegment markUnionOf:segments withModifiers:segmentsModifier outsidePoint:outsidePoint];
   [FLPathSegment markUnionOf:segmentsModifier withModifiers:segments outsidePoint:outsidePoint];
+
+  NSLog(@"segments: %@", segments);
+  NSLog(@"modifier: %@", segmentsModifier);
   
   [segments filterUsingPredicate:[NSPredicate predicateWithFormat:@"keep == YES"]];
   [segmentsModifier filterUsingPredicate:[NSPredicate predicateWithFormat:@"keep == YES"]];
+
+  NSMutableArray *unionSegments = [self reassembleSegments:segments modifier:segmentsModifier];
   
-  // reassemble point-wise
+  NSLog(@"union segments: %@", unionSegments);
   
-  NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithCapacity:[segments count]+[segmentsModifier count]];
-  for(FLPathSegment *segment in segments) {
-    NSValue *key = [NSValue valueWithPoint:[segment startPoint]];
-    if([dictionary objectForKey:key]) {
-      [NSException raise:@"non-unique start point" format:@"segment: %@", segments];
-    }
-    [dictionary setObject:segment forKey:key];
-  }
-  for(FLPathSegment *segment in segmentsModifier) {
-    NSValue *key = [NSValue valueWithPoint:[segment startPoint]];
-    if([dictionary objectForKey:key]) {
-      [NSException raise:@"non-unique start point" format:@"segment: %@", segments];
-    }
-    [dictionary setObject:segment forKey:key];
-  }
-  
-  // create path from segments
-  
-  NSMutableArray *unionSegments = [NSMutableArray array];
-  
-  for(int i = 0; i < MAX_FRAGMENTS; i++) {
-    // NEXT
-  }
-                            
-  
-  return intersections;
+  return unionSegments;
 }
 
 - (NSMutableArray *)segments

@@ -36,11 +36,12 @@ FLLine FLLineFromPoints(NSPoint p1, NSPoint p2);
 BOOL FLIntersectionLineAndLine(NSPoint p1, NSPoint p2, NSPoint p3, NSPoint p4, NSPoint *x);
 NSPoint FLCurvePoint(NSPoint start, NSPoint points[], CGFloat t);
 void FLCurveToSegments(NSPoint start, NSPoint points[], NSUInteger n, FLSegment segments[]);
+NSArray *FLIntersectionsLineAndCurve(NSPoint lineStart, NSPoint lineEnd, NSPoint startCurve, NSPoint* curvePoints, NSUInteger n, NSInteger pos, NSArray **info);
 BOOL FLPointsAreClose(NSPoint p1, NSPoint p2);
 NSPoint FLInterpolateCurvePoint(NSPoint segStart, NSPoint segEnd, NSPoint segIntersec, CGFloat segStartT, CGFloat segEndT, NSPoint curveStart, NSPoint *curvePoints);
 CGFloat FLInterpolateCurveT(NSPoint segStart, NSPoint segEnd, NSPoint segIntersec, CGFloat segStartT, CGFloat segEndT, NSPoint curveStart, NSPoint *curvePoints);
 NSUInteger FLPathSegmentIntersectionCount(FLPathSegment *segment, FLPathSegment *modifier);
-void FLPathSegmentIntersections(FLPathSegment *segment, FLPathSegment *modifier);
+NSArray *FLPathSegmentIntersections(FLPathSegment *segment, FLPathSegment *modifier);
 NSArray *FLPathElementIntersections(NSBezierPathElement element1,
                                     NSPoint start1,
                                     NSPoint points1[],

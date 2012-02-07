@@ -95,11 +95,10 @@ BOOL FLPointsAreClose(NSPoint p1, NSPoint p2)
   return fabs(d) < CLOSE_DIST;
 }
 
-static
 NSArray *FLIntersectionsLineAndCurve(NSPoint lineStart, NSPoint lineEnd, NSPoint startCurve, NSPoint* curvePoints, NSUInteger n, NSInteger pos, NSArray **info)
 {
   NSMutableArray *array = [NSMutableArray array];
-  NSMutableArray *intersectionInfo = [NSMutableArray array];
+  NSMutableArray *intersectionInfo = info ? [NSMutableArray array] : nil;
   FLSegment segments[n];
 
   FLCurveToSegments(startCurve, curvePoints, n, segments);
@@ -120,8 +119,11 @@ NSArray *FLIntersectionsLineAndCurve(NSPoint lineStart, NSPoint lineEnd, NSPoint
       if(!FLPointsAreClose([[array lastObject] pointValue], curve_point)) {
         numIntersections++;
         [array addObject:[NSValue valueWithPoint:curve_point]];
-        [intersectionInfo addObject:[NSDictionary dictionaryWithObject:[NSNumber numberWithDouble:x_t] forKey:[NSString stringWithFormat:@"t%d", pos]]];
-        *info = intersectionInfo;
+
+        if(info) {
+          [intersectionInfo addObject:[NSDictionary dictionaryWithObject:[NSNumber numberWithDouble:x_t] forKey:[NSString stringWithFormat:@"t%d", pos]]];
+          *info = intersectionInfo;
+        }
 
         if(numIntersections == MAX_INTERSECTIONS_CUBIC) break;
       }
@@ -265,7 +267,7 @@ NSArray *FLPathElementIntersections(NSBezierPathElement element0,
   return array;
 }
 
-void FLPathSegmentIntersections(FLPathSegment *segment, FLPathSegment *modifier)
+NSArray *FLPathSegmentIntersections(FLPathSegment *segment, FLPathSegment *modifier)
 {
   NSArray *info;
   
@@ -273,6 +275,8 @@ void FLPathSegmentIntersections(FLPathSegment *segment, FLPathSegment *modifier)
   
   [segment addClippingsWithIntersections:intersections info:info isFirst:YES];
   [modifier addClippingsWithIntersections:intersections info:info isFirst:NO];
+  
+  return intersections;
 }
 
 static

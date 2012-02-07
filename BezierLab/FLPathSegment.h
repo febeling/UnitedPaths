@@ -33,7 +33,7 @@
 
 - (id)initWithStartPoint:(NSPoint)theStartPoint endPoint:(NSPoint)theEndPoint;
 - (void)points:(NSPoint *)points;
-- (void)clipWith:(FLPathSegment *)modifier;
+- (NSArray *)clipWith:(FLPathSegment *)modifier;
 - (void)addClippingsWithIntersections:(NSArray *)intersections info:(NSArray *)info isFirst:(BOOL)first;
 - (NSArray *)resegment;
 

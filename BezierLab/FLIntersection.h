@@ -12,11 +12,11 @@
 @interface FLIntersection : NSObject <NSCopying>
 {
   NSPoint point;
-  CGFloat t;
+  CGFloat time;
 }
 
 @property (readonly) NSPoint point;
-@property (readonly) CGFloat time;
+@property (assign) CGFloat time;
 
 - (id)initWithPoint:(NSPoint)point time:(CGFloat)t;
 - (id)initWithPoint:(NSPoint)point;

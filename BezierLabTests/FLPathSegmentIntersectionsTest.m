@@ -32,7 +32,7 @@
 
   [segment1 clipWith:segment2];
   
-  FLIntersection *intersection = [[FLIntersection alloc] initWithPoint:NSMakePoint(1.5, 1)];
+  FLIntersection *intersection = [[FLIntersection alloc] initWithPoint:NSMakePoint(1.5, 1) time:0.5];
   
   STAssertEqualObjects([segment1 clippings], [NSArray arrayWithObject:intersection], nil);
   STAssertEqualObjects([segment2 clippings], [NSArray arrayWithObject:intersection], nil);
@@ -69,10 +69,11 @@
 
   [segment1 clipWith:segment2];  
   
-  STAssertEqualObjects([segment1 clippings], [NSArray arrayWithObject:[[FLIntersection alloc] initWithPoint:NSMakePoint(1.5006202471811767, 1.5006202471811767)]], nil);
+  STAssertEqualObjects([segment1 clippings], [NSArray arrayWithObject:[[FLIntersection alloc] initWithPoint:NSMakePoint(1.5006202471811767, 1.5006202471811767)
+                                                                                                       time:0.5000000427451722]], nil);
 
   FLIntersection *intersection = [[segment2 clippings] objectAtIndex:0];
-  STAssertEqualsWithAccuracy([intersection time], 0.2064088, D, nil);
+  STAssertEqualsWithAccuracy([intersection time], 0.2064, D, nil);
   STAssertEquals([intersection point], NSMakePoint(1.5006202471811767, 1.5006202471811767), nil);
 }
 
@@ -85,7 +86,7 @@
 
   [segment1 clipWith:segment2];
   
-  STAssertEqualObjects([segment1 clippings], [NSArray arrayWithObject:[[FLIntersection alloc] initWithPoint:NSMakePoint(1.125, 1.875)]], nil);
+  STAssertEqualObjects([segment1 clippings], [NSArray arrayWithObject:[[FLIntersection alloc] initWithPoint:NSMakePoint(1.125, 1.875) time:0.375]], nil);
 
   FLIntersection *intersection = [[segment2 clippings] objectAtIndex:0];
   STAssertEqualsWithAccuracy([intersection time], 0.5, D, nil);
@@ -101,7 +102,8 @@
   
   [segment1 clipWith:segment2];
   
-  STAssertEqualObjects([segment1 clippings], [NSArray arrayWithObject:[[FLIntersection alloc] initWithPoint:NSMakePoint(1.875, 1.125)]], nil);
+  STAssertEqualObjects([segment1 clippings], [NSArray arrayWithObject:[[FLIntersection alloc] initWithPoint:NSMakePoint(1.875, 1.125)
+                                                                                                       time:0.6250000000000001]], nil);
 
   FLIntersection *intersection = [[segment2 clippings] objectAtIndex:0];
   STAssertEqualsWithAccuracy([intersection time], 0.5, D, nil);
@@ -117,7 +119,8 @@
 
   [segment1 clipWith:segment2];
   
-  STAssertEqualObjects([segment1 clippings], [NSArray arrayWithObject:[[FLIntersection alloc] initWithPoint:NSMakePoint(1.5, 1.5)]], nil);
+  STAssertEqualObjects([segment1 clippings], [NSArray arrayWithObject:[[FLIntersection alloc] initWithPoint:NSMakePoint(1.5, 1.5)
+                                                                                                       time:0.5]], nil);
   
   FLIntersection *intersection = [[segment2 clippings] objectAtIndex:0];
   STAssertEqualsWithAccuracy([intersection time], 0.5, D, nil);
@@ -133,7 +136,8 @@
   
   [segment1 clipWith:segment2];
 
-  STAssertEqualObjects([segment1 clippings], [NSArray arrayWithObject:[[FLIntersection alloc] initWithPoint:NSMakePoint(1.5, 1.5)]], nil);
+  STAssertEqualObjects([segment1 clippings], [NSArray arrayWithObject:[[FLIntersection alloc] initWithPoint:NSMakePoint(1.5, 1.5)
+                                                                                                       time:0.5]], nil);
   
   FLIntersection *intersection = [[segment2 clippings] objectAtIndex:0];
   STAssertEqualsWithAccuracy([intersection time], 0.5, D, nil);
@@ -166,15 +170,15 @@
   {
     FLIntersection *intersection0 = [[lineSegment clippings] objectAtIndex:0];
     STAssertEquals([intersection0 point], NSMakePoint(0.57196642028061473, 0.10636256144262296), nil);
-    STAssertEqualsWithAccuracy([intersection0 time], -1.0, D, nil);
+    STAssertEqualsWithAccuracy([intersection0 time], 0.035, D, nil);
     
     FLIntersection *intersection1 = [[lineSegment clippings] objectAtIndex:1];
     STAssertEquals([intersection1 point], NSMakePoint(1.5, 1.5), nil);
-    STAssertEqualsWithAccuracy([intersection1 time], -1.0, D, nil);
+    STAssertEqualsWithAccuracy([intersection1 time], 0.5, D, nil);
     
     FLIntersection *intersection2 = [[lineSegment clippings] objectAtIndex:2];
     STAssertEquals([intersection2 point], NSMakePoint(2.428033579719385, 2.8936374385573771), nil);
-    STAssertEqualsWithAccuracy([intersection2 time], -1.0, D, nil);
+    STAssertEqualsWithAccuracy([intersection2 time], 0.964, D, nil);
   }
 }
 
@@ -204,15 +208,15 @@
   {
     FLIntersection *intersection0 = [[lineSegment clippings] objectAtIndex:0];
     STAssertEquals([intersection0 point], NSMakePoint(0.57196642028061473, 0.10636256144262296), nil);
-    STAssertEqualsWithAccuracy([intersection0 time], -1.0, D, nil);
+    STAssertEqualsWithAccuracy([intersection0 time], 0.035, D, nil);
     
     FLIntersection *intersection1 = [[lineSegment clippings] objectAtIndex:1];
     STAssertEquals([intersection1 point], NSMakePoint(1.5, 1.5), nil);
-    STAssertEqualsWithAccuracy([intersection1 time], -1.0, D, nil);
+    STAssertEqualsWithAccuracy([intersection1 time], 0.5, D, nil);
     
     FLIntersection *intersection2 = [[lineSegment clippings] objectAtIndex:2];
     STAssertEquals([intersection2 point], NSMakePoint(2.428033579719385, 2.8936374385573771), nil);
-    STAssertEqualsWithAccuracy([intersection2 time], -1.0, D, nil);
+    STAssertEqualsWithAccuracy([intersection2 time], 0.964, D, nil);
   }
 }
 
