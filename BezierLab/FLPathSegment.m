@@ -222,9 +222,12 @@
 {
   for(int i = 0; i < [intersections count]; i++) {
     NSPoint point = [[intersections objectAtIndex:i] pointValue];
-    CGFloat t = FLLineSegmentLength(startPoint, point) / FLLineSegmentLength(startPoint, endPoint);
-    FLIntersection *intersection = [[FLIntersection alloc] initWithPoint:point time:t];
-    [[self clippings] addObject:intersection];
+
+    if(!NSEqualPoints(point, startPoint) && !NSEqualPoints(point, endPoint)) {
+      CGFloat t = FLLineSegmentLength(startPoint, point) / FLLineSegmentLength(startPoint, endPoint);
+      FLIntersection *intersection = [[FLIntersection alloc] initWithPoint:point time:t];
+      [[self clippings] addObject:intersection];
+    }
   }
 }
 
