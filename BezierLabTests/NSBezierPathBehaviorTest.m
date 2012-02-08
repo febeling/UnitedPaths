@@ -19,4 +19,21 @@
   STAssertNoThrow([[NSBezierPath bezierPath] moveToPoint:NSMakePoint(1,1)], nil);
 }
 
+- (void)testCreatingPathFristNeedsAMoveToCommand_CloseInsertsMove
+{
+  NSBezierPath *path = [NSBezierPath bezierPath];
+  [path moveToPoint:NSMakePoint(1,1)];
+  [path closePath];
+  
+  STAssertEquals([path elementCount], 3l, nil);
+}
+
+- (void)testCreatingPathFristNeedsAMoveToCommand_CloseWithoutCurrentPointDoesNothing
+{
+  NSBezierPath *path = [NSBezierPath bezierPath];
+  [path closePath];
+  
+  STAssertEquals([path elementCount], 0l, nil);
+}
+
 @end
