@@ -53,10 +53,10 @@
   [segmentByStartPoint addEntriesFromDictionary:[segmentsModifier dictionaryWithKeysUsing:^(id segment) {
     return (id)[NSValue valueWithPoint:[(FLPathSegment *)segment startPoint]];
   }]];
-  
+
   FLPathSegment *nextSegment = [segments objectAtIndex:0];
   [segmentByStartPoint removeObjectForKey:[NSValue valueWithPoint:[nextSegment startPoint]]];
-  
+
   // TODO This algorithm only works when the resulting path is
   //      continuous. Make work for multiple subpaths as well.
   while(nextSegment) {
@@ -72,16 +72,28 @@
 - (NSMutableArray *)unionWithBezierPath:(NSBezierPath *)modifier
 {
   NSMutableArray *intersections = [NSMutableArray array];
-  
+
   NSMutableArray *segments = [self segments];
   NSMutableArray *segmentsModifier = [modifier segments];
-  
+
+  NSLog(@"segments: %@", segments);
+  NSLog(@"modifier: %@", segmentsModifier);
+
   for(FLPathSegment *segmentSelf in segments) {
     for(FLPathSegment *segmentModifier in segmentsModifier) {
       [intersections addObjectsFromArray:[segmentSelf clipWith:segmentModifier]];
     }
   }
-
+  
+  for(FLPathSegment *segmentSelf in segments) {
+    NSLog(@"> segment from self: %@", segmentSelf);
+    NSLog(@" - clippings: %@", [segmentSelf clippings]);
+  }
+  for(FLPathSegment *segmentModifier in segmentsModifier) {
+    NSLog(@"> segment from modifier: %@", segmentModifier);    
+    NSLog(@" - clippings: %@", [segmentModifier clippings]);
+  }
+  
   [FLPathSegment replaceClippedSegments:segments];
   [FLPathSegment replaceClippedSegments:segmentsModifier];
 
@@ -90,15 +102,15 @@
   [FLPathSegment markUnionOf:segments withModifiers:segmentsModifier outsidePoint:outsidePoint];
   [FLPathSegment markUnionOf:segmentsModifier withModifiers:segments outsidePoint:outsidePoint];
 
-//  NSLog(@"segments: %@", segments);
-//  NSLog(@"modifier: %@", segmentsModifier);
+  NSLog(@"segments clipped: %@", segments);
+  NSLog(@"modifier clipped: %@", segmentsModifier);
   
   [segments filterUsingPredicate:[NSPredicate predicateWithFormat:@"keep == YES"]];
   [segmentsModifier filterUsingPredicate:[NSPredicate predicateWithFormat:@"keep == YES"]];
 
   NSMutableArray *unionSegments = [self reassembleSegments:segments modifier:segmentsModifier];
   
-//  NSLog(@"union segments: %@", unionSegments);
+  NSLog(@"union segments: %@", unionSegments);
   
   return unionSegments;
 }
@@ -149,9 +161,9 @@
 - (NSBezierPath *)bezierPathByUnionWith:(NSBezierPath *)modifier
 {
   NSArray *unionSegments = [self unionWithBezierPath:modifier];
-  
+
   NSBezierPath *bezierPath = [FLPathSegment bezierPathWithSegments:unionSegments];
-  
+
   return bezierPath;
 }
 
@@ -163,12 +175,11 @@
   NSPoint pointsSelf[3];
   NSPoint pointsOther[3];
   NSUInteger count = [self elementCount];
-  
-  
+
   for(int i = 0; i<count; i++) {
     NSBezierPathElement elementSelf = [self elementAtIndex:i associatedPoints:pointsSelf];
     NSBezierPathElement elementOther = [aPath elementAtIndex:i associatedPoints:pointsOther];
-    
+
     if(elementSelf != elementOther) {
       return NO;
     } else {
@@ -187,7 +198,7 @@
       // NSClosePathBezierPathElement has not additional information.
     }
   }
-  
+
   return YES;
 }
 
