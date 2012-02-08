@@ -6,10 +6,10 @@
 //  Copyright (c) 2012 40lines. All rights reserved.
 //
 
-#import "NSArrayCreateDictionaryUsingBlock.h"
+#import "NSArrayCreateDictionaryUsingBlockTest.h"
 #import "NSArray+CreateDictionaryUsingBlock.h"
 
-@implementation NSArrayCreateDictionaryUsingBlock
+@implementation NSArrayCreateDictionaryUsingBlockTest
 
 - (void)testCreateDictionaryUsingBlock
 {

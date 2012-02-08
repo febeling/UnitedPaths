@@ -6,11 +6,11 @@
 //  Copyright (c) 2012 40lines. All rights reserved.
 //
 
-#import "FLGeometryLineCurveIntersection.h"
+#import "FLGeometryLineCurveIntersectionTest.h"
 #import "FLGeometry.h"
 #import "TestHelper.h"
 
-@implementation FLGeometryLineCurveIntersection
+@implementation FLGeometryLineCurveIntersectionTest
 
 - (void)testParameterInfoIsOptional
 {
