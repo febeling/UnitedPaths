@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 40lines. All rights reserved.
 //
 
-#import "FLGeometryCurveSplit.h"
+#import "FLGeometryCurveSplitTest.h"
 
-@implementation FLGeometryCurveSplit
+@implementation FLGeometryCurveSplitTest
 
 - (void)setUp
 {

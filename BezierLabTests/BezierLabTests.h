@@ -13,7 +13,6 @@
 {
   NSBezierPath *rectPath;
   NSBezierPath *roundedRectPath;
-  NSBezierPath *path;
   NSAffineTransform *translation;
 }
 @end
