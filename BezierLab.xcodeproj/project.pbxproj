@@ -77,7 +77,7 @@
 		5047F4A114D198910068AFE4 /* FLGeometryPathElementIntersectionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLGeometryPathElementIntersectionsTest.m; sourceTree = "<group>"; };
 		505D876C14D2D24F0091BB4D /* FLGeometryCurveSplitTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLGeometryCurveSplitTest.h; sourceTree = "<group>"; };
 		505D876D14D2D24F0091BB4D /* FLGeometryCurveSplitTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLGeometryCurveSplitTest.m; sourceTree = "<group>"; };
-		5078B1D914E1163D0034D155 /* NSArrayCreateDictionaryUsingBlockTest.h */ = {isa = PBXFileReference; fileEncoding = 4; path = NSArrayCreateDictionaryUsingBlockTest.h; sourceTree = "<group>"; };
+		5078B1D914E1163D0034D155 /* NSArrayCreateDictionaryUsingBlockTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSArrayCreateDictionaryUsingBlockTest.h; sourceTree = "<group>"; };
 		5078B1DA14E1163D0034D155 /* NSArrayCreateDictionaryUsingBlockTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSArrayCreateDictionaryUsingBlockTest.m; sourceTree = "<group>"; };
 		5078B1E114E157340034D155 /* FLGeometryLineCurveIntersectionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLGeometryLineCurveIntersectionTest.h; sourceTree = "<group>"; };
 		5078B1E214E157340034D155 /* FLGeometryLineCurveIntersectionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLGeometryLineCurveIntersectionTest.m; sourceTree = "<group>"; };
@@ -145,25 +145,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		500EBCF114DC141500F541D6 /* Classes */ = {
+		500EBCF114DC141500F541D6 /* Application */ = {
 			isa = PBXGroup;
 			children = (
 				50F8872F14CF4769007AEE2E /* FLCanvas.h */,
 				50F8873014CF4769007AEE2E /* FLCanvas.m */,
 				50F8870A14CF427E007AEE2E /* FLDocument.h */,
 				50F8870B14CF427E007AEE2E /* FLDocument.m */,
-				500FCBFE14D02BF700F8689C /* FLGeometry.h */,
-				500FCBFF14D02BF700F8689C /* FLGeometry.m */,
-				500EBCF214DC146700F541D6 /* FLIntersection.h */,
-				500EBCF314DC146700F541D6 /* FLIntersection.m */,
-				500EBCED14DC13F700F541D6 /* FLPathSegment.h */,
-				500EBCEE14DC13F700F541D6 /* FLPathSegment.m */,
-				5078B1F814E280310034D155 /* NSArray+CreateDictionaryUsingBlock.h */,
-				5078B1F914E280310034D155 /* NSArray+CreateDictionaryUsingBlock.m */,
-				5015CB5E14DAB5E500BE3345 /* NSBezierPath+BezierLabs.h */,
-				5015CB5F14DAB5E500BE3345 /* NSBezierPath+BezierLabs.m */,
 			);
-			name = Classes;
+			name = Application;
 			sourceTree = "<group>";
 		};
 		500EBCFE14DC4CA800F541D6 /* Tests */ = {
@@ -210,6 +200,23 @@
 			name = Tests;
 			sourceTree = "<group>";
 		};
+		5078B20E14E28EE00034D155 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				500FCBFE14D02BF700F8689C /* FLGeometry.h */,
+				500FCBFF14D02BF700F8689C /* FLGeometry.m */,
+				500EBCF214DC146700F541D6 /* FLIntersection.h */,
+				500EBCF314DC146700F541D6 /* FLIntersection.m */,
+				500EBCED14DC13F700F541D6 /* FLPathSegment.h */,
+				500EBCEE14DC13F700F541D6 /* FLPathSegment.m */,
+				5078B1F814E280310034D155 /* NSArray+CreateDictionaryUsingBlock.h */,
+				5078B1F914E280310034D155 /* NSArray+CreateDictionaryUsingBlock.m */,
+				5015CB5E14DAB5E500BE3345 /* NSBezierPath+BezierLabs.h */,
+				5015CB5F14DAB5E500BE3345 /* NSBezierPath+BezierLabs.m */,
+			);
+			name = Framework;
+			sourceTree = "<group>";
+		};
 		50F886E914CF427E007AEE2E = {
 			isa = PBXGroup;
 			children = (
@@ -252,7 +259,8 @@
 		50F886FE14CF427E007AEE2E /* BezierLab */ = {
 			isa = PBXGroup;
 			children = (
-				500EBCF114DC141500F541D6 /* Classes */,
+				5078B20E14E28EE00034D155 /* Framework */,
+				500EBCF114DC141500F541D6 /* Application */,
 				50F8870D14CF427E007AEE2E /* FLDocument.xib */,
 				50F8871014CF427F007AEE2E /* MainMenu.xib */,
 				50F886FF14CF427E007AEE2E /* Supporting Files */,

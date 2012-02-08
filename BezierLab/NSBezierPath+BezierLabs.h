@@ -9,6 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "FLPathSegment.h"
 
+enum FLPathOperation {
+  FLNoPathOperation,
+  FLUnionPathOperation,
+  FLIntersectionPathOperation
+};
+
 @interface NSBezierPath (BezierLabs)
 
 - (NSBezierPath *)bezierPathByUnionWith:(NSBezierPath *)modifier;
