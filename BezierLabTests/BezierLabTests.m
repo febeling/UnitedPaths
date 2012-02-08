@@ -46,11 +46,20 @@
   STAssertEqualObjects([unionSegments valueForKey:@"description"], segments, nil);
 }
 
-- (void)testUnionRectAndRoundedRect
+- (void)testUnionRectAndRoundedRect_NoThrow
 {
   [roundedRectPath transformUsingAffineTransform:translation];
   
   STAssertNoThrow([rectPath unionWithBezierPath:roundedRectPath], nil);
+}
+
+- (void)testUnionRectAndRoundedRect
+{
+  [roundedRectPath transformUsingAffineTransform:translation];
+  
+  NSBezierPath *unionPath = [rectPath bezierPathByUnionWith:roundedRectPath];
+  
+  STAssertEquals([unionPath elementCount], 13l, nil);
 }
 
 @end
