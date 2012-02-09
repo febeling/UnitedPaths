@@ -90,8 +90,11 @@
     [path closePath];
     [path appendBezierPathWithElement:NSClosePathBezierPathElement associatedPoints:NULL];
     [path moveToPoint:[lastSegment endPoint]];
+  } else {
+    [lastSegment points:points];
+    [path appendBezierPathWithElement:[lastSegment element] associatedPoints:points];
   }
-  
+
   return path;
 }
 

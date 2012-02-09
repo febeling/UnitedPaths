@@ -28,4 +28,17 @@
   STAssertTrue([newRect isEqualToBezierPath:rect], nil);
 }
 
+- (void)testBezierPathWithSegments_NotClosed
+{
+  NSBezierPath *path = [NSBezierPath bezierPath];
+  [path moveToPoint:NSMakePoint(1,1)];
+  [path lineToPoint:NSMakePoint(4,1)];
+  [path lineToPoint:NSMakePoint(4,4)];
+  
+  NSArray *segments = [path segments];
+  NSBezierPath *newPath = [FLPathSegment bezierPathWithSegments:segments];
+  
+  STAssertTrue([newPath isEqualToBezierPath:path], nil);
+}
+
 @end
