@@ -41,7 +41,10 @@
 
 - (void)testNotEqual_DifferentKind
 {
-  one = [[FLPathCurveSegment alloc] initWithStartPoint:NSMakePoint(1,1) controlPoint1:NSMakePoint(2,2) controlPoint2:NSMakePoint(3,3) endPoint:NSMakePoint(2,2)];
+  one = [[FLPathCurveSegment alloc] initWithStartPoint:NSMakePoint(1,1)
+                                         controlPoint1:NSMakePoint(2,2)
+                                         controlPoint2:NSMakePoint(3,3)
+                                              endPoint:NSMakePoint(2,2)];
   other = [[FLPathLineSegment alloc] initWithStartPoint:NSMakePoint(1,1) endPoint:NSMakePoint(2,2)];
   
   STAssertFalse(one == other, nil);
