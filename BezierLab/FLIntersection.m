@@ -41,7 +41,7 @@
 @synthesize point = point;
 @synthesize time = time;
 
-- (BOOL)isEqual:(id)other // TODO test
+- (BOOL)isEqual:(id)other
 {
   if(![other isKindOfClass:[self class]]) return NO;
   

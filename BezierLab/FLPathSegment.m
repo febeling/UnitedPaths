@@ -227,6 +227,8 @@
     NSPoint point = [[intersections objectAtIndex:i] pointValue];
 
     if(!NSEqualPoints(point, startPoint) && !NSEqualPoints(point, endPoint)) {
+      // Line segments that intersect at the start or end point aren't 
+      // intersections, but vertexes. TODO test
       CGFloat t = FLLineSegmentLength(startPoint, point) / FLLineSegmentLength(startPoint, endPoint);
       FLIntersection *intersection = [[FLIntersection alloc] initWithPoint:point time:t];
       [[self clippings] addObject:intersection];
