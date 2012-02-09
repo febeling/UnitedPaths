@@ -43,6 +43,7 @@
 @property (readonly) NSPoint midPoint;
 @property (strong) NSMutableArray *clippings;
 @property (assign) BOOL keep;
+@property (assign) int crossnum;
 
 @end
 

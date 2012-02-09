@@ -48,14 +48,21 @@
                      even:(BOOL)even
 {
   for(FLPathSegment *segment in segments) {
-    NSUInteger num = 0;
+    int num = 0;
     FLPathSegment *lineToOutside = [FLPathSegment pathSegmentWithStartPoint:[segment midPoint] endPoint:outsidePoint];
-    
+
     for(FLPathSegment *modSegment in segmentsModifier) {
+
+      if(even && [segment isEqual: modSegment]) { // TODO is this special for Union?
+        segment.keep = YES;
+        break;
+      }
+
       num += FLPathSegmentIntersectionCount(modSegment, lineToOutside);
     }
-    
-    segment.keep = (num%2 == even ? 0 : 1);
+
+    segment.crossnum = num;
+    segment.keep = segment.keep || (num%2 == even ? 0 : 1);
   }
 }
 
@@ -133,6 +140,7 @@
 
 @synthesize clippings;
 @synthesize keep;
+@synthesize crossnum;
 
 - (NSBezierPathElement)element
 {
