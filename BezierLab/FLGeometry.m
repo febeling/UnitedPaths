@@ -40,7 +40,7 @@ FLLine FLLineFromPoints(NSPoint p1, NSPoint p2)
 
 BOOL FLIntersectionLineAndLine(NSPoint p1, NSPoint p2, NSPoint p3, NSPoint p4, NSPoint *x)
 {
-  // TODO This code should recored time, instead of recalculating it later.
+  // TODO This code should record time, instead of recalculating it later.
   FLLine line1 = FLLineFromPoints(p1, p2);
   FLLine line2 = FLLineFromPoints(p3, p4);
   
