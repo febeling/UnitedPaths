@@ -17,6 +17,7 @@ enum FLPathOperation {
 
 @interface NSBezierPath (BezierLabs)
 
+- (NSPoint)externalPointWithModifier:(NSBezierPath *)modifier;
 - (NSBezierPath *)bezierPathByUnionWith:(NSBezierPath *)modifier;
 - (void)appendBezierPathWithElement:(NSBezierPathElement)element associatedPoints:(NSPointArray)points;
 - (NSMutableArray *)unionWithBezierPath:(NSBezierPath *)modifier;

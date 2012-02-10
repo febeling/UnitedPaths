@@ -37,6 +37,8 @@ BOOL FLIntersectionLineAndLine(NSPoint p1, NSPoint p2, NSPoint p3, NSPoint p4, N
 NSPoint FLCurvePoint(NSPoint start, NSPoint points[], CGFloat t);
 void FLCurveToSegments(NSPoint start, NSPoint points[], NSUInteger n, FLSegment segments[]);
 NSArray *FLIntersectionsLineAndCurve(NSPoint lineStart, NSPoint lineEnd, NSPoint startCurve, NSPoint* curvePoints, NSUInteger n, NSInteger pos, NSArray **info);
+BOOL FLTimeIsClose(CGFloat t, CGFloat s);
+BOOL FLTimeIsCloseBeginningOrEnd(CGFloat t);
 BOOL FLPointsAreClose(NSPoint p1, NSPoint p2);
 NSPoint FLInterpolateCurvePoint(NSPoint segStart, NSPoint segEnd, NSPoint segIntersec, CGFloat segStartT, CGFloat segEndT, NSPoint curveStart, NSPoint *curvePoints);
 CGFloat FLInterpolateCurveT(NSPoint segStart, NSPoint segEnd, NSPoint segIntersec, CGFloat segStartT, CGFloat segEndT, NSPoint curveStart, NSPoint *curvePoints);
