@@ -9,9 +9,6 @@
 #import "NSBezierPath+BezierLabs.h"
 #import "FLGeometry.h"
 
-// Maximum number of fragments that will be tried to reassemble.
-#define MAX_FRAGMENTS 1000
-
 @implementation NSBezierPath (BezierLabs)
 
 - (void)appendBezierPathWithElement:(NSBezierPathElement)element associatedPoints:(NSPointArray)points
@@ -57,8 +54,6 @@
   FLPathSegment *nextSegment = [segments objectAtIndex:0];
   [segmentByStartPoint removeObjectForKey:[NSValue valueWithPoint:[nextSegment startPoint]]];
 
-  // TODO This algorithm only works when the resulting path is
-  //      continuous. Make work for multiple subpaths as well.
   while(nextSegment) {
     [assembled addObject:nextSegment];
     NSValue *key = [NSValue valueWithPoint:[nextSegment endPoint]];
@@ -71,46 +66,20 @@
 
 - (NSMutableArray *)unionWithBezierPath:(NSBezierPath *)modifier
 {
-  NSMutableArray *intersections = [NSMutableArray array];
-
   NSMutableArray *segments = [self segments];
   NSMutableArray *segmentsModifier = [modifier segments];
 
-  NSLog(@"segments: %@", segments);
-  NSLog(@"modifier: %@", segmentsModifier);
-
-  for(FLPathSegment *segmentSelf in segments) {
-    for(FLPathSegment *segmentModifier in segmentsModifier) {
-      [intersections addObjectsFromArray:[segmentSelf clipWith:segmentModifier]];
-    }
-  }
-  
-  for(FLPathSegment *segmentSelf in segments) {
-    NSLog(@"> segment from self: %@", segmentSelf);
-    NSLog(@" - clippings: %@", [segmentSelf clippings]);
-  }
-  for(FLPathSegment *segmentModifier in segmentsModifier) {
-    NSLog(@"> segment from modifier: %@", segmentModifier);    
-    NSLog(@" - clippings: %@", [segmentModifier clippings]);
-  }
-  
-  [FLPathSegment replaceClippedSegments:segments];
-  [FLPathSegment replaceClippedSegments:segmentsModifier];
+  [FLPathSegment clipSegments:segmentsModifier modifierSegments:segments];
 
   NSPoint outsidePoint = [self externalPointWithModifier:modifier];
 
   [FLPathSegment markUnionOf:segments withModifiers:segmentsModifier outsidePoint:outsidePoint];
   [FLPathSegment markUnionOf:segmentsModifier withModifiers:segments outsidePoint:outsidePoint];
-
-  NSLog(@"segments clipped: %@", segments);
-  NSLog(@"modifier clipped: %@", segmentsModifier);
   
   [segments filterUsingPredicate:[NSPredicate predicateWithFormat:@"keep == YES"]];
   [segmentsModifier filterUsingPredicate:[NSPredicate predicateWithFormat:@"keep == YES"]];
 
   NSMutableArray *unionSegments = [self reassembleSegments:segments modifier:segmentsModifier];
-  
-  NSLog(@"union segments: %@", unionSegments);
   
   return unionSegments;
 }
