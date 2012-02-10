@@ -310,9 +310,17 @@
   points[2] = [self endPoint];
 }
 
+- (NSPoint)midPoint
+{
+  NSPoint points[3];
+  [self points:points];
+
+  return FLCurvePoint(startPoint, points, 0.5);
+}
+
 - (NSString *)description
 {
-  return [NSString stringWithFormat:@"<%@\n   startPoint: %@,\n   controlPoint1: %@,\n   controlPoint2: %@,\n   endPoint: %@>",
+  return [NSString stringWithFormat:@"<%@ start: %@, control1: %@, control2: %@, end: %@, keep: %@>",
           [self className],
           NSStringFromPoint(startPoint),
           NSStringFromPoint(controlPoint1),
