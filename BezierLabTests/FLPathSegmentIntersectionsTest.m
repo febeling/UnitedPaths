@@ -17,6 +17,25 @@
 
 @implementation FLPathSegmentIntersectionsTest
 
+- (void)testPathLineSegmentMidPoint
+{
+  NSPoint s1 = {0, 2};
+  NSPoint e1 = {3, 0};
+  FLPathSegment *segment = [FLPathSegment pathSegmentWithStartPoint:s1 endPoint:e1];
+
+  AssertPointsEqualWithAccuracy([segment midPoint], NSMakePoint(1.5,1), D);
+}
+
+- (void)testPathCurveSegmentMidPoint
+{
+  NSPoint s2 = {0, 0};
+  NSPoint points2[3] = {{0, 1},{2, 3},{3, 3}};
+  
+  FLPathSegment *segment = [FLPathSegment pathSegmentWithStartPoint:s2 points:points2];
+  
+  AssertPointsEqualWithAccuracy([segment midPoint], NSMakePoint(1.125,1.875), D);
+}
+
 #pragma mark FLPathElementIntersections Line x Line
 
 - (void)testLineIntersectsLine
