@@ -20,11 +20,9 @@
 
 + (void)clipSegments:(NSMutableArray *)segments modifierSegments:(NSMutableArray *)segmentsModifier
 {
-  NSMutableArray *intersections = [NSMutableArray array];
-  
   for(FLPathSegment *segmentSelf in segments) {
     for(FLPathSegment *segmentModifier in segmentsModifier) {
-      [intersections addObjectsFromArray:[segmentSelf clipWith:segmentModifier]];
+      [segmentSelf clipWith:segmentModifier];
     }
   }
   
@@ -168,7 +166,8 @@
   return FLPathSegmentIntersections(self, modifier);
 }
 
-- (void)addClippingsWithIntersections:(NSArray *)intersections info:(NSArray *)info isFirst:(BOOL)first
+// TODO get rid of isFirst:, which only makes sense for curve segments
+- (void)addClippingsWithIntersections:(NSArray *)intersections info:(NSArray *)info isFirst:(BOOL)first // TODO test
 {
   [NSException raise:@"Abstract" format:@"this method must be overridden"];
 }
@@ -248,7 +247,7 @@
   for(int i = 0; i < [intersections count]; i++) {
     NSPoint point = [[intersections objectAtIndex:i] pointValue];
 
-    if(!NSEqualPoints(point, startPoint) && !NSEqualPoints(point, endPoint)) {
+    if(!FLPointsAreClose(point, startPoint) && !FLPointsAreClose(point, endPoint)) {
       // Line segments that intersect at the start or end point aren't 
       // intersections, but vertexes. TODO test
       CGFloat t = FLLineSegmentLength(startPoint, point) / FLLineSegmentLength(startPoint, endPoint);
@@ -359,15 +358,19 @@
          ^ NSUINTROTATE([NSStringFromPoint(controlPoint1) hash], i++ * NSUINT_BIT / 3);
 }
 
+// TODO test
 - (void)addClippingsWithIntersections:(NSArray *)intersections info:(NSArray *)info isFirst:(BOOL)first
 {
   NSString *timeKey = first ? @"t0" : @"t1";
-  
+
   for(int i = 0; i < [intersections count]; i++) {
     NSPoint point = [[intersections objectAtIndex:i] pointValue];
     CGFloat t0 = [[[info objectAtIndex:i] objectForKey:timeKey] doubleValue];
-    FLIntersection *intersection = [[FLIntersection alloc] initWithPoint:point time:t0];
-    [[self clippings] addObject:intersection];
+    if(!FLTimeIsCloseBeginningOrEnd(t0) && 
+       ([[self clippings] count] == 0 || !FLTimeIsClose(t0, [(FLIntersection *)[[self clippings] lastObject] time]))) {
+      FLIntersection *intersection = [[FLIntersection alloc] initWithPoint:point time:t0];
+      [[self clippings] addObject:intersection];
+    }
   }
 }
 

@@ -89,6 +89,18 @@ void FLCurveToSegments(NSPoint start, NSPoint points[], NSUInteger n, FLSegment 
   }
 }
 
+inline
+BOOL FLTimeIsClose(CGFloat t, CGFloat s)
+{
+  return fabs(s-t) < CLOSE_DIST;
+}
+
+inline
+BOOL FLTimeIsCloseBeginningOrEnd(CGFloat t)
+{
+  return FLTimeIsClose(t, 0.0) || FLTimeIsClose(t, 1.0);
+}
+
 BOOL FLPointsAreClose(NSPoint p1, NSPoint p2)
 {
   CGFloat d = FLLineSegmentLength(p1, p2);

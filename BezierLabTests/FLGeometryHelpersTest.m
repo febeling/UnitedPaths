@@ -25,4 +25,22 @@
   STAssertTrue(FLPointsAreClose(NSMakePoint(1.11111111,1.11111111), NSMakePoint(1.11111112,1.11111112)), nil);
 }
 
+- (void)testTimeIsClose
+{
+  STAssertFalse(FLTimeIsClose(0.999, 1.0), nil);
+  STAssertTrue(FLTimeIsClose(0.99999, 1.0), nil);
+  
+  STAssertFalse(FLTimeIsClose(0.0001, 0.0), nil);
+  STAssertTrue(FLTimeIsClose(0.000001, 0.0), nil);
+}
+
+- (void)testTimeIsCloseBeginningOrEnd
+{
+  STAssertFalse(FLTimeIsCloseBeginningOrEnd(0.999), nil);
+  STAssertTrue(FLTimeIsCloseBeginningOrEnd(0.99999), nil);
+  
+  STAssertFalse(FLTimeIsCloseBeginningOrEnd(0.0001), nil);
+  STAssertTrue(FLTimeIsCloseBeginningOrEnd(0.000001), nil);
+}
+
 @end

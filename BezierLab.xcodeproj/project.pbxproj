@@ -26,6 +26,7 @@
 		5078B20114E2843A0034D155 /* NSBezierPathAppendPathWithElementTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5078B20014E284380034D155 /* NSBezierPathAppendPathWithElementTest.m */; };
 		5078B20414E2854F0034D155 /* NSBezierPathBehaviorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5078B20314E2854D0034D155 /* NSBezierPathBehaviorTest.m */; };
 		5090856714D492E300DF6565 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		50BB9EF614E5159000AF4F8E /* FLPathSegmentMarkUnionOf.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BB9EF514E5159000AF4F8E /* FLPathSegmentMarkUnionOf.m */; };
 		50C36CB814DEAB4B00D1FC51 /* NSValueWithPointBugTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C36CB714DEAB4B00D1FC51 /* NSValueWithPointBugTest.m */; };
 		50C36CBC14DED08700D1FC51 /* FLPathSegmentIntersectionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C36CBB14DED08700D1FC51 /* FLPathSegmentIntersectionsTest.m */; };
 		50C36CBF14DED0F200D1FC51 /* FLGeometryHelpersTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C36CBE14DED0F200D1FC51 /* FLGeometryHelpersTest.m */; };
@@ -91,6 +92,8 @@
 		5078B20014E284380034D155 /* NSBezierPathAppendPathWithElementTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSBezierPathAppendPathWithElementTest.m; sourceTree = "<group>"; };
 		5078B20214E2854C0034D155 /* NSBezierPathBehaviorTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSBezierPathBehaviorTest.h; sourceTree = "<group>"; };
 		5078B20314E2854D0034D155 /* NSBezierPathBehaviorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSBezierPathBehaviorTest.m; sourceTree = "<group>"; };
+		50BB9EF414E5159000AF4F8E /* FLPathSegmentMarkUnionOf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLPathSegmentMarkUnionOf.h; sourceTree = "<group>"; };
+		50BB9EF514E5159000AF4F8E /* FLPathSegmentMarkUnionOf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLPathSegmentMarkUnionOf.m; sourceTree = "<group>"; };
 		50C36CB614DEAB4B00D1FC51 /* NSValueWithPointBugTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSValueWithPointBugTest.h; sourceTree = "<group>"; };
 		50C36CB714DEAB4B00D1FC51 /* NSValueWithPointBugTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSValueWithPointBugTest.m; sourceTree = "<group>"; };
 		50C36CBA14DED08700D1FC51 /* FLPathSegmentIntersectionsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLPathSegmentIntersectionsTest.h; sourceTree = "<group>"; };
@@ -196,6 +199,8 @@
 				50C36CB614DEAB4B00D1FC51 /* NSValueWithPointBugTest.h */,
 				50C36CB714DEAB4B00D1FC51 /* NSValueWithPointBugTest.m */,
 				50F55FF914DFC3DE0097425A /* TestHelper.h */,
+				50BB9EF414E5159000AF4F8E /* FLPathSegmentMarkUnionOf.h */,
+				50BB9EF514E5159000AF4F8E /* FLPathSegmentMarkUnionOf.m */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -440,6 +445,7 @@
 				5078B1FE14E283AE0034D155 /* NSBezierPathEqualityTest.m in Sources */,
 				5078B20114E2843A0034D155 /* NSBezierPathAppendPathWithElementTest.m in Sources */,
 				5078B20414E2854F0034D155 /* NSBezierPathBehaviorTest.m in Sources */,
+				50BB9EF614E5159000AF4F8E /* FLPathSegmentMarkUnionOf.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
