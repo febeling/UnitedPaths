@@ -18,6 +18,20 @@
 
 @implementation FLPathSegment
 
++ (void)clipSegments:(NSMutableArray *)segments modifierSegments:(NSMutableArray *)segmentsModifier
+{
+  NSMutableArray *intersections = [NSMutableArray array];
+  
+  for(FLPathSegment *segmentSelf in segments) {
+    for(FLPathSegment *segmentModifier in segmentsModifier) {
+      [intersections addObjectsFromArray:[segmentSelf clipWith:segmentModifier]];
+    }
+  }
+  
+  [FLPathSegment replaceClippedSegments:segments];
+  [FLPathSegment replaceClippedSegments:segmentsModifier];
+}
+
 + (void)replaceClippedSegments:(NSMutableArray *)segments
 {
   NSMutableDictionary *originals = [NSMutableDictionary dictionary];

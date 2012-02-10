@@ -15,6 +15,7 @@
   NSMutableArray *clippings;
 }
 
++ (void)clipSegments:(NSMutableArray *)segments modifierSegments:(NSMutableArray *)segmentsModifier;
 + (void)replaceClippedSegments:(NSMutableArray *)segments;
 + (void)markCombinationOf:(NSArray *)segments
              withModifier:(NSArray *)modifiers
