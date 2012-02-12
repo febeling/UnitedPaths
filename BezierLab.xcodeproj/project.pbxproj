@@ -184,6 +184,8 @@
 				500EBCFC14DC275A00F541D6 /* FLPathSegmentEqualityTest.m */,
 				50C36CBA14DED08700D1FC51 /* FLPathSegmentIntersectionsTest.h */,
 				50C36CBB14DED08700D1FC51 /* FLPathSegmentIntersectionsTest.m */,
+				50BB9EF414E5159000AF4F8E /* FLPathSegmentMarkUnionOf.h */,
+				50BB9EF514E5159000AF4F8E /* FLPathSegmentMarkUnionOf.m */,
 				500EBCF514DC19C600F541D6 /* FLPathSegmentResegmentTest.h */,
 				500EBCF614DC19C600F541D6 /* FLPathSegmentResegmentTest.m */,
 				5078B1D914E1163D0034D155 /* NSArrayCreateDictionaryUsingBlockTest.h */,
@@ -199,8 +201,6 @@
 				50C36CB614DEAB4B00D1FC51 /* NSValueWithPointBugTest.h */,
 				50C36CB714DEAB4B00D1FC51 /* NSValueWithPointBugTest.m */,
 				50F55FF914DFC3DE0097425A /* TestHelper.h */,
-				50BB9EF414E5159000AF4F8E /* FLPathSegmentMarkUnionOf.h */,
-				50BB9EF514E5159000AF4F8E /* FLPathSegmentMarkUnionOf.m */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
