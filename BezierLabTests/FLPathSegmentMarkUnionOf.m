@@ -12,6 +12,8 @@
 
 #pragma mark Rectangles overlapping at corner
 
+#define D 1.0e-3
+
 - (void)testClipSegments_RectOverlappingRectWithACorner
 {
   NSMutableArray *topLeftRect = [[NSBezierPath bezierPathWithRect:NSMakeRect(0,2,2,2)] segments];
@@ -129,10 +131,63 @@
   
   [FLPathSegment clipSegments:square modifierSegments:circle];
   
+  NSPoint point = [squarePath externalPointWithModifier:circlePath];
+  
+  [FLPathSegment markUnionOf:square withModifiers:circle outsidePoint:point];
+  [FLPathSegment markUnionOf:circle withModifiers:square outsidePoint:point];
+  
   STAssertEquals([square count], 4ul, nil);
   STAssertEquals([circle count], 6ul, nil);
+
+  {
+    FLPathCurveSegment *segment = [circle objectAtIndex:0];
+    STAssertEquals(segment.keep, YES, nil);
+    AssertPointsEqualWithAccuracy([segment startPoint], NSMakePoint(2.707, 0.292), D);
+    AssertPointsEqualWithAccuracy([segment endPoint], NSMakePoint(2.707, 1.707), D);
+    
+    segment = [circle objectAtIndex:1];
+    STAssertEquals(segment.keep, YES, nil);
+    AssertPointsEqualWithAccuracy([segment startPoint], NSMakePoint(2.707, 1.707), D);
+    AssertPointsEqualWithAccuracy([segment endPoint], NSMakePoint(2.000, 2.000), D);
+    
+    segment = [circle objectAtIndex:2];
+    STAssertEquals(segment.keep, NO, nil);
+    AssertPointsEqualWithAccuracy([segment startPoint], NSMakePoint(2.000, 2.000), D);
+    AssertPointsEqualWithAccuracy([segment endPoint], NSMakePoint(1.292, 1.707), D);
+    
+    segment = [circle objectAtIndex:3];
+    STAssertEquals(segment.keep, NO, nil);
+    AssertPointsEqualWithAccuracy([segment startPoint], NSMakePoint(1.292, 1.707), D);
+    AssertPointsEqualWithAccuracy([segment endPoint], NSMakePoint(1.292, 0.292), D);
+    
+    segment = [circle objectAtIndex:4];
+    STAssertEquals(segment.keep, NO, nil);
+    AssertPointsEqualWithAccuracy([segment startPoint], NSMakePoint(1.292, 0.292), D);
+    AssertPointsEqualWithAccuracy([segment endPoint], NSMakePoint(2.000, 0.000), D);
+    
+    segment = [circle objectAtIndex:5];
+    STAssertEquals(segment.keep, YES, nil);
+    AssertPointsEqualWithAccuracy([segment startPoint], NSMakePoint(2.000, 0.000), D);
+    AssertPointsEqualWithAccuracy([segment endPoint], NSMakePoint(2.707, 0.292), D);
+  }
   
-  // TODO check circle segments before and after resegmentation
+  {
+    FLPathLineSegment *segment = [square objectAtIndex:0];
+    STAssertEquals([segment keep], YES, nil);
+    STAssertEqualObjects(segment, [FLPathSegment pathSegmentWithStartPoint:NSMakePoint(0,0) endPoint:NSMakePoint(2,0)], nil);
+    
+    segment = [square objectAtIndex:1];
+    STAssertEquals([segment keep], NO, nil);
+    STAssertEqualObjects(segment, [FLPathSegment pathSegmentWithStartPoint:NSMakePoint(2,0) endPoint:NSMakePoint(2,2)], nil);
+
+    segment = [square objectAtIndex:2];
+    STAssertEquals([segment keep], YES, nil);
+    STAssertEqualObjects(segment, [FLPathSegment pathSegmentWithStartPoint:NSMakePoint(2,2) endPoint:NSMakePoint(0,2)], nil);
+
+    segment = [square objectAtIndex:3];
+    STAssertEquals([segment keep], YES, nil);
+    STAssertEqualObjects(segment, [FLPathSegment pathSegmentWithStartPoint:NSMakePoint(0,2) endPoint:NSMakePoint(0,0)], nil);
+  }
 }
 
 @end
