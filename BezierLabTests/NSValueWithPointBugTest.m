@@ -10,7 +10,7 @@
 
 @implementation NSValueWithPointBugTest
 
-// TODO Check rect, and size, too.
+// TODO Check rect, and size for this bug, too.
 
 - (void)testNSValuePointHash
 {
