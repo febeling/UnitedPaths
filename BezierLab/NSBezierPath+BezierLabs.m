@@ -40,27 +40,36 @@
   return NSMakePoint(NSMidX(boundingBox), NSMaxY(boundingBox) + 1.0);
 }
 
+- (FLPathSegment *)searchSegmentWithStartPointClose:(NSPoint)point segments:(NSMutableArray *)segments
+{
+  for(NSUInteger i = 0; i<[segments count]; i++) {
+    FLPathSegment *segment = [segments objectAtIndex:i];
+    if(FLPointsAreClose(point, [segment startPoint])) {
+      [segments removeObjectAtIndex:i];
+      
+      return segment;
+    }
+  }
+       
+  return nil;
+}
+
 - (NSMutableArray *)reassembleSegments:(NSArray *)segments modifier:(NSArray *)segmentsModifier
 {
   NSMutableArray *assembled = [NSMutableArray array];
 
-  NSMutableDictionary *segmentByStartPoint = [[segments dictionaryWithKeysUsing:^(id segment) {
-    return (id)[NSValue valueWithPoint:[(FLPathSegment *)segment startPoint]];
-  }] mutableCopy];
-  [segmentByStartPoint addEntriesFromDictionary:[segmentsModifier dictionaryWithKeysUsing:^(id segment) {
-    return (id)[NSValue valueWithPoint:[(FLPathSegment *)segment startPoint]];
-  }]];
+  NSMutableArray *unassembled = [NSMutableArray array];
+  [unassembled addObjectsFromArray:segments];
+  [unassembled addObjectsFromArray:segmentsModifier];
 
-  FLPathSegment *nextSegment = [segments objectAtIndex:0];
-  [segmentByStartPoint removeObjectForKey:[NSValue valueWithPoint:[nextSegment startPoint]]];
+  FLPathSegment *nextSegment;
+  NSPoint lastEndPoint = [[unassembled objectAtIndex:0] startPoint];
 
-  while(nextSegment) {
+  while((nextSegment = [self searchSegmentWithStartPointClose:lastEndPoint segments:unassembled])) {
     [assembled addObject:nextSegment];
-    NSValue *key = [NSValue valueWithPoint:[nextSegment endPoint]];
-    nextSegment = [segmentByStartPoint objectForKey:key];
-    [segmentByStartPoint removeObjectForKey:key];
-  }
-
+    lastEndPoint = [nextSegment endPoint];
+  } 
+  
   return assembled;
 }
 
