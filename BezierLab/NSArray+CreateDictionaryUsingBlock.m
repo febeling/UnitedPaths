@@ -30,4 +30,11 @@
   return dictionary;
 }
 
+- (NSDictionary *)dictionaryForKey:(NSString *)key
+{
+  NSArray *keys = [self valueForKey:key];
+  
+  return [NSDictionary dictionaryWithObjects:self forKeys:keys];
+}
+
 @end
