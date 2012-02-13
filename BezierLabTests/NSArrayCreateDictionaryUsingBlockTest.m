@@ -25,4 +25,19 @@
   STAssertEqualObjects(dictionary, expected, nil);
 }
 
+- (void)testDictionaryByValueForKey
+{
+  NSArray *foo = [NSDictionary dictionaryWithObject:@"foo" forKey:@"name"];
+  NSArray *bar = [NSDictionary dictionaryWithObject:@"bar" forKey:@"name"];
+  NSArray *baz = [NSDictionary dictionaryWithObject:@"baz" forKey:@"name"];
+  NSArray *array = [NSArray arrayWithObjects:foo, bar, baz, nil];
+
+  NSDictionary *expected = [NSDictionary dictionaryWithObjectsAndKeys:
+                            foo, @"foo",
+                            bar, @"bar", 
+                            baz, @"baz", nil];
+  
+  STAssertEqualObjects([array dictionaryForKey:@"name"], expected, nil);
+}
+
 @end

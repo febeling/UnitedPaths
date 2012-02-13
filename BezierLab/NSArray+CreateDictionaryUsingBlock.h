@@ -11,5 +11,6 @@
 @interface NSArray (CreateDictionaryUsingBlock)
 
 - (NSDictionary *)dictionaryWithKeysUsing:(id (^)(id obj))block;
+- (NSDictionary *)dictionaryForKey:(NSString *)key;
 
 @end
