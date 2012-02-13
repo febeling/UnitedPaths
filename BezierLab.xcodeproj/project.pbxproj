@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50022E0014E92D820083A5C3 /* FLPathSegmentReassemble.m in Sources */ = {isa = PBXBuildFile; fileRef = 50022DFE14E92CE30083A5C3 /* FLPathSegmentReassemble.m */; };
 		500EBCEF14DC13F700F541D6 /* FLPathSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 500EBCEE14DC13F700F541D6 /* FLPathSegment.m */; };
 		500EBCF414DC146700F541D6 /* FLIntersection.m in Sources */ = {isa = PBXBuildFile; fileRef = 500EBCF314DC146700F541D6 /* FLIntersection.m */; };
 		500EBCF714DC19C600F541D6 /* FLPathSegmentResegmentTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 500EBCF614DC19C600F541D6 /* FLPathSegmentResegmentTest.m */; };
@@ -56,6 +57,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		50022DFD14E92CE30083A5C3 /* FLPathSegmentReassemble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLPathSegmentReassemble.h; sourceTree = "<group>"; };
+		50022DFE14E92CE30083A5C3 /* FLPathSegmentReassemble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLPathSegmentReassemble.m; sourceTree = "<group>"; };
 		500EBCED14DC13F700F541D6 /* FLPathSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLPathSegment.h; sourceTree = "<group>"; };
 		500EBCEE14DC13F700F541D6 /* FLPathSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLPathSegment.m; sourceTree = "<group>"; };
 		500EBCF214DC146700F541D6 /* FLIntersection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLIntersection.h; sourceTree = "<group>"; };
@@ -186,6 +189,8 @@
 				50C36CBB14DED08700D1FC51 /* FLPathSegmentIntersectionsTest.m */,
 				50BB9EF414E5159000AF4F8E /* FLPathSegmentMarkUnionOf.h */,
 				50BB9EF514E5159000AF4F8E /* FLPathSegmentMarkUnionOf.m */,
+				50022DFD14E92CE30083A5C3 /* FLPathSegmentReassemble.h */,
+				50022DFE14E92CE30083A5C3 /* FLPathSegmentReassemble.m */,
 				500EBCF514DC19C600F541D6 /* FLPathSegmentResegmentTest.h */,
 				500EBCF614DC19C600F541D6 /* FLPathSegmentResegmentTest.m */,
 				5078B1D914E1163D0034D155 /* NSArrayCreateDictionaryUsingBlockTest.h */,
@@ -446,6 +451,7 @@
 				5078B20114E2843A0034D155 /* NSBezierPathAppendPathWithElementTest.m in Sources */,
 				5078B20414E2854F0034D155 /* NSBezierPathBehaviorTest.m in Sources */,
 				50BB9EF614E5159000AF4F8E /* FLPathSegmentMarkUnionOf.m in Sources */,
+				50022E0014E92D820083A5C3 /* FLPathSegmentReassemble.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
