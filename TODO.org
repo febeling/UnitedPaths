@@ -1,0 +1,22 @@
+* What to do next?
+*** DONE Separate out Framework
+    CLOSED: [2012-02-15 Wed 17:03]
+*** TODO Support non-continuous paths
+*** TODO find curve length (for determining the number of segments in intersection calculation)
+*** TODO keep time of line intersection
+*** TODO make iOS compatible (only CGPathRef?)
+*** TODO Support Intersection
+*** TODO Add tests where marked
+*** TODO Add make hole into shape example to app
+*** TODO Add union with disjunct path
+*** TODO Shortcut intersection when bouding boxes not overlap, dont look at segments then.
+
+* Boolean Operations
+
+| Logic Operation | Name                                              |
+|-----------------+---------------------------------------------------|
+| and             | intersection                                      |
+| or              | union                                             |
+| not             | difference (relative complement)                  |
+| xor             | symmetric difference (union without intersection) |
+  
