@@ -1,0 +1,119 @@
+
+* Basic Operations
+
+** DONE find intersection of lines
+   CLOSED: [2012-01-25 Wed 14:47]
+** DONE find flat segments for curve
+   CLOSED: [2012-01-25 Wed 19:25]
+** DONE find the real intersection point for a segment hit
+   CLOSED: [2012-01-27 Fri 13:24]
+** DONE search for intersections between paths (double loop), return points
+   CLOSED: [2012-01-27 Fri 13:24]
+** DONE find t for given curve intersection point (clipping)
+   CLOSED: [2012-01-27 Fri 13:24]
+** DONE find bezier subcurve for t (de Casteljau)
+   CLOSED: [2012-02-03 Fri 13:23]
+
+* Process Paths
+
+** DONE Find intersections (and keep per segment)
+   CLOSED: [2012-02-05 Sun 19:44]
+** Resolve intersections (cut up path into one with more pieces)
+** Clip intersections (mark each segment in or out)
+*** Calculate CrossingNumber, mark segments
+
+Find intersections with a line segment that starts from the middle and
+goes to outside the bounding box.
+
+*** Relink segments (make path without moveTos)
+** MergeClipped
+*** Link each intersection
+
+Delete segments not marked during clip. Before ResolveIntersections
+the Intersection contains two segments, then it contains four. Only
+two of these are to be kept in Union.
+
+*** Prune both paths
+
+Remove inactive segments. Only the ones not reachable from
+intersections are left. PolyShape.pde:91
+
+*** Validate first path
+
+Add segments that appear
+
+---
+
+NEXT: find intersections
+
+The intersections keep references to segments, point, and t for the
+curve segments involved.
+
+*** DONE On clipping/cutting up the segments are iterated.
+    CLOSED: [2012-02-06 Mon 11:06]
+
+The intersected segments are looked up in the segment array and can be replaced.
+
+NEXT: do resegment for lines
+*** then: replace segments with resegmented ones, mark in/out, reassemble path
+*** DONE also: can more than one clipping be done (what is the old t in the clipped curve?)
+    CLOSED: [2012-02-06 Mon 11:06]
+
+
+Find all intersection points of two paths
+- keep point
+- keep time (per segment)
+- keep segments involved
+
+Make path which contains more segments after clipping
+- Do for both paths
+- Use segments with context information (new class)
+
+Decide for each segement to keep or drop
+- calculate crossing_num from each (clipped) segment mid-point to outside of modifierPath
+- because the segments are clipped up, they are always fully in or out
+- mark segment according to crossing_num as keep or drop
+
+Reassemble segments into one path
+- drop unmarked ones, keep others as unassembled
+- start new subpath with any segment of master path that is active
+- try each other to fit in front or at end
+
+For Intersection:
+- if none fits anylonger start new subpath (movoTo), start over to assemble new subpath
+
+
+
+* Later 
+** TODO find curve length (for determining the number of segments in intersection calculation)
+
+* Boolean Operations
+
+| Logic Operation | Name                                              |
+|-----------------+---------------------------------------------------|
+| and             | intersection                                      |
+| or              | union                                             |
+| not             | difference (relative complement)                  |
+| xor             | symmetric difference (union without intersection) |
+
+For Union Operation non-closed paths are considered closed
+- that means paths have 0, 2, 4, etc. intersections
+- two cubic curves can have up to 3 intersections
+- there is the rare case of a curve which meets another curve but doesnt cross it (does it happen? how to test?)
+
+Union of paths p1 and p2
+  for each element of p1
+    for each element of p2
+      collect intersection points
+    end
+  end
+  create new path
+  current path is first point of first element of path that is not inside the other
+  for each intersection point
+    copy all element that dont intersect
+    create new element till intersection point of current path
+    switch current path
+    create new element from intersection point of current path
+    continue with next path element
+  end
+    
