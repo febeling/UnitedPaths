@@ -44,7 +44,7 @@
 @property (readonly) NSPoint midPoint;
 @property (strong) NSMutableArray *clippings;
 @property (assign) BOOL keep;
-@property (assign) int crossnum;
+@property (assign) NSUInteger crossnum;
 
 @end
 

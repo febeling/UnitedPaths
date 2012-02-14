@@ -60,21 +60,23 @@
                      even:(BOOL)even
 {
   for(FLPathSegment *segment in segments) {
-    int num = 0;
+    
+    NSUInteger num = 0;
     FLPathSegment *lineToOutside = [FLPathSegment pathSegmentWithStartPoint:[segment midPoint] endPoint:outsidePoint];
 
     for(FLPathSegment *modSegment in segmentsModifier) {
 
-      if(even && [segment isEqual: modSegment]) { // TODO is this special for Union?
+      if(even && [segment isEqual:modSegment]) { // TODO is this special for Union?
         segment.keep = YES;
         break;
       }
 
-      num += FLPathSegmentIntersectionCount(modSegment, lineToOutside);
+      NSUInteger crossings = FLPathSegmentIntersectionCount(modSegment, lineToOutside);
+      num += crossings;
     }
 
     segment.crossnum = num;
-    segment.keep = segment.keep || (num%2 == even ? 0 : 1);
+    segment.keep = segment.keep || (num%2 == even ? NO : YES);
   }
 }
 
@@ -367,7 +369,7 @@
     NSPoint point = [[intersections objectAtIndex:i] pointValue];
     CGFloat t0 = [[[info objectAtIndex:i] objectForKey:timeKey] doubleValue];
     if(!FLTimeIsCloseBeginningOrEnd(t0) && 
-       ([[self clippings] count] == 0 || !FLTimeIsClose(t0, [(FLIntersection *)[[self clippings] lastObject] time]))) {
+       ([[self clippings] count] == 0 || !FLFloatIsClose(t0, [(FLIntersection *)[[self clippings] lastObject] time]))) {
       FLIntersection *intersection = [[FLIntersection alloc] initWithPoint:point time:t0];
       [[self clippings] addObject:intersection];
     }
