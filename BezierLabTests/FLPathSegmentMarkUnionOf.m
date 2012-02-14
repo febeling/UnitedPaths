@@ -204,7 +204,6 @@
   NSMutableArray *segments2 = [rect2 segments];
 
   NSPoint point = [rect1 externalPointWithModifier:rect2];
-  NSLog(@"external point: %@", NSStringFromPoint(point));
 
   [FLPathSegment clipSegments:segments1 modifierSegments:segments2];
   [FLPathSegment markUnionOf:segments1 withModifiers:segments2 outsidePoint:point];
@@ -310,6 +309,81 @@
     STAssertEqualObjects(segment, [FLPathSegment pathSegmentWithStartPoint:NSMakePoint(330, 250)
                                                                   endPoint:NSMakePoint(170, 250)], nil);
   }
+}
+
+- (void)testClipAndMarkUnion_RoundedRectOverlappedByRect
+{
+  // As in keyboard shapes in demo app. This test reproduces a bug with
+  // duplicate, but only similar (not equal) segments.
+  NSBezierPath *roundedRectPath = [NSBezierPath bezierPathWithRoundedRect:NSMakeRect(50, 250, 100, 100) xRadius:20 yRadius:20];
+  NSBezierPath *rectPath = [NSBezierPath bezierPathWithRect:NSMakeRect(100, 250, 130, 100)];
+
+  NSMutableArray *roundedRectSegments = [roundedRectPath segments];
+  NSMutableArray *rectSegments = [rectPath segments];
+  
+  NSPoint point = [roundedRectPath externalPointWithModifier:rectPath];
+  
+  [FLPathSegment clipSegments:roundedRectSegments modifierSegments:rectSegments];
+  [FLPathSegment markUnionOf:roundedRectSegments withModifiers:rectSegments outsidePoint:point];
+  [FLPathSegment markUnionOf:rectSegments withModifiers:roundedRectSegments outsidePoint:point];
+
+  {
+    FLPathSegment *segment;
+    
+    segment = [roundedRectSegments objectAtIndex:0];
+    STAssertEquals([segment keep], YES, nil);
+    AssertPointsEqualWithAccuracy([segment startPoint], NSMakePoint(70, 350), D);
+    AssertPointsEqualWithAccuracy([segment endPoint], NSMakePoint(50, 330), D);
+    
+    segment = [roundedRectSegments objectAtIndex:1];
+    STAssertEquals([segment keep], YES, nil);
+    AssertPointsEqualWithAccuracy([segment startPoint], NSMakePoint(50, 330), D);
+    AssertPointsEqualWithAccuracy([segment endPoint], NSMakePoint(50, 270), D);
+    
+    segment = [roundedRectSegments objectAtIndex:2];
+    STAssertEquals([segment keep], YES, nil);
+    AssertPointsEqualWithAccuracy([segment startPoint], NSMakePoint(50, 270), D);
+    AssertPointsEqualWithAccuracy([segment endPoint], NSMakePoint(70, 250), D);
+    
+    segment = [roundedRectSegments objectAtIndex:3];
+    STAssertEquals([segment keep], YES, nil);
+    AssertPointsEqualWithAccuracy([segment startPoint], NSMakePoint(70, 250), D);
+    AssertPointsEqualWithAccuracy([segment endPoint], NSMakePoint(100, 250), D);
+    
+    segment = [roundedRectSegments objectAtIndex:4];
+    STAssertEquals([segment keep], YES, nil);
+    AssertPointsEqualWithAccuracy([segment startPoint], NSMakePoint(100, 250), D);
+    AssertPointsEqualWithAccuracy([segment endPoint], NSMakePoint(130, 250), D);
+    
+    segment = [roundedRectSegments objectAtIndex:5];
+    STAssertEquals([segment keep], NO, nil);
+    AssertPointsEqualWithAccuracy([segment startPoint], NSMakePoint(130, 250), D);
+    AssertPointsEqualWithAccuracy([segment endPoint], NSMakePoint(150, 270), D);
+    
+    segment = [roundedRectSegments objectAtIndex:6];
+    STAssertEquals([segment keep], NO, nil);
+    AssertPointsEqualWithAccuracy([segment startPoint], NSMakePoint(150, 270), D);
+    AssertPointsEqualWithAccuracy([segment endPoint], NSMakePoint(150, 330), D);
+    
+    segment = [roundedRectSegments objectAtIndex:7];
+    STAssertEquals([segment keep], NO, nil);
+    AssertPointsEqualWithAccuracy([segment startPoint], NSMakePoint(150, 330), D);
+    AssertPointsEqualWithAccuracy([segment endPoint], NSMakePoint(130, 350), D);
+    
+    segment = [roundedRectSegments objectAtIndex:8]; // duplicate (similar)
+    STAssertEquals([segment keep], YES, nil);
+    AssertPointsEqualWithAccuracy([segment startPoint], NSMakePoint(130, 350), D);
+    AssertPointsEqualWithAccuracy([segment endPoint], NSMakePoint(100, 350), D);
+
+    segment = [roundedRectSegments objectAtIndex:9]; // duplicate (similar)
+    STAssertEquals([segment keep], YES, nil);
+    AssertPointsEqualWithAccuracy([segment startPoint], NSMakePoint(100, 350), D);
+    AssertPointsEqualWithAccuracy([segment endPoint], NSMakePoint(70, 350), D);
+  }
+  
+  NSBezierPath *unionPath = [roundedRectPath bezierPathByUnionWith:rectPath];
+  
+  STAssertEquals([unionPath elementCount], 12l, nil);
 }
 
 @end

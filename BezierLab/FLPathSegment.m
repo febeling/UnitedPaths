@@ -66,7 +66,7 @@
 
     for(FLPathSegment *modSegment in segmentsModifier) {
 
-      if(even && [segment isEqual:modSegment]) { // TODO is this special for Union?
+      if(even && ([segment isEqual:modSegment] || [segment isCloseToEqual:modSegment])) { // TODO is this special for Union?
         segment.keep = YES;
         break;
       }
@@ -219,6 +219,12 @@
          NSEqualPoints([otherSegment endPoint], endPoint);
 }
 
+- (BOOL)isCloseToEqual:(FLPathSegment *)other
+{
+  return FLPointsAreClose([other startPoint], startPoint) &&
+         FLPointsAreClose([other endPoint], endPoint);
+}
+
 @end
 
 #pragma mark FLPathLineSegment
@@ -276,6 +282,11 @@
   [array addObject:lastSegment];
   
   return array;
+}
+
+- (BOOL)isCloseToEqual:(FLPathSegment *)other
+{
+  return [other isKindOfClass:[self class]] && [super isCloseToEqual:other] ;
 }
 
 @end
@@ -349,6 +360,20 @@
   BOOL result = [super isEqual:other];
   
   return result && NSEqualPoints([(FLPathCurveSegment *)other controlPoint1], self.controlPoint1) && NSEqualPoints([(FLPathCurveSegment *)other controlPoint2], self.controlPoint2);
+}
+
+- (BOOL)isCloseToEqual:(FLPathSegment *)other
+{
+  BOOL result = [super isCloseToEqual:other];
+  
+  if(result && [other isKindOfClass:[self class]]) {
+    FLPathCurveSegment *curve = (FLPathCurveSegment *)other;
+    
+    return FLPointsAreClose([curve controlPoint1], controlPoint1) &&
+           FLPointsAreClose([curve controlPoint2], controlPoint2);
+  }
+  
+  return NO;
 }
 
 - (NSUInteger)hash

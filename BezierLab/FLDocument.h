@@ -25,7 +25,7 @@
 - (IBAction)setKeyboardShapes:(id)sender;
 - (IBAction)setFlatnessShapes:(id)sender;
 - (IBAction)setTShapeRectangles:(id)sender;
-- (IBAction)setCircleOverSquareCorner:(id)sender;
+- (IBAction)setRoundedRectOverRect:(id)sender;
 - (IBAction)setCircleOverSquareSide:(id)sender;
 - (IBAction)setSquareOverCircleCorner:(id)sender;
 - (IBAction)setSquareOverCircleSide:(id)sender;
