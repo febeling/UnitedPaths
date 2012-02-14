@@ -16,7 +16,7 @@
 
 #define D 1.0e-3
 
-- (void)testClipSegments_RectOverlappingRectWithACorner
+- (void)testReassemble_RectOverlappingRectWithACorner
 {
   NSBezierPath *topLeftPath = [NSBezierPath bezierPathWithRect:NSMakeRect(0,2,2,2)];
   NSBezierPath *bottomRightPath = [NSBezierPath bezierPathWithRect:NSMakeRect(1,1,2,2)];
@@ -39,7 +39,7 @@
 
 #pragma mark Rectangle overlapping at full side, precisely
 
-- (void)testClipSegments_SquareNextToSquare
+- (void)testReassemble_SquareNextToSquare
 {
   NSBezierPath *leftPath = [NSBezierPath bezierPathWithRect:NSMakeRect(1,1,2,2)];
   NSBezierPath *rightPath = [NSBezierPath bezierPathWithRect:NSMakeRect(2,1,2,2)];
@@ -61,7 +61,7 @@
 
 #pragma mark Square and Circle overlapping half
 
-- (void)testClipSegments_SquareAndCircle
+- (void)testReassemble_SquareAndCircle
 {
   NSBezierPath *squarePath = [NSBezierPath bezierPathWithRect:NSMakeRect(0,0,2,2)];
   NSBezierPath *circlePath = [NSBezierPath bezierPathWithOvalInRect:NSMakeRect(1,0,2,2)];
@@ -78,6 +78,29 @@
   
   STAssertEquals([array count], 6ul, nil);
   
+  STAssertEqualObjects([array valueForKey:@"description"], expected, nil);
+}
+
+- (void)testReassemble_RoundedRectNextRect
+{
+  NSBezierPath *roundedRectPath = [NSBezierPath bezierPathWithRoundedRect:NSMakeRect(50, 250, 100, 100) xRadius:20 yRadius:20];
+  NSBezierPath *rectPath = [NSBezierPath bezierPathWithRect:NSMakeRect(100, 250, 130, 100)];
+
+  NSArray *array = [roundedRectPath unionWithBezierPath:rectPath];
+
+  NSArray *expected = [NSArray arrayWithObjects:
+                       @"<FLPathCurveSegment start: {70, 350}, control1: {58.9544, 350}, control2: {50, 341.04559999999998}, end: {50, 330}, keep: YES>",
+                       @"<FLPathLineSegment startPoint: {50, 330}, endPoint: {50, 270}, keep: YES>",
+                       @"<FLPathCurveSegment start: {50, 270}, control1: {50, 258.95440000000002}, control2: {58.9544, 250}, end: {70, 250}, keep: YES>",
+                       @"<FLPathLineSegment startPoint: {70, 250}, endPoint: {100, 250}, keep: YES>",
+                       @"<FLPathLineSegment startPoint: {100, 250}, endPoint: {130, 250}, keep: YES>",
+                       @"<FLPathLineSegment startPoint: {130.00000000000014, 249.99999999999994}, endPoint: {230, 250}, keep: YES>",
+                       @"<FLPathLineSegment startPoint: {230, 250}, endPoint: {230, 350}, keep: YES>",
+                       @"<FLPathLineSegment startPoint: {230, 350}, endPoint: {129.99999999999983, 350}, keep: YES>",
+                       @"<FLPathLineSegment startPoint: {130, 350}, endPoint: {100, 350}, keep: YES>",
+                       @"<FLPathLineSegment startPoint: {100, 350}, endPoint: {70, 350}, keep: YES>", nil];
+
+  STAssertEquals([array count], 10ul, nil);
   STAssertEqualObjects([array valueForKey:@"description"], expected, nil);
 }
 

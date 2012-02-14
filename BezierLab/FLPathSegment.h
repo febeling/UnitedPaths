@@ -32,6 +32,7 @@
                   controlPoint2:(NSPoint)theControlPoint2
                        endPoint:(NSPoint)theEndPoint;
 
+- (BOOL)isCloseToEqual:(FLPathSegment *)other;
 - (id)initWithStartPoint:(NSPoint)theStartPoint endPoint:(NSPoint)theEndPoint;
 - (void)points:(NSPoint *)points;
 - (NSArray *)clipWith:(FLPathSegment *)modifier;

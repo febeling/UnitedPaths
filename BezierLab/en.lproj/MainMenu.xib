@@ -1619,14 +1619,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">setCircleOverSquareCorner:</string>
-						<reference key="source" ref="1014"/>
-						<reference key="destination" ref="628367731"/>
-					</object>
-					<int key="connectionID">589</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
 						<string key="label">setCircleOverSquareSide:</string>
 						<reference key="source" ref="1014"/>
 						<reference key="destination" ref="760526715"/>
@@ -1664,6 +1656,14 @@
 						<reference key="destination" ref="380675170"/>
 					</object>
 					<int key="connectionID">597</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">setRoundedRectOverRect:</string>
+						<reference key="source" ref="1014"/>
+						<reference key="destination" ref="628367731"/>
+					</object>
+					<int key="connectionID">598</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -2687,7 +2687,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">597</int>
+			<int key="maxID">598</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -2705,10 +2705,10 @@
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="clear:">id</string>
 						<string key="performUnionOperation:">id</string>
-						<string key="setCircleOverSquareCorner:">id</string>
 						<string key="setCircleOverSquareSide:">id</string>
 						<string key="setFlatnessShapes:">id</string>
 						<string key="setKeyboardShapes:">id</string>
+						<string key="setRoundedRectOverRect:">id</string>
 						<string key="setSquareNextToSquare:">id</string>
 						<string key="setSquareOverCircleCorner:">id</string>
 						<string key="setSquareOverCircleSide:">id</string>
@@ -2725,10 +2725,6 @@
 							<string key="name">performUnionOperation:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="setCircleOverSquareCorner:">
-							<string key="name">setCircleOverSquareCorner:</string>
-							<string key="candidateClassName">id</string>
-						</object>
 						<object class="IBActionInfo" key="setCircleOverSquareSide:">
 							<string key="name">setCircleOverSquareSide:</string>
 							<string key="candidateClassName">id</string>
@@ -2739,6 +2735,10 @@
 						</object>
 						<object class="IBActionInfo" key="setKeyboardShapes:">
 							<string key="name">setKeyboardShapes:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="setRoundedRectOverRect:">
+							<string key="name">setRoundedRectOverRect:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="setSquareNextToSquare:">

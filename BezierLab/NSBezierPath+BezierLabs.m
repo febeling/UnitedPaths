@@ -158,7 +158,7 @@
 - (NSBezierPath *)bezierPathByUnionWith:(NSBezierPath *)modifier
 {
   NSArray *unionSegments = [self unionWithBezierPath:modifier];
-
+  
   NSBezierPath *bezierPath = [FLPathSegment bezierPathWithSegments:unionSegments];
 
   return bezierPath;
