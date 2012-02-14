@@ -39,7 +39,7 @@
 
   // Small margins resulted in rounding errors which made intersection points
   // appear outside of one or both involved line segments.
-  CGFloat margin = NSHeight(boundingBox)*10.0;
+  CGFloat margin = NSHeight(boundingBox);
   
   return NSMakePoint(NSMidX(boundingBox), NSMaxY(boundingBox) + margin);
 }
@@ -89,10 +89,25 @@
   [FLPathSegment markUnionOf:segments withModifiers:segmentsModifier outsidePoint:outsidePoint];
   [FLPathSegment markUnionOf:segmentsModifier withModifiers:segments outsidePoint:outsidePoint];
   
+  // NSLog(@"segments ****");
+  // for(id seg in segments) {
+  //   NSLog(@"%@", seg);
+  // }
+  
+  // NSLog(@"segmentsModifier ****");
+  // for(id seg in segmentsModifier) {
+  //   NSLog(@"%@", seg);
+  // }
+  
   [segments filterUsingPredicate:[NSPredicate predicateWithFormat:@"keep == YES"]];
   [segmentsModifier filterUsingPredicate:[NSPredicate predicateWithFormat:@"keep == YES"]];
 
   NSMutableArray *unionSegments = [self reassembleSegments:segments modifier:segmentsModifier];
+
+  // NSLog(@"union segments ****");
+  // for(id seg in unionSegments) {
+  //   NSLog(@"%@", seg);
+  // }
   
   return unionSegments;
 }

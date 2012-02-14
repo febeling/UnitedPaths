@@ -190,4 +190,126 @@
   }
 }
 
+#pragma mark -
+
+- (void)testClipSegmentsAndMarkUnion_TwoRoundedRects
+{
+  NSBezierPath *rect1 = [NSBezierPath bezierPathWithRoundedRect:NSMakeRect(100, 100, 200, 100)
+                                                        xRadius:20
+                                                        yRadius:20];
+  NSMutableArray *segments1 = [rect1 segments];
+  NSBezierPath *rect2 = [NSBezierPath bezierPathWithRoundedRect:NSMakeRect(150, 150, 200, 100)
+                                                        xRadius:20
+                                                        yRadius:20];
+  NSMutableArray *segments2 = [rect2 segments];
+
+  NSPoint point = [rect1 externalPointWithModifier:rect2];
+  NSLog(@"external point: %@", NSStringFromPoint(point));
+
+  [FLPathSegment clipSegments:segments1 modifierSegments:segments2];
+  [FLPathSegment markUnionOf:segments1 withModifiers:segments2 outsidePoint:point];
+  [FLPathSegment markUnionOf:segments2 withModifiers:segments1 outsidePoint:point];
+
+  STAssertEquals([segments1 count], 10ul, nil);
+  
+  {
+    FLPathSegment *segment = [segments1 objectAtIndex:0];
+    STAssertEquals([segment keep], YES, nil);
+    AssertPointsEqualWithAccuracy([segment startPoint], NSMakePoint(120, 200), D);
+    AssertPointsEqualWithAccuracy([segment endPoint], NSMakePoint(100, 180), D);
+    
+    segment = [segments1 objectAtIndex:1];
+    STAssertEquals([segment keep], YES, nil);
+    STAssertEqualObjects(segment, [FLPathSegment pathSegmentWithStartPoint:NSMakePoint(100, 180)
+                                                                  endPoint:NSMakePoint(100, 120)], nil);
+    segment = [segments1 objectAtIndex:2];
+    STAssertEquals([segment keep], YES, nil);
+    AssertPointsEqualWithAccuracy([segment startPoint], NSMakePoint(100, 120), D);
+    AssertPointsEqualWithAccuracy([segment endPoint], NSMakePoint(120, 100), D);
+    
+    segment = [segments1 objectAtIndex:3];
+    STAssertEquals([segment keep], YES, nil);
+    STAssertEqualObjects(segment, [FLPathSegment pathSegmentWithStartPoint:NSMakePoint(120, 100)
+                                                                  endPoint:NSMakePoint(280, 100)], nil);
+    
+    segment = [segments1 objectAtIndex:4];
+    STAssertEquals([segment keep], YES, nil);
+    AssertPointsEqualWithAccuracy([segment startPoint], NSMakePoint(280, 100), D);
+    AssertPointsEqualWithAccuracy([segment endPoint], NSMakePoint(300, 120), D);
+    
+    segment = [segments1 objectAtIndex:5];
+    STAssertEquals([segment keep], YES, nil);
+    STAssertEqualObjects(segment, [FLPathSegment pathSegmentWithStartPoint:NSMakePoint(300, 120)
+                                                                  endPoint:NSMakePoint(300, 150)], nil);
+    
+    segment = [segments1 objectAtIndex:6];
+    STAssertEquals([segment keep], NO, nil);
+    STAssertEqualObjects(segment, [FLPathSegment pathSegmentWithStartPoint:NSMakePoint(300, 150)
+                                                                  endPoint:NSMakePoint(300, 180)], nil);
+    segment = [segments1 objectAtIndex:7];
+    STAssertEquals([segment keep], NO, nil);
+    AssertPointsEqualWithAccuracy([segment startPoint], NSMakePoint(300, 180), D);
+    AssertPointsEqualWithAccuracy([segment endPoint], NSMakePoint(280, 200), D);
+    
+    segment = [segments1 objectAtIndex:8];
+    STAssertEquals([segment keep], NO, nil);
+    STAssertEqualObjects(segment, [FLPathSegment pathSegmentWithStartPoint:NSMakePoint(280, 200)
+                                                                  endPoint:NSMakePoint(150, 200)], nil);
+    
+    segment = [segments1 objectAtIndex:9];
+    STAssertEquals([segment keep], YES, nil);
+    STAssertEqualObjects(segment, [FLPathSegment pathSegmentWithStartPoint:NSMakePoint(150, 200)
+                                                                  endPoint:NSMakePoint(120, 200)], nil);
+  }
+  
+  {
+    STAssertEquals([segments2 count], 10ul, nil);
+    
+    FLPathSegment *segment = [segments2 objectAtIndex:0];
+    STAssertEquals([segment keep], YES, nil);
+    AssertPointsEqualWithAccuracy([segment startPoint], NSMakePoint(170, 250), D);
+    AssertPointsEqualWithAccuracy([segment endPoint], NSMakePoint(150, 230), D);
+    
+    segment = [segments2 objectAtIndex:1];
+    STAssertEquals([segment keep], YES, nil);
+    STAssertEqualObjects(segment, [FLPathSegment pathSegmentWithStartPoint:NSMakePoint(150, 230)
+                                                                  endPoint:NSMakePoint(150, 200)], nil);
+    segment = [segments2 objectAtIndex:2];
+    STAssertEquals([segment keep], NO, nil);
+    STAssertEqualObjects(segment, [FLPathSegment pathSegmentWithStartPoint:NSMakePoint(150, 200)
+                                                                  endPoint:NSMakePoint(150, 170)], nil);
+    segment = [segments2 objectAtIndex:3];
+    STAssertEquals([segment keep], NO, nil);
+    AssertPointsEqualWithAccuracy([segment startPoint], NSMakePoint(150, 170), D);
+    AssertPointsEqualWithAccuracy([segment endPoint], NSMakePoint(170, 150), D);
+    
+    segment = [segments2 objectAtIndex:4];
+    STAssertEquals([segment keep], NO, nil);
+    STAssertEqualObjects(segment, [FLPathSegment pathSegmentWithStartPoint:NSMakePoint(170, 150)
+                                                                  endPoint:NSMakePoint(300, 150)], nil);
+    segment = [segments2 objectAtIndex:5];
+    STAssertEquals([segment keep], YES, nil);
+    STAssertEqualObjects(segment, [FLPathSegment pathSegmentWithStartPoint:NSMakePoint(300, 150)
+                                                                  endPoint:NSMakePoint(330, 150)], nil);
+    segment = [segments2 objectAtIndex:6];
+    STAssertEquals([segment keep], YES, nil);
+    AssertPointsEqualWithAccuracy([segment startPoint], NSMakePoint(330, 150), D);
+    AssertPointsEqualWithAccuracy([segment endPoint], NSMakePoint(350, 170), D);
+
+    segment = [segments2 objectAtIndex:7];
+    STAssertEquals([segment keep], YES, nil);
+    STAssertEqualObjects(segment, [FLPathSegment pathSegmentWithStartPoint:NSMakePoint(350, 170)
+                                                                  endPoint:NSMakePoint(350, 230)], nil);
+    segment = [segments2 objectAtIndex:8];
+    STAssertEquals([segment keep], YES, nil);
+    AssertPointsEqualWithAccuracy([segment startPoint], NSMakePoint(350, 230), D);
+    AssertPointsEqualWithAccuracy([segment endPoint], NSMakePoint(330, 250), D);
+    
+    segment = [segments2 objectAtIndex:9];
+    STAssertEquals([segment keep], YES, nil);
+    STAssertEqualObjects(segment, [FLPathSegment pathSegmentWithStartPoint:NSMakePoint(330, 250)
+                                                                  endPoint:NSMakePoint(170, 250)], nil);
+  }
+}
+
 @end

@@ -13,6 +13,24 @@
 
 @implementation FLGeometryHelpersTest
 
+- (void)testLinePointOnSegment_AllowCloseYValues
+{
+  NSPoint p1 = {330,250};
+  NSPoint p2 = {170,250};
+  NSPoint x = {275.38094238792877, 249.99999999999997};
+  
+  STAssertEquals(FLLinePointOnSegment(p1,p2,x), YES, nil);
+}
+
+- (void)testLinePointOnSegment_AllowCloseXValues
+{
+  NSPoint p1 = {330,250};
+  NSPoint p2 = {330,220};
+  NSPoint x = {330.00000000000004, 241.7};
+  
+  STAssertEquals(FLLinePointOnSegment(p1,p2,x), YES, nil);
+}
+
 - (void)testLineSegmentLength
 {
   STAssertEqualsWithAccuracy(FLLineSegmentLength(NSMakePoint(1,1), NSMakePoint(2,2)), 1.41421, D, nil);
@@ -27,11 +45,11 @@
 
 - (void)testTimeIsClose
 {
-  STAssertFalse(FLTimeIsClose(0.999, 1.0), nil);
-  STAssertTrue(FLTimeIsClose(0.99999, 1.0), nil);
+  STAssertFalse(FLFloatIsClose(0.999, 1.0), nil);
+  STAssertTrue(FLFloatIsClose(0.99999, 1.0), nil);
   
-  STAssertFalse(FLTimeIsClose(0.0001, 0.0), nil);
-  STAssertTrue(FLTimeIsClose(0.000001, 0.0), nil);
+  STAssertFalse(FLFloatIsClose(0.0001, 0.0), nil);
+  STAssertTrue(FLFloatIsClose(0.000001, 0.0), nil);
 }
 
 - (void)testTimeIsCloseBeginningOrEnd
