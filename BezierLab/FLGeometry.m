@@ -18,6 +18,14 @@ BOOL FLLinePointOnSegment(NSPoint p1, NSPoint p2, NSPoint x)
 {
   // Does not check if the point is really a point
   // on the line, but between segment ends.
+  
+  // TODO Make the comparison <= also check for CLOSENESS
+  //      to allow for double float precision errors.
+  //
+  // Real example. These lines don't result in intersection with this test as of now, when external point is close
+  //  <FLPathLineSegment startPoint: {330, 250}, endPoint: {170, 250}, keep: NO>
+  //  Printing description of modifier:
+  //  <FLPathLineSegment startPoint: {105.8579, 194.1421}, endPoint: {225, 251}, keep: NO>
   return MIN(p1.x,p2.x) <= x.x && x.x <= MAX(p1.x, p2.x) &&
          MIN(p1.y,p2.y) <= x.y && x.y <= MAX(p1.y, p2.y);
 }
