@@ -37,7 +37,11 @@
 {
   NSRect boundingBox = NSUnionRect([self bounds], [modifier bounds]);
 
-  return NSMakePoint(NSMidX(boundingBox), NSMaxY(boundingBox) + 1.0);
+  // Small margins resulted in rounding errors which made intersection points
+  // appear outside of one or both involved line segments.
+  CGFloat margin = NSHeight(boundingBox)*10.0;
+  
+  return NSMakePoint(NSMidX(boundingBox), NSMaxY(boundingBox) + margin);
 }
 
 - (FLPathSegment *)searchSegmentWithStartPointClose:(NSPoint)point segments:(NSMutableArray *)segments
