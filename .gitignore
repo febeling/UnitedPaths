@@ -1,10 +1,7 @@
+/*.xcodeproj/xcuserdata
+/*.xcodeproj/project.xcworkspace/xcuserdata
+
 *~
-/BezierLab.xcodeproj/xcuserdata/*.xcuserdatad/xcschemes/xcschememanagement.plist
-/BezierLab.xcodeproj/project.xcworkspace/contents.xcworkspacedata
-/BezierLab.xcodeproj/project.xcworkspace/xcuserdata/*.xcuserdatad/UserInterfaceState.xcuserstate
-/BezierLab.xcodeproj/xcuserdata/*.xcuserdatad/xcschemes/BezierLab.xcscheme
-/BezierLab.xcodeproj/project.xcworkspace/xcuserdata/*.xcuserdatad/WorkspaceSettings.xcsettings
-/BezierLab.xcodeproj/xcuserdata/*.xcuserdatad/xcdebugger/Breakpoints.xcbkptlist
+/*.xcodeproj/project.xcworkspace/contents.xcworkspacedata
 /BezierInfo Example Code/shapeboolean
-/BezierLab.xcodeproj/project.xcworkspace/xcuserdata/*.xcuserdatad/xcdebugger/Expressions.xcexplist
 /build

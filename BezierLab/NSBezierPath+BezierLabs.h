@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "FLPathSegment.h"
+
+@class FLPathSegment;
 
 enum FLPathOperation {
   FLNoPathOperation,

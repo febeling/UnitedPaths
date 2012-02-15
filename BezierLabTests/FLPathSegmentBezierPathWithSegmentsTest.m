@@ -9,6 +9,7 @@
 #import "FLPathSegmentBezierPathWithSegmentsTest.h"
 #import "TestHelper.h"
 #import "NSBezierPath+BezierLabs.h"
+#import "FLPathSegment.h"
 
 @implementation FLPathSegmentBezierPathWithSegmentsTest
 

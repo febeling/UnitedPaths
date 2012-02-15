@@ -7,6 +7,7 @@
 //
 
 #import "FLPathSegmentMarkUnionOf.h"
+#import "FLPathSegment.h"
 
 @implementation FLPathSegmentMarkUnionOf
 
