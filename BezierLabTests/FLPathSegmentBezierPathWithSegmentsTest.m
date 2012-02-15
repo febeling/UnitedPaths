@@ -41,4 +41,34 @@
   STAssertTrue([newPath isEqualToBezierPath:path], nil);
 }
 
+- (void)testBezierPathWithSegments_AddsClosePathForLine
+{
+  NSBezierPath *path = [NSBezierPath bezierPath];
+  [path moveToPoint:NSMakePoint(1,1)];
+  [path lineToPoint:NSMakePoint(4,1)];
+  [path lineToPoint:NSMakePoint(4,4)];
+  [path lineToPoint:NSMakePoint(1,1)];
+  
+  NSArray *segments = [path segments];
+  NSBezierPath *newPath = [FLPathSegment bezierPathWithSegments:segments];
+  
+  STAssertEquals([newPath elementCount], 5l, nil);
+  STAssertEquals([newPath elementAtIndex:3], (NSBezierPathElement)NSClosePathBezierPathElement, nil);
+}
+
+- (void)testBezierPathWithSegments_DontCloseWhenTerminalCurveSegment
+{
+  NSBezierPath *path = [NSBezierPath bezierPath];
+  [path moveToPoint:NSMakePoint(1,1)];
+  [path lineToPoint:NSMakePoint(4,1)];
+  [path lineToPoint:NSMakePoint(4,4)];
+  [path curveToPoint:NSMakePoint(1,1) controlPoint1:NSMakePoint(3,4) controlPoint2:NSMakePoint(1,2)];
+  
+  NSArray *segments = [path segments];
+  NSBezierPath *newPath = [FLPathSegment bezierPathWithSegments:segments];
+  
+  STAssertEquals([newPath elementCount], 4l, nil);
+  STAssertEquals([newPath elementAtIndex:3], (NSBezierPathElement)NSCurveToBezierPathElement, nil);
+}
+
 @end
