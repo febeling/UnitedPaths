@@ -223,10 +223,37 @@
 
 - (IBAction)setTShapeRectangles:(id)sender
 {
+  NSDictionary *roof = [NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRect:NSMakeRect(50, 100, 200, 100)], @"path",
+                          [self colorWithIndex:1], @"color", nil];
+  NSDictionary *trunk = [NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRect:NSMakeRect(100, 50, 100, 50)], @"path",
+                          [self colorWithIndex:3], @"color", nil];
+  
+  NSMutableArray *shapesProxy = [self mutableArrayValueForKey:@"shapes"];
+  
+  [shapesProxy removeAllObjects];
+  [shapesProxy addObject:roof];
+  [shapesProxy addObject:trunk];
+}
+
+- (IBAction)setRoundedRectOverRect:(id)sender
+{
+  NSMutableArray *shapesProxy = [self mutableArrayValueForKey:@"shapes"];
+  [shapesProxy removeAllObjects];
+  
+  [shapesProxy addObject:[NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRoundedRect:NSMakeRect(30, 140, 200, 100)
+                                                                                                  xRadius:20
+                                                                                                  yRadius:20], @"path",
+                        [self colorWithIndex:0], @"color", nil]];
+  [shapesProxy addObject:[NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRect:NSMakeRect(130, 140, 200, 100)], @"path",
+                        [self colorWithIndex:1], @"color", nil]];
+}
+
+- (IBAction)setCircleOverSquareSide:(id)sender
+{
   NSDictionary *square = [NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRect:NSMakeRect(50, 50, 150, 150)], @"path",
-                         [self colorWithIndex:0], @"color", nil];
+                          [self colorWithIndex:0], @"color", nil];
   NSDictionary *circle = [NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithOvalInRect:NSMakeRect(125, 50, 150, 150)], @"path",
-                         [self colorWithIndex:2], @"color", nil];
+                          [self colorWithIndex:2], @"color", nil];
   
   NSMutableArray *shapesProxy = [self mutableArrayValueForKey:@"shapes"];
   
@@ -235,35 +262,39 @@
   [shapesProxy addObject:circle];
 }
 
-- (IBAction)setRoundedRectOverRect:(id)sender
+- (IBAction)setSquareOverCircleCorner:(id)sender
 {
-  NSMutableArray *shapesProxy = [self mutableArrayValueForKey:@"shapes"];
-  [shapesProxy removeAllObjects];
+  NSDictionary *square = [NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRect:NSMakeRect(70, 145, 150, 150)], @"path",
+                          [self colorWithIndex:0], @"color", nil];
+  NSDictionary *circle = [NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithOvalInRect:NSMakeRect(145, 70, 150, 150)], @"path",
+                          [self colorWithIndex:2], @"color", nil];
   
-  [shapesProxy addObject:[NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRoundedRect:NSMakeRect(50, 250, 100, 100)
-                                                                                                  xRadius:20
-                                                                                                  yRadius:20], @"path",
-                        [self colorWithIndex:0], @"color", nil]];
-  [shapesProxy addObject:[NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRoundedRect:NSMakeRect(180, 250, 100, 100)
-                                                                                                  xRadius:20
-                                                                                                  yRadius:20], @"path",
-                        [self colorWithIndex:1], @"color", nil]];
+  NSMutableArray *shapesProxy = [self mutableArrayValueForKey:@"shapes"];
+  
+  [shapesProxy removeAllObjects];
+  [shapesProxy addObject:square];
+  [shapesProxy addObject:circle];
 }
 
-- (IBAction)setCircleOverSquareSide:(id)sender
-{}
-
-- (IBAction)setSquareOverCircleCorner:(id)sender
-{}
-
 - (IBAction)setSquareOverCircleSide:(id)sender
-{}
+{
+  NSDictionary *circle = [NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithOvalInRect:NSMakeRect(50, 50, 150, 150)], @"path",
+                          [self colorWithIndex:1], @"color", nil];
+  NSDictionary *square = [NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRect:NSMakeRect(50, 125, 150, 150)], @"path",
+                          [self colorWithIndex:4], @"color", nil];
+  
+  NSMutableArray *shapesProxy = [self mutableArrayValueForKey:@"shapes"];
+  
+  [shapesProxy removeAllObjects];
+  [shapesProxy addObject:circle];
+  [shapesProxy addObject:square];
+}
 
 - (IBAction)setSquareNextToSquare:(id)sender
 {
-  NSDictionary *square = [NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRect:NSMakeRect(50, 50, 150, 150)], @"path",
+  NSDictionary *square = [NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRect:NSMakeRect(70, 100, 150, 150)], @"path",
                           [self colorWithIndex:4], @"color", nil];
-  NSDictionary *square2 = [NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRect:NSMakeRect(125, 50, 150, 150)], @"path",
+  NSDictionary *square2 = [NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRect:NSMakeRect(145, 100, 150, 150)], @"path",
                           [self colorWithIndex:5], @"color", nil];
   
   NSMutableArray *shapesProxy = [self mutableArrayValueForKey:@"shapes"];
