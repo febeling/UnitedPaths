@@ -7,31 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		50022E0014E92D820083A5C3 /* FLPathSegmentReassemble.m in Sources */ = {isa = PBXBuildFile; fileRef = 50022DFE14E92CE30083A5C3 /* FLPathSegmentReassemble.m */; };
-		500EBCEF14DC13F700F541D6 /* FLPathSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 500EBCEE14DC13F700F541D6 /* FLPathSegment.m */; };
-		500EBCF414DC146700F541D6 /* FLIntersection.m in Sources */ = {isa = PBXBuildFile; fileRef = 500EBCF314DC146700F541D6 /* FLIntersection.m */; };
-		500EBCF714DC19C600F541D6 /* FLPathSegmentResegmentTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 500EBCF614DC19C600F541D6 /* FLPathSegmentResegmentTest.m */; };
-		500EBCFA14DC207E00F541D6 /* NSBezierPathSegmentsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 500EBCF914DC207D00F541D6 /* NSBezierPathSegmentsTest.m */; };
-		500EBCFD14DC275A00F541D6 /* FLPathSegmentEqualityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 500EBCFC14DC275A00F541D6 /* FLPathSegmentEqualityTest.m */; };
-		500FCC0014D02BF700F8689C /* FLGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 500FCBFF14D02BF700F8689C /* FLGeometry.m */; };
-		500FCC0A14D02CFE00F8689C /* FLGeometryLineIntersectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 500FCC0814D02CD600F8689C /* FLGeometryLineIntersectionTest.m */; };
-		500FCC1514D0477A00F8689C /* FLGeometryCurveToSegmentsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 500FCC0C14D0445A00F8689C /* FLGeometryCurveToSegmentsTest.m */; };
-		5015CB6014DAB5E500BE3345 /* NSBezierPath+BezierLabs.m in Sources */ = {isa = PBXBuildFile; fileRef = 5015CB5F14DAB5E500BE3345 /* NSBezierPath+BezierLabs.m */; };
-		5047F4A414D198AB0068AFE4 /* FLGeometryPathElementIntersectionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5047F4A114D198910068AFE4 /* FLGeometryPathElementIntersectionsTest.m */; };
-		505D876E14D2D24F0091BB4D /* FLGeometryCurveSplitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D876D14D2D24F0091BB4D /* FLGeometryCurveSplitTest.m */; };
-		5078B1DB14E1163D0034D155 /* NSArrayCreateDictionaryUsingBlockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5078B1DA14E1163D0034D155 /* NSArrayCreateDictionaryUsingBlockTest.m */; };
-		5078B1E314E157340034D155 /* FLGeometryLineCurveIntersectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5078B1E214E157340034D155 /* FLGeometryLineCurveIntersectionTest.m */; };
-		5078B1E614E16AB40034D155 /* FLPathSegmentBezierPathWithSegmentsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5078B1E514E16AB30034D155 /* FLPathSegmentBezierPathWithSegmentsTest.m */; };
-		5078B1FA14E280310034D155 /* NSArray+CreateDictionaryUsingBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 5078B1F914E280310034D155 /* NSArray+CreateDictionaryUsingBlock.m */; };
-		5078B1FE14E283AE0034D155 /* NSBezierPathEqualityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5078B1FC14E283650034D155 /* NSBezierPathEqualityTest.m */; };
-		5078B20114E2843A0034D155 /* NSBezierPathAppendPathWithElementTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5078B20014E284380034D155 /* NSBezierPathAppendPathWithElementTest.m */; };
-		5078B20414E2854F0034D155 /* NSBezierPathBehaviorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5078B20314E2854D0034D155 /* NSBezierPathBehaviorTest.m */; };
 		5090856714D492E300DF6565 /* (null) in Sources */ = {isa = PBXBuildFile; };
-		50BB9EF614E5159000AF4F8E /* FLPathSegmentMarkUnionOf.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BB9EF514E5159000AF4F8E /* FLPathSegmentMarkUnionOf.m */; };
-		50C36CB814DEAB4B00D1FC51 /* NSValueWithPointBugTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C36CB714DEAB4B00D1FC51 /* NSValueWithPointBugTest.m */; };
-		50C36CBC14DED08700D1FC51 /* FLPathSegmentIntersectionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C36CBB14DED08700D1FC51 /* FLPathSegmentIntersectionsTest.m */; };
-		50C36CBF14DED0F200D1FC51 /* FLGeometryHelpersTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C36CBE14DED0F200D1FC51 /* FLGeometryHelpersTest.m */; };
-		50F55FFD14DFCF4F0097425A /* FLIntersectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F55FFC14DFCF4F0097425A /* FLIntersectionTest.m */; };
+		50CA952214EBDC14000A3197 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50F886F814CF427E007AEE2E /* Cocoa.framework */; };
+		50CA952814EBDC14000A3197 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50CA952614EBDC14000A3197 /* InfoPlist.strings */; };
+		50CA953314EBDC14000A3197 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50F8871914CF427F007AEE2E /* SenTestingKit.framework */; };
+		50CA953414EBDC14000A3197 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50F886F814CF427E007AEE2E /* Cocoa.framework */; };
+		50CA953714EBDC14000A3197 /* UnitedPaths.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50CA952114EBDC13000A3197 /* UnitedPaths.framework */; };
+		50CA953D14EBDC14000A3197 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50CA953B14EBDC14000A3197 /* InfoPlist.strings */; };
+		50CA954814EBDC4E000A3197 /* UnitedPaths.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50CA952114EBDC13000A3197 /* UnitedPaths.framework */; };
+		50CA954B14EBDC85000A3197 /* FLGeometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 500FCBFE14D02BF700F8689C /* FLGeometry.h */; };
+		50CA954C14EBDC85000A3197 /* FLGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 500FCBFF14D02BF700F8689C /* FLGeometry.m */; };
+		50CA954D14EBDC85000A3197 /* FLIntersection.h in Headers */ = {isa = PBXBuildFile; fileRef = 500EBCF214DC146700F541D6 /* FLIntersection.h */; };
+		50CA954E14EBDC85000A3197 /* FLIntersection.m in Sources */ = {isa = PBXBuildFile; fileRef = 500EBCF314DC146700F541D6 /* FLIntersection.m */; };
+		50CA954F14EBDC85000A3197 /* FLPathSegment.h in Headers */ = {isa = PBXBuildFile; fileRef = 500EBCED14DC13F700F541D6 /* FLPathSegment.h */; };
+		50CA955014EBDC85000A3197 /* FLPathSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 500EBCEE14DC13F700F541D6 /* FLPathSegment.m */; };
+		50CA955114EBDC85000A3197 /* NSArray+CreateDictionaryUsingBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 5078B1F814E280310034D155 /* NSArray+CreateDictionaryUsingBlock.h */; };
+		50CA955214EBDC85000A3197 /* NSArray+CreateDictionaryUsingBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 5078B1F914E280310034D155 /* NSArray+CreateDictionaryUsingBlock.m */; };
+		50CA955314EBDC85000A3197 /* NSBezierPath+BezierLabs.h in Headers */ = {isa = PBXBuildFile; fileRef = 5015CB5E14DAB5E500BE3345 /* NSBezierPath+BezierLabs.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		50CA955414EBDC85000A3197 /* NSBezierPath+BezierLabs.m in Sources */ = {isa = PBXBuildFile; fileRef = 5015CB5F14DAB5E500BE3345 /* NSBezierPath+BezierLabs.m */; };
+		50CA955514EBDD6A000A3197 /* BezierLabTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F8872514CF427F007AEE2E /* BezierLabTests.m */; };
+		50CA955614EBDD73000A3197 /* FLGeometryCurveSplitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D876D14D2D24F0091BB4D /* FLGeometryCurveSplitTest.m */; };
+		50CA955714EBDD8B000A3197 /* FLGeometryCurveToSegmentsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 500FCC0C14D0445A00F8689C /* FLGeometryCurveToSegmentsTest.m */; };
+		50CA955814EBDD8B000A3197 /* FLGeometryHelpersTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C36CBE14DED0F200D1FC51 /* FLGeometryHelpersTest.m */; };
+		50CA955914EBDD8B000A3197 /* FLGeometryLineCurveIntersectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5078B1E214E157340034D155 /* FLGeometryLineCurveIntersectionTest.m */; };
+		50CA955A14EBDD8B000A3197 /* FLGeometryLineIntersectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 500FCC0814D02CD600F8689C /* FLGeometryLineIntersectionTest.m */; };
+		50CA955B14EBDD8B000A3197 /* FLGeometryPathElementIntersectionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5047F4A114D198910068AFE4 /* FLGeometryPathElementIntersectionsTest.m */; };
+		50CA955C14EBDD8B000A3197 /* FLIntersectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F55FFC14DFCF4F0097425A /* FLIntersectionTest.m */; };
+		50CA955D14EBDD8B000A3197 /* FLPathSegmentBezierPathWithSegmentsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5078B1E514E16AB30034D155 /* FLPathSegmentBezierPathWithSegmentsTest.m */; };
+		50CA955E14EBDD8B000A3197 /* FLPathSegmentEqualityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 500EBCFC14DC275A00F541D6 /* FLPathSegmentEqualityTest.m */; };
+		50CA955F14EBDD8B000A3197 /* FLPathSegmentIntersectionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C36CBB14DED08700D1FC51 /* FLPathSegmentIntersectionsTest.m */; };
+		50CA956014EBDD8B000A3197 /* FLPathSegmentMarkUnionOf.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BB9EF514E5159000AF4F8E /* FLPathSegmentMarkUnionOf.m */; };
+		50CA956114EBDD8B000A3197 /* FLPathSegmentReassemble.m in Sources */ = {isa = PBXBuildFile; fileRef = 50022DFE14E92CE30083A5C3 /* FLPathSegmentReassemble.m */; };
+		50CA956214EBDD8B000A3197 /* FLPathSegmentResegmentTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 500EBCF614DC19C600F541D6 /* FLPathSegmentResegmentTest.m */; };
+		50CA956314EBDD8B000A3197 /* NSArrayCreateDictionaryUsingBlockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5078B1DA14E1163D0034D155 /* NSArrayCreateDictionaryUsingBlockTest.m */; };
+		50CA956414EBDD8B000A3197 /* NSBezierPathAppendPathWithElementTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5078B20014E284380034D155 /* NSBezierPathAppendPathWithElementTest.m */; };
+		50CA956514EBDD8B000A3197 /* NSBezierPathBehaviorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5078B20314E2854D0034D155 /* NSBezierPathBehaviorTest.m */; };
+		50CA956614EBDD8B000A3197 /* NSBezierPathEqualityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5078B1FC14E283650034D155 /* NSBezierPathEqualityTest.m */; };
+		50CA956714EBDD8B000A3197 /* NSBezierPathSegmentsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 500EBCF914DC207D00F541D6 /* NSBezierPathSegmentsTest.m */; };
+		50CA956814EBDD8B000A3197 /* NSValueWithPointBugTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C36CB714DEAB4B00D1FC51 /* NSValueWithPointBugTest.m */; };
 		50F886F914CF427E007AEE2E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50F886F814CF427E007AEE2E /* Cocoa.framework */; };
 		50F8870314CF427E007AEE2E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50F8870114CF427E007AEE2E /* InfoPlist.strings */; };
 		50F8870514CF427E007AEE2E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F8870414CF427E007AEE2E /* main.m */; };
@@ -39,20 +52,23 @@
 		50F8870C14CF427E007AEE2E /* FLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F8870B14CF427E007AEE2E /* FLDocument.m */; };
 		50F8870F14CF427E007AEE2E /* FLDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50F8870D14CF427E007AEE2E /* FLDocument.xib */; };
 		50F8871214CF427F007AEE2E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50F8871014CF427F007AEE2E /* MainMenu.xib */; };
-		50F8871A14CF427F007AEE2E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50F8871914CF427F007AEE2E /* SenTestingKit.framework */; };
-		50F8871B14CF427F007AEE2E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50F886F814CF427E007AEE2E /* Cocoa.framework */; };
-		50F8872314CF427F007AEE2E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50F8872114CF427F007AEE2E /* InfoPlist.strings */; };
-		50F8872614CF427F007AEE2E /* BezierLabTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F8872514CF427F007AEE2E /* BezierLabTests.m */; };
 		50F8873114CF4769007AEE2E /* FLCanvas.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F8873014CF4769007AEE2E /* FLCanvas.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		50F8871C14CF427F007AEE2E /* PBXContainerItemProxy */ = {
+		50CA953514EBDC14000A3197 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 50F886EB14CF427E007AEE2E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 50F886F314CF427E007AEE2E;
-			remoteInfo = BezierLab;
+			remoteGlobalIDString = 50CA952014EBDC13000A3197;
+			remoteInfo = UnitedPaths;
+		};
+		50CA954914EBDC66000A3197 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 50F886EB14CF427E007AEE2E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 50CA952014EBDC13000A3197;
+			remoteInfo = UnitedPaths;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -103,6 +119,13 @@
 		50C36CBB14DED08700D1FC51 /* FLPathSegmentIntersectionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLPathSegmentIntersectionsTest.m; sourceTree = "<group>"; };
 		50C36CBD14DED0F200D1FC51 /* FLGeometryHelpersTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLGeometryHelpersTest.h; sourceTree = "<group>"; };
 		50C36CBE14DED0F200D1FC51 /* FLGeometryHelpersTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLGeometryHelpersTest.m; sourceTree = "<group>"; };
+		50CA952114EBDC13000A3197 /* UnitedPaths.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UnitedPaths.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		50CA952514EBDC14000A3197 /* UnitedPaths-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UnitedPaths-Info.plist"; sourceTree = "<group>"; };
+		50CA952714EBDC14000A3197 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		50CA952914EBDC14000A3197 /* UnitedPaths-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UnitedPaths-Prefix.pch"; sourceTree = "<group>"; };
+		50CA953214EBDC14000A3197 /* UnitedPathsTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitedPathsTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		50CA953A14EBDC14000A3197 /* UnitedPathsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UnitedPathsTests-Info.plist"; sourceTree = "<group>"; };
+		50CA953C14EBDC14000A3197 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		50F55FF914DFC3DE0097425A /* TestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHelper.h; sourceTree = "<group>"; };
 		50F55FFB14DFCF4F0097425A /* FLIntersectionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLIntersectionTest.h; sourceTree = "<group>"; };
 		50F55FFC14DFCF4F0097425A /* FLIntersectionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLIntersectionTest.m; sourceTree = "<group>"; };
@@ -120,10 +143,7 @@
 		50F8870B14CF427E007AEE2E /* FLDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLDocument.m; sourceTree = "<group>"; };
 		50F8870E14CF427E007AEE2E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FLDocument.xib; sourceTree = "<group>"; };
 		50F8871114CF427F007AEE2E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		50F8871814CF427F007AEE2E /* BezierLabTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BezierLabTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		50F8871914CF427F007AEE2E /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		50F8872014CF427F007AEE2E /* BezierLabTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BezierLabTests-Info.plist"; sourceTree = "<group>"; };
-		50F8872214CF427F007AEE2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		50F8872414CF427F007AEE2E /* BezierLabTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BezierLabTests.h; sourceTree = "<group>"; };
 		50F8872514CF427F007AEE2E /* BezierLabTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BezierLabTests.m; sourceTree = "<group>"; };
 		50F8872F14CF4769007AEE2E /* FLCanvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLCanvas.h; sourceTree = "<group>"; };
@@ -131,27 +151,37 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		50CA951D14EBDC13000A3197 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50CA952214EBDC14000A3197 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50CA952E14EBDC14000A3197 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50CA953314EBDC14000A3197 /* SenTestingKit.framework in Frameworks */,
+				50CA953414EBDC14000A3197 /* Cocoa.framework in Frameworks */,
+				50CA953714EBDC14000A3197 /* UnitedPaths.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		50F886F114CF427E007AEE2E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50CA954814EBDC4E000A3197 /* UnitedPaths.framework in Frameworks */,
 				50F886F914CF427E007AEE2E /* Cocoa.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		50F8871414CF427F007AEE2E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				50F8871A14CF427F007AEE2E /* SenTestingKit.framework in Frameworks */,
-				50F8871B14CF427F007AEE2E /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		500EBCF114DC141500F541D6 /* Application */ = {
+		500EBCF114DC141500F541D6 /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				50F8872F14CF4769007AEE2E /* FLCanvas.h */,
@@ -159,7 +189,7 @@
 				50F8870A14CF427E007AEE2E /* FLDocument.h */,
 				50F8870B14CF427E007AEE2E /* FLDocument.m */,
 			);
-			name = Application;
+			name = Source;
 			sourceTree = "<group>";
 		};
 		500EBCFE14DC4CA800F541D6 /* Tests */ = {
@@ -208,9 +238,10 @@
 				50F55FF914DFC3DE0097425A /* TestHelper.h */,
 			);
 			name = Tests;
+			path = ../BezierLabTests;
 			sourceTree = "<group>";
 		};
-		5078B20E14E28EE00034D155 /* Framework */ = {
+		5078B20E14E28EE00034D155 /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				500FCBFE14D02BF700F8689C /* FLGeometry.h */,
@@ -224,14 +255,53 @@
 				5015CB5E14DAB5E500BE3345 /* NSBezierPath+BezierLabs.h */,
 				5015CB5F14DAB5E500BE3345 /* NSBezierPath+BezierLabs.m */,
 			);
-			name = Framework;
+			name = Source;
+			path = ../BezierLab;
+			sourceTree = "<group>";
+		};
+		50CA952314EBDC14000A3197 /* UnitedPaths */ = {
+			isa = PBXGroup;
+			children = (
+				5078B20E14E28EE00034D155 /* Source */,
+				50CA952414EBDC14000A3197 /* Supporting Files */,
+			);
+			path = UnitedPaths;
+			sourceTree = "<group>";
+		};
+		50CA952414EBDC14000A3197 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				50CA952514EBDC14000A3197 /* UnitedPaths-Info.plist */,
+				50CA952614EBDC14000A3197 /* InfoPlist.strings */,
+				50CA952914EBDC14000A3197 /* UnitedPaths-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		50CA953814EBDC14000A3197 /* UnitedPathsTests */ = {
+			isa = PBXGroup;
+			children = (
+				500EBCFE14DC4CA800F541D6 /* Tests */,
+				50CA953914EBDC14000A3197 /* Supporting Files */,
+			);
+			path = UnitedPathsTests;
+			sourceTree = "<group>";
+		};
+		50CA953914EBDC14000A3197 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				50CA953A14EBDC14000A3197 /* UnitedPathsTests-Info.plist */,
+				50CA953B14EBDC14000A3197 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		50F886E914CF427E007AEE2E = {
 			isa = PBXGroup;
 			children = (
-				50F886FE14CF427E007AEE2E /* BezierLab */,
-				50F8871E14CF427F007AEE2E /* BezierLabTests */,
+				50F886FE14CF427E007AEE2E /* Demo Application */,
+				50CA952314EBDC14000A3197 /* UnitedPaths */,
+				50CA953814EBDC14000A3197 /* UnitedPathsTests */,
 				50F886F714CF427E007AEE2E /* Frameworks */,
 				50F886F514CF427E007AEE2E /* Products */,
 			);
@@ -241,7 +311,8 @@
 			isa = PBXGroup;
 			children = (
 				50F886F414CF427E007AEE2E /* BezierLab.app */,
-				50F8871814CF427F007AEE2E /* BezierLabTests.octest */,
+				50CA952114EBDC13000A3197 /* UnitedPaths.framework */,
+				50CA953214EBDC14000A3197 /* UnitedPathsTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -266,15 +337,15 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		50F886FE14CF427E007AEE2E /* BezierLab */ = {
+		50F886FE14CF427E007AEE2E /* Demo Application */ = {
 			isa = PBXGroup;
 			children = (
-				5078B20E14E28EE00034D155 /* Framework */,
-				500EBCF114DC141500F541D6 /* Application */,
+				500EBCF114DC141500F541D6 /* Source */,
 				50F8870D14CF427E007AEE2E /* FLDocument.xib */,
 				50F8871014CF427F007AEE2E /* MainMenu.xib */,
 				50F886FF14CF427E007AEE2E /* Supporting Files */,
 			);
+			name = "Demo Application";
 			path = BezierLab;
 			sourceTree = "<group>";
 		};
@@ -290,30 +361,64 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		50F8871E14CF427F007AEE2E /* BezierLabTests */ = {
-			isa = PBXGroup;
-			children = (
-				500EBCFE14DC4CA800F541D6 /* Tests */,
-				50F8871F14CF427F007AEE2E /* Supporting Files */,
-			);
-			path = BezierLabTests;
-			sourceTree = "<group>";
-		};
-		50F8871F14CF427F007AEE2E /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				50F8872014CF427F007AEE2E /* BezierLabTests-Info.plist */,
-				50F8872114CF427F007AEE2E /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		50CA951E14EBDC13000A3197 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50CA954B14EBDC85000A3197 /* FLGeometry.h in Headers */,
+				50CA954D14EBDC85000A3197 /* FLIntersection.h in Headers */,
+				50CA954F14EBDC85000A3197 /* FLPathSegment.h in Headers */,
+				50CA955114EBDC85000A3197 /* NSArray+CreateDictionaryUsingBlock.h in Headers */,
+				50CA955314EBDC85000A3197 /* NSBezierPath+BezierLabs.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		50F886F314CF427E007AEE2E /* BezierLab */ = {
+		50CA952014EBDC13000A3197 /* UnitedPaths */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 50F8872914CF427F007AEE2E /* Build configuration list for PBXNativeTarget "BezierLab" */;
+			buildConfigurationList = 50CA954514EBDC14000A3197 /* Build configuration list for PBXNativeTarget "UnitedPaths" */;
+			buildPhases = (
+				50CA951C14EBDC13000A3197 /* Sources */,
+				50CA951D14EBDC13000A3197 /* Frameworks */,
+				50CA951E14EBDC13000A3197 /* Headers */,
+				50CA951F14EBDC13000A3197 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UnitedPaths;
+			productName = UnitedPaths;
+			productReference = 50CA952114EBDC13000A3197 /* UnitedPaths.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		50CA953114EBDC14000A3197 /* UnitedPathsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50CA954614EBDC14000A3197 /* Build configuration list for PBXNativeTarget "UnitedPathsTests" */;
+			buildPhases = (
+				50CA952D14EBDC14000A3197 /* Sources */,
+				50CA952E14EBDC14000A3197 /* Frameworks */,
+				50CA952F14EBDC14000A3197 /* Resources */,
+				50CA953014EBDC14000A3197 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				50CA953614EBDC14000A3197 /* PBXTargetDependency */,
+			);
+			name = UnitedPathsTests;
+			productName = UnitedPathsTests;
+			productReference = 50CA953214EBDC14000A3197 /* UnitedPathsTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+		50F886F314CF427E007AEE2E /* Demo Application */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50F8872914CF427F007AEE2E /* Build configuration list for PBXNativeTarget "Demo Application" */;
 			buildPhases = (
 				50F886F014CF427E007AEE2E /* Sources */,
 				50F886F114CF427E007AEE2E /* Frameworks */,
@@ -322,30 +427,12 @@
 			buildRules = (
 			);
 			dependencies = (
+				50CA954A14EBDC66000A3197 /* PBXTargetDependency */,
 			);
-			name = BezierLab;
+			name = "Demo Application";
 			productName = BezierLab;
 			productReference = 50F886F414CF427E007AEE2E /* BezierLab.app */;
 			productType = "com.apple.product-type.application";
-		};
-		50F8871714CF427F007AEE2E /* BezierLabTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 50F8872C14CF427F007AEE2E /* Build configuration list for PBXNativeTarget "BezierLabTests" */;
-			buildPhases = (
-				50F8871314CF427F007AEE2E /* Sources */,
-				50F8871414CF427F007AEE2E /* Frameworks */,
-				50F8871514CF427F007AEE2E /* Resources */,
-				50F8871614CF427F007AEE2E /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				50F8871D14CF427F007AEE2E /* PBXTargetDependency */,
-			);
-			name = BezierLabTests;
-			productName = BezierLabTests;
-			productReference = 50F8871814CF427F007AEE2E /* BezierLabTests.octest */;
-			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -367,13 +454,30 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				50F886F314CF427E007AEE2E /* BezierLab */,
-				50F8871714CF427F007AEE2E /* BezierLabTests */,
+				50CA952014EBDC13000A3197 /* UnitedPaths */,
+				50CA953114EBDC14000A3197 /* UnitedPathsTests */,
+				50F886F314CF427E007AEE2E /* Demo Application */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		50CA951F14EBDC13000A3197 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50CA952814EBDC14000A3197 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50CA952F14EBDC14000A3197 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50CA953D14EBDC14000A3197 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		50F886F214CF427E007AEE2E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -385,18 +489,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		50F8871514CF427F007AEE2E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				50F8872314CF427F007AEE2E /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		50F8871614CF427F007AEE2E /* ShellScript */ = {
+		50CA953014EBDC14000A3197 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -412,6 +508,45 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		50CA951C14EBDC13000A3197 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50CA954C14EBDC85000A3197 /* FLGeometry.m in Sources */,
+				50CA954E14EBDC85000A3197 /* FLIntersection.m in Sources */,
+				50CA955014EBDC85000A3197 /* FLPathSegment.m in Sources */,
+				50CA955214EBDC85000A3197 /* NSArray+CreateDictionaryUsingBlock.m in Sources */,
+				50CA955414EBDC85000A3197 /* NSBezierPath+BezierLabs.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50CA952D14EBDC14000A3197 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50CA955514EBDD6A000A3197 /* BezierLabTests.m in Sources */,
+				50CA955614EBDD73000A3197 /* FLGeometryCurveSplitTest.m in Sources */,
+				50CA955714EBDD8B000A3197 /* FLGeometryCurveToSegmentsTest.m in Sources */,
+				50CA955814EBDD8B000A3197 /* FLGeometryHelpersTest.m in Sources */,
+				50CA955914EBDD8B000A3197 /* FLGeometryLineCurveIntersectionTest.m in Sources */,
+				50CA955A14EBDD8B000A3197 /* FLGeometryLineIntersectionTest.m in Sources */,
+				50CA955B14EBDD8B000A3197 /* FLGeometryPathElementIntersectionsTest.m in Sources */,
+				50CA955C14EBDD8B000A3197 /* FLIntersectionTest.m in Sources */,
+				50CA955D14EBDD8B000A3197 /* FLPathSegmentBezierPathWithSegmentsTest.m in Sources */,
+				50CA955E14EBDD8B000A3197 /* FLPathSegmentEqualityTest.m in Sources */,
+				50CA955F14EBDD8B000A3197 /* FLPathSegmentIntersectionsTest.m in Sources */,
+				50CA956014EBDD8B000A3197 /* FLPathSegmentMarkUnionOf.m in Sources */,
+				50CA956114EBDD8B000A3197 /* FLPathSegmentReassemble.m in Sources */,
+				50CA956214EBDD8B000A3197 /* FLPathSegmentResegmentTest.m in Sources */,
+				50CA956314EBDD8B000A3197 /* NSArrayCreateDictionaryUsingBlockTest.m in Sources */,
+				50CA956414EBDD8B000A3197 /* NSBezierPathAppendPathWithElementTest.m in Sources */,
+				50CA956514EBDD8B000A3197 /* NSBezierPathBehaviorTest.m in Sources */,
+				50CA956614EBDD8B000A3197 /* NSBezierPathEqualityTest.m in Sources */,
+				50CA956714EBDD8B000A3197 /* NSBezierPathSegmentsTest.m in Sources */,
+				50CA956814EBDD8B000A3197 /* NSValueWithPointBugTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		50F886F014CF427E007AEE2E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -419,53 +554,42 @@
 				50F8870514CF427E007AEE2E /* main.m in Sources */,
 				50F8870C14CF427E007AEE2E /* FLDocument.m in Sources */,
 				50F8873114CF4769007AEE2E /* FLCanvas.m in Sources */,
-				500FCC0014D02BF700F8689C /* FLGeometry.m in Sources */,
 				5090856714D492E300DF6565 /* (null) in Sources */,
-				5015CB6014DAB5E500BE3345 /* NSBezierPath+BezierLabs.m in Sources */,
-				500EBCEF14DC13F700F541D6 /* FLPathSegment.m in Sources */,
-				500EBCF414DC146700F541D6 /* FLIntersection.m in Sources */,
-				5078B1FA14E280310034D155 /* NSArray+CreateDictionaryUsingBlock.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		50F8871314CF427F007AEE2E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				50F8872614CF427F007AEE2E /* BezierLabTests.m in Sources */,
-				500FCC0A14D02CFE00F8689C /* FLGeometryLineIntersectionTest.m in Sources */,
-				500FCC1514D0477A00F8689C /* FLGeometryCurveToSegmentsTest.m in Sources */,
-				5047F4A414D198AB0068AFE4 /* FLGeometryPathElementIntersectionsTest.m in Sources */,
-				505D876E14D2D24F0091BB4D /* FLGeometryCurveSplitTest.m in Sources */,
-				500EBCF714DC19C600F541D6 /* FLPathSegmentResegmentTest.m in Sources */,
-				500EBCFA14DC207E00F541D6 /* NSBezierPathSegmentsTest.m in Sources */,
-				500EBCFD14DC275A00F541D6 /* FLPathSegmentEqualityTest.m in Sources */,
-				50C36CB814DEAB4B00D1FC51 /* NSValueWithPointBugTest.m in Sources */,
-				50C36CBC14DED08700D1FC51 /* FLPathSegmentIntersectionsTest.m in Sources */,
-				50C36CBF14DED0F200D1FC51 /* FLGeometryHelpersTest.m in Sources */,
-				50F55FFD14DFCF4F0097425A /* FLIntersectionTest.m in Sources */,
-				5078B1DB14E1163D0034D155 /* NSArrayCreateDictionaryUsingBlockTest.m in Sources */,
-				5078B1E314E157340034D155 /* FLGeometryLineCurveIntersectionTest.m in Sources */,
-				5078B1E614E16AB40034D155 /* FLPathSegmentBezierPathWithSegmentsTest.m in Sources */,
-				5078B1FE14E283AE0034D155 /* NSBezierPathEqualityTest.m in Sources */,
-				5078B20114E2843A0034D155 /* NSBezierPathAppendPathWithElementTest.m in Sources */,
-				5078B20414E2854F0034D155 /* NSBezierPathBehaviorTest.m in Sources */,
-				50BB9EF614E5159000AF4F8E /* FLPathSegmentMarkUnionOf.m in Sources */,
-				50022E0014E92D820083A5C3 /* FLPathSegmentReassemble.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		50F8871D14CF427F007AEE2E /* PBXTargetDependency */ = {
+		50CA953614EBDC14000A3197 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 50F886F314CF427E007AEE2E /* BezierLab */;
-			targetProxy = 50F8871C14CF427F007AEE2E /* PBXContainerItemProxy */;
+			target = 50CA952014EBDC13000A3197 /* UnitedPaths */;
+			targetProxy = 50CA953514EBDC14000A3197 /* PBXContainerItemProxy */;
+		};
+		50CA954A14EBDC66000A3197 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 50CA952014EBDC13000A3197 /* UnitedPaths */;
+			targetProxy = 50CA954914EBDC66000A3197 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		50CA952614EBDC14000A3197 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				50CA952714EBDC14000A3197 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		50CA953B14EBDC14000A3197 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				50CA953C14EBDC14000A3197 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		50F8870114CF427E007AEE2E /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -498,17 +622,61 @@
 			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
-		50F8872114CF427F007AEE2E /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				50F8872214CF427F007AEE2E /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		50CA954114EBDC14000A3197 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UnitedPaths/UnitedPaths-Prefix.pch";
+				INFOPLIST_FILE = "UnitedPaths/UnitedPaths-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		50CA954214EBDC14000A3197 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UnitedPaths/UnitedPaths-Prefix.pch";
+				INFOPLIST_FILE = "UnitedPaths/UnitedPaths-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		50CA954314EBDC14000A3197 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UnitedPaths/UnitedPaths-Prefix.pch";
+				INFOPLIST_FILE = "UnitedPathsTests/UnitedPathsTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		50CA954414EBDC14000A3197 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UnitedPaths/UnitedPaths-Prefix.pch";
+				INFOPLIST_FILE = "UnitedPathsTests/UnitedPathsTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		50F8872714CF427F007AEE2E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -578,37 +746,25 @@
 			};
 			name = Release;
 		};
-		50F8872D14CF427F007AEE2E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BezierLab.app/Contents/MacOS/BezierLab";
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BezierLab/BezierLab-Prefix.pch";
-				INFOPLIST_FILE = "BezierLabTests/BezierLabTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		50F8872E14CF427F007AEE2E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BezierLab.app/Contents/MacOS/BezierLab";
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BezierLab/BezierLab-Prefix.pch";
-				INFOPLIST_FILE = "BezierLabTests/BezierLabTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		50CA954514EBDC14000A3197 /* Build configuration list for PBXNativeTarget "UnitedPaths" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50CA954114EBDC14000A3197 /* Debug */,
+				50CA954214EBDC14000A3197 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		50CA954614EBDC14000A3197 /* Build configuration list for PBXNativeTarget "UnitedPathsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50CA954314EBDC14000A3197 /* Debug */,
+				50CA954414EBDC14000A3197 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		50F886EE14CF427E007AEE2E /* Build configuration list for PBXProject "BezierLab" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -618,20 +774,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		50F8872914CF427F007AEE2E /* Build configuration list for PBXNativeTarget "BezierLab" */ = {
+		50F8872914CF427F007AEE2E /* Build configuration list for PBXNativeTarget "Demo Application" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				50F8872A14CF427F007AEE2E /* Debug */,
 				50F8872B14CF427F007AEE2E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		50F8872C14CF427F007AEE2E /* Build configuration list for PBXNativeTarget "BezierLabTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				50F8872D14CF427F007AEE2E /* Debug */,
-				50F8872E14CF427F007AEE2E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

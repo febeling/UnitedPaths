@@ -8,6 +8,7 @@
 
 #import "NSBezierPath+BezierLabs.h"
 #import "FLGeometry.h"
+#import "FLPathSegment.h"
 
 @implementation NSBezierPath (BezierLabs)
 
