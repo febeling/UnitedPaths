@@ -946,7 +946,7 @@
 								</object>
 								<object class="NSMenuItem" id="628367731">
 									<reference key="NSMenu" ref="666945448"/>
-									<string key="NSTitle">Circle Over Square Corner</string>
+									<string key="NSTitle">Rounded Rectangle over Rectangle</string>
 									<string key="NSKeyEquiv">6</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
