@@ -107,7 +107,7 @@
   }
   
   FLPathSegment *lastSegment = [segments lastObject];
-  if(NSEqualPoints([lastSegment endPoint], [firstSegment startPoint])) {
+  if([lastSegment element] == NSLineToBezierPathElement && NSEqualPoints([lastSegment endPoint], [firstSegment startPoint])) {
     [path closePath];
     [path appendBezierPathWithElement:NSClosePathBezierPathElement associatedPoints:NULL];
     [path moveToPoint:[lastSegment endPoint]];
