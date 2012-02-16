@@ -129,12 +129,12 @@
 		50F55FF914DFC3DE0097425A /* TestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHelper.h; sourceTree = "<group>"; };
 		50F55FFB14DFCF4F0097425A /* FLIntersectionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLIntersectionTest.h; sourceTree = "<group>"; };
 		50F55FFC14DFCF4F0097425A /* FLIntersectionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLIntersectionTest.m; sourceTree = "<group>"; };
-		50F886F414CF427E007AEE2E /* BezierLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = BezierLab.app; path = "Demo Application.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		50F886F414CF427E007AEE2E /* Demo Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Demo Application.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50F886F814CF427E007AEE2E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		50F886FB14CF427E007AEE2E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		50F886FC14CF427E007AEE2E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		50F886FD14CF427E007AEE2E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		50F8870014CF427E007AEE2E /* BezierLab-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BezierLab-Info.plist"; sourceTree = "<group>"; };
+		50F8870014CF427E007AEE2E /* UnitedPaths-Info.plist */ = {isa = PBXFileReference; path = "UnitedPaths-Info.plist"; sourceTree = "<group>"; };
 		50F8870214CF427E007AEE2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		50F8870414CF427E007AEE2E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		50F8870614CF427E007AEE2E /* BezierLab-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BezierLab-Prefix.pch"; sourceTree = "<group>"; };
@@ -308,7 +308,7 @@
 		50F886F514CF427E007AEE2E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				50F886F414CF427E007AEE2E /* BezierLab.app */,
+				50F886F414CF427E007AEE2E /* Demo Application.app */,
 				50CA952114EBDC13000A3197 /* UnitedPaths.framework */,
 				50CA953214EBDC14000A3197 /* UnitedPathsTests.octest */,
 			);
@@ -350,7 +350,7 @@
 		50F886FF14CF427E007AEE2E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				50F8870014CF427E007AEE2E /* BezierLab-Info.plist */,
+				50F8870014CF427E007AEE2E /* UnitedPaths-Info.plist */,
 				50F8870114CF427E007AEE2E /* InfoPlist.strings */,
 				50F8870414CF427E007AEE2E /* main.m */,
 				50F8870614CF427E007AEE2E /* BezierLab-Prefix.pch */,
@@ -429,7 +429,7 @@
 			);
 			name = "Demo Application";
 			productName = BezierLab;
-			productReference = 50F886F414CF427E007AEE2E /* BezierLab.app */;
+			productReference = 50F886F414CF427E007AEE2E /* Demo Application.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -440,7 +440,7 @@
 			attributes = {
 				LastUpgradeCheck = 0420;
 			};
-			buildConfigurationList = 50F886EE14CF427E007AEE2E /* Build configuration list for PBXProject "BezierLab" */;
+			buildConfigurationList = 50F886EE14CF427E007AEE2E /* Build configuration list for PBXProject "UnitedPaths" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -727,7 +727,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BezierLab/BezierLab-Prefix.pch";
-				INFOPLIST_FILE = "BezierLab/BezierLab-Info.plist";
+				INFOPLIST_FILE = "BezierLab/UnitedPaths-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -738,7 +738,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BezierLab/BezierLab-Prefix.pch";
-				INFOPLIST_FILE = "BezierLab/BezierLab-Info.plist";
+				INFOPLIST_FILE = "BezierLab/UnitedPaths-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -765,7 +765,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		50F886EE14CF427E007AEE2E /* Build configuration list for PBXProject "BezierLab" */ = {
+		50F886EE14CF427E007AEE2E /* Build configuration list for PBXProject "UnitedPaths" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				50F8872714CF427F007AEE2E /* Debug */,
