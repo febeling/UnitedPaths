@@ -7,13 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5090856714D492E300DF6565 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		501F271F14ED68D200ED9E92 /* UnitedPaths.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50CA952114EBDC13000A3197 /* UnitedPaths.framework */; };
 		50CA952814EBDC14000A3197 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50CA952614EBDC14000A3197 /* InfoPlist.strings */; };
 		50CA953314EBDC14000A3197 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50F8871914CF427F007AEE2E /* SenTestingKit.framework */; };
 		50CA953414EBDC14000A3197 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50F886F814CF427E007AEE2E /* Cocoa.framework */; };
-		50CA953714EBDC14000A3197 /* UnitedPaths.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50CA952114EBDC13000A3197 /* UnitedPaths.framework */; };
 		50CA953D14EBDC14000A3197 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50CA953B14EBDC14000A3197 /* InfoPlist.strings */; };
-		50CA954814EBDC4E000A3197 /* UnitedPaths.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50CA952114EBDC13000A3197 /* UnitedPaths.framework */; };
 		50CA954B14EBDC85000A3197 /* FLGeometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 500FCBFE14D02BF700F8689C /* FLGeometry.h */; };
 		50CA954C14EBDC85000A3197 /* FLGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 500FCBFF14D02BF700F8689C /* FLGeometry.m */; };
 		50CA954D14EBDC85000A3197 /* FLIntersection.h in Headers */ = {isa = PBXBuildFile; fileRef = 500EBCF214DC146700F541D6 /* FLIntersection.h */; };
@@ -56,14 +54,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		50CA953514EBDC14000A3197 /* PBXContainerItemProxy */ = {
+		505B128314ED6627009D9769 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 50F886EB14CF427E007AEE2E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 50CA952014EBDC13000A3197;
 			remoteInfo = UnitedPaths;
 		};
-		50CA954914EBDC66000A3197 /* PBXContainerItemProxy */ = {
+		50CA953514EBDC14000A3197 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 50F886EB14CF427E007AEE2E /* Project object */;
 			proxyType = 1;
@@ -134,7 +132,7 @@
 		50F886FB14CF427E007AEE2E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		50F886FC14CF427E007AEE2E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		50F886FD14CF427E007AEE2E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		50F8870014CF427E007AEE2E /* UnitedPaths-Info.plist */ = {isa = PBXFileReference; path = "UnitedPaths-Info.plist"; sourceTree = "<group>"; };
+		50F8870014CF427E007AEE2E /* UnitedPaths-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UnitedPaths-Info.plist"; sourceTree = "<group>"; };
 		50F8870214CF427E007AEE2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		50F8870414CF427E007AEE2E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		50F8870614CF427E007AEE2E /* BezierLab-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BezierLab-Prefix.pch"; sourceTree = "<group>"; };
@@ -163,9 +161,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				501F271F14ED68D200ED9E92 /* UnitedPaths.framework in Frameworks */,
 				50CA953314EBDC14000A3197 /* SenTestingKit.framework in Frameworks */,
 				50CA953414EBDC14000A3197 /* Cocoa.framework in Frameworks */,
-				50CA953714EBDC14000A3197 /* UnitedPaths.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,7 +171,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50CA954814EBDC4E000A3197 /* UnitedPaths.framework in Frameworks */,
 				50F886F914CF427E007AEE2E /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,7 +422,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				50CA954A14EBDC66000A3197 /* PBXTargetDependency */,
+				505B128414ED6627009D9769 /* PBXTargetDependency */,
 			);
 			name = "Demo Application";
 			productName = BezierLab;
@@ -552,22 +549,21 @@
 				50F8870514CF427E007AEE2E /* main.m in Sources */,
 				50F8870C14CF427E007AEE2E /* FLDocument.m in Sources */,
 				50F8873114CF4769007AEE2E /* FLCanvas.m in Sources */,
-				5090856714D492E300DF6565 /* (null) in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		505B128414ED6627009D9769 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 50CA952014EBDC13000A3197 /* UnitedPaths */;
+			targetProxy = 505B128314ED6627009D9769 /* PBXContainerItemProxy */;
+		};
 		50CA953614EBDC14000A3197 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 50CA952014EBDC13000A3197 /* UnitedPaths */;
 			targetProxy = 50CA953514EBDC14000A3197 /* PBXContainerItemProxy */;
-		};
-		50CA954A14EBDC66000A3197 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 50CA952014EBDC13000A3197 /* UnitedPaths */;
-			targetProxy = 50CA954914EBDC66000A3197 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -685,6 +681,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -696,7 +693,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -712,12 +709,13 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				SDKROOT = macosx;
 			};
 			name = Release;
