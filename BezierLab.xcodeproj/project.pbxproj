@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5090856714D492E300DF6565 /* (null) in Sources */ = {isa = PBXBuildFile; };
-		50CA952214EBDC14000A3197 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50F886F814CF427E007AEE2E /* Cocoa.framework */; };
 		50CA952814EBDC14000A3197 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50CA952614EBDC14000A3197 /* InfoPlist.strings */; };
 		50CA953314EBDC14000A3197 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50F8871914CF427F007AEE2E /* SenTestingKit.framework */; };
 		50CA953414EBDC14000A3197 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50F886F814CF427E007AEE2E /* Cocoa.framework */; };
@@ -45,6 +44,7 @@
 		50CA956614EBDD8B000A3197 /* NSBezierPathEqualityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5078B1FC14E283650034D155 /* NSBezierPathEqualityTest.m */; };
 		50CA956714EBDD8B000A3197 /* NSBezierPathSegmentsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 500EBCF914DC207D00F541D6 /* NSBezierPathSegmentsTest.m */; };
 		50CA956814EBDD8B000A3197 /* NSValueWithPointBugTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C36CB714DEAB4B00D1FC51 /* NSValueWithPointBugTest.m */; };
+		50CA957714ED1AAB000A3197 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50F886F814CF427E007AEE2E /* Cocoa.framework */; };
 		50F886F914CF427E007AEE2E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50F886F814CF427E007AEE2E /* Cocoa.framework */; };
 		50F8870314CF427E007AEE2E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50F8870114CF427E007AEE2E /* InfoPlist.strings */; };
 		50F8870514CF427E007AEE2E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F8870414CF427E007AEE2E /* main.m */; };
@@ -155,7 +155,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50CA952214EBDC14000A3197 /* Cocoa.framework in Frameworks */,
+				50CA957714ED1AAB000A3197 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 40lines. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 
 @interface NSArray (CreateDictionaryUsingBlock)
 

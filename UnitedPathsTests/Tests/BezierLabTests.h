@@ -7,6 +7,7 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+#import <Cocoa/Cocoa.h>
 #import "NSBezierPath+BezierLabs.h"
 
 @interface BezierLabTests : SenTestCase
