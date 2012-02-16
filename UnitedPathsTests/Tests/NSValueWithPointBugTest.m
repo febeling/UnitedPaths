@@ -10,8 +10,6 @@
 
 @implementation NSValueWithPointBugTest
 
-// TODO Check rect, and size for this bug, too.
-
 - (void)testNSValuePointHash
 {
   // bug filed as radar://10803970
