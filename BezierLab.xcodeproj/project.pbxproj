@@ -129,7 +129,7 @@
 		50F55FF914DFC3DE0097425A /* TestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHelper.h; sourceTree = "<group>"; };
 		50F55FFB14DFCF4F0097425A /* FLIntersectionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLIntersectionTest.h; sourceTree = "<group>"; };
 		50F55FFC14DFCF4F0097425A /* FLIntersectionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLIntersectionTest.m; sourceTree = "<group>"; };
-		50F886F414CF427E007AEE2E /* BezierLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BezierLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		50F886F414CF427E007AEE2E /* BezierLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = BezierLab.app; path = "Demo Application.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50F886F814CF427E007AEE2E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		50F886FB14CF427E007AEE2E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		50F886FC14CF427E007AEE2E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -237,8 +237,7 @@
 				50C36CB714DEAB4B00D1FC51 /* NSValueWithPointBugTest.m */,
 				50F55FF914DFC3DE0097425A /* TestHelper.h */,
 			);
-			name = Tests;
-			path = ../BezierLabTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		5078B20E14E28EE00034D155 /* Source */ = {
@@ -255,8 +254,7 @@
 				5015CB5E14DAB5E500BE3345 /* NSBezierPath+BezierLabs.h */,
 				5015CB5F14DAB5E500BE3345 /* NSBezierPath+BezierLabs.m */,
 			);
-			name = Source;
-			path = ../BezierLab;
+			path = Source;
 			sourceTree = "<group>";
 		};
 		50CA952314EBDC14000A3197 /* UnitedPaths */ = {
@@ -756,6 +754,7 @@
 				50CA954214EBDC14000A3197 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		50CA954614EBDC14000A3197 /* Build configuration list for PBXNativeTarget "UnitedPathsTests" */ = {
 			isa = XCConfigurationList;
@@ -764,6 +763,7 @@
 				50CA954414EBDC14000A3197 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		50F886EE14CF427E007AEE2E /* Build configuration list for PBXProject "BezierLab" */ = {
 			isa = XCConfigurationList;
