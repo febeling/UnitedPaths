@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		501F271F14ED68D200ED9E92 /* UnitedPaths.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50CA952114EBDC13000A3197 /* UnitedPaths.framework */; };
+		50C286FC14EE7492003D60C2 /* UnitedPaths.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50CA952114EBDC13000A3197 /* UnitedPaths.framework */; };
 		50CA952814EBDC14000A3197 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50CA952614EBDC14000A3197 /* InfoPlist.strings */; };
 		50CA953314EBDC14000A3197 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50F8871914CF427F007AEE2E /* SenTestingKit.framework */; };
 		50CA953414EBDC14000A3197 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50F886F814CF427E007AEE2E /* Cocoa.framework */; };
@@ -171,6 +172,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50C286FC14EE7492003D60C2 /* UnitedPaths.framework in Frameworks */,
 				50F886F914CF427E007AEE2E /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

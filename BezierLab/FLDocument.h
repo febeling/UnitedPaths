@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "FLCanvas.h"
-#import "NSBezierPath+BezierLabs.h"
+#import "UnitedPaths/NSBezierPath+BezierLabs.h"
 
 @interface FLDocument : NSDocument
 {
