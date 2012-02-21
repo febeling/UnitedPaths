@@ -134,16 +134,111 @@
 
 - (IBAction)setTwoRectangles:(id)sender;
 {
-  NSDictionary *rect1 = [NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRect:NSMakeRect(100, 100, 200, 100)], @"path",
-                         [self colorWithIndex:1], @"color", nil];
-  NSDictionary *rect2 = [NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRect:NSMakeRect(150, 150, 200, 100)], @"path",
-                         [self colorWithIndex:4], @"color", nil];
+//  NSDictionary *rect1 = [NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRect:NSMakeRect(100, 100, 200, 100)], @"path",
+//                         [self colorWithIndex:1], @"color", nil];
+//  NSDictionary *rect2 = [NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRect:NSMakeRect(150, 150, 200, 100)], @"path",
+//                         [self colorWithIndex:4], @"color", nil];
+//  
+//  NSMutableArray *shapesProxy = [self mutableArrayValueForKey:@"shapes"];
+//  
+//  [shapesProxy removeAllObjects];
+//  [shapesProxy addObject:rect1];
+//  [shapesProxy addObject:rect2];
   
-  NSMutableArray *shapesProxy = [self mutableArrayValueForKey:@"shapes"];
   
-  [shapesProxy removeAllObjects];
-  [shapesProxy addObject:rect1];
-  [shapesProxy addObject:rect2];
+  NSBezierPath *p1 = [NSBezierPath bezierPath];
+//  71.000000 282.000000 moveto
+  [p1 moveToPoint:(NSPoint){71,282}];
+//  68.238600 282.000000 66.000000 279.761400 66.000000 277.000000 curveto
+  [p1 curveToPoint:NSMakePoint(66.000000, 277.000000) controlPoint1:NSMakePoint(68.238600, 282.000000) controlPoint2:NSMakePoint(66.000000, 279.761400)];
+//  66.000000 239.000000 lineto
+  [p1 lineToPoint:NSMakePoint(66.000000, 239.000000)];
+//  66.000000 236.238600 68.238600 234.000000 71.000000 234.000000 curveto
+  [p1 curveToPoint:NSMakePoint(71.000000 , 234.000000) controlPoint1:NSMakePoint(66.000000, 236.238600) controlPoint2:NSMakePoint(68.238600, 234.000000)];
+//  90.000000 234.000000 lineto
+  [p1 lineToPoint:NSMakePoint(90.000000, 234.000000)];
+//  94.000000 234.000000 lineto
+  [p1 lineToPoint:NSMakePoint(94.000000, 234.000000)];
+//  94.000000 223.000000 lineto
+  [p1 lineToPoint:NSMakePoint(94.000000, 223.000000)];
+//  94.000000 204.000000 lineto
+  [p1 lineToPoint:NSMakePoint(94.000000, 204.000000)];
+//  94.000000 185.000000 lineto
+  [p1 lineToPoint:NSMakePoint(94.000000, 185.000000)];
+//  94.000000 182.238600 96.238600 180.000000 99.000000 180.000000 curveto
+  [p1 curveToPoint:NSMakePoint(99.000000 , 180.000000) controlPoint1:NSMakePoint(94.000000, 182.238600) controlPoint2:NSMakePoint(96.238600, 180.000000)];
+//  109.000000 180.000000 lineto
+  [p1 lineToPoint:NSMakePoint(109.000000, 180.000000)];
+//  109.000000 150.000000 lineto
+  [p1 lineToPoint:NSMakePoint(109.000000, 150.000000)];
+//  142.000000 150.000000 lineto
+  [p1 lineToPoint:NSMakePoint(142.000000, 150.000000)];
+//  142.000000 185.000000 lineto
+  [p1 lineToPoint:NSMakePoint(142.000000, 185.000000)];
+//  142.000000 204.000000 lineto
+  [p1 lineToPoint:NSMakePoint(142.000000, 204.000000)];
+//  142.000000 223.000000 lineto
+  [p1 lineToPoint:NSMakePoint(142.000000, 223.000000)];
+//  142.000000 234.000000 lineto
+  [p1 lineToPoint:NSMakePoint(142.000000, 234.000000)];
+//  144.000000 234.000000 lineto
+  [p1 lineToPoint:NSMakePoint(144.000000, 234.000000)];
+//  163.000000 234.000000 lineto
+  [p1 lineToPoint:NSMakePoint(163.000000, 234.000000)];
+//  165.761400 234.000000 168.000000 236.238600 168.000000 239.000000 curveto
+  [p1 curveToPoint:NSMakePoint(168.000000 , 239.000000) controlPoint1:NSMakePoint(165.761400, 234.000000) controlPoint2:NSMakePoint(168.000000, 236.238600)];
+//  168.000000 277.000000 lineto
+  [p1 lineToPoint:NSMakePoint(168.000000, 277.000000)];
+//  168.000000 279.761400 165.761400 282.000000 163.000000 282.000000 curveto
+  [p1 curveToPoint:NSMakePoint(163.000000 , 282.000000) controlPoint1:NSMakePoint(168.000000, 279.761400) controlPoint2:NSMakePoint(165.761400, 282.000000)];
+//  144.000000 282.000000 lineto
+  [p1 lineToPoint:NSMakePoint(144.000000, 282.000000)];
+//  125.000000 282.000000 lineto
+  [p1 lineToPoint:NSMakePoint(125.000000, 282.000000)];
+//  109.000000 282.000000 lineto
+  [p1 lineToPoint:NSMakePoint(109.000000, 282.000000)];
+//  90.000000 282.000000 lineto
+  [p1 lineToPoint:NSMakePoint(90.000000, 282.000000)];
+//  closepath
+  [p1 closePath];
+//  71.000000 282.000000 moveto
+
+  NSMutableDictionary *shape1 = [NSMutableDictionary dictionary];
+  [shape1 setObject:p1 forKey:@"path"];
+  [shape1 setObject:[self colorWithIndex:0] forKey:@"color"];
+  
+  NSMutableArray *theShapes = [self mutableArrayValueForKey:@"shapes"];
+  [theShapes removeAllObjects];
+  [theShapes addObject:shape1];
+  
+  NSBezierPath *p2 = [NSBezierPath bezierPath];
+  
+//  Printing description of obj:
+//  114.000000 174.000000 moveto
+  [p2 moveToPoint:NSMakePoint(114, 174)];
+//  111.238600 174.000000 109.000000 171.761400 109.000000 169.000000 curveto
+  [p2 curveToPoint:NSMakePoint(109.000000, 169.000000) controlPoint1:NSMakePoint(111.238600, 174.000000) controlPoint2:NSMakePoint(109.000000, 171.761400)];
+//  109.000000 131.000000 lineto
+  [p2 lineToPoint:NSMakePoint(109.000000, 131.000000)];
+//  109.000000 128.238600 111.238600 126.000000 114.000000 126.000000 curveto
+  [p2 curveToPoint:NSMakePoint(114.000000, 126.000000) controlPoint1:NSMakePoint(109.000000, 128.238600) controlPoint2:NSMakePoint(111.238600, 126.000000)];
+//  152.000000 126.000000 lineto
+  [p2 lineToPoint:NSMakePoint(152.000000, 126.000000)];
+//  154.761400 126.000000 157.000000 128.238600 157.000000 131.000000 curveto
+  [p2 curveToPoint:NSMakePoint(157.000000, 131.000000) controlPoint1:NSMakePoint(154.761400, 126.000000) controlPoint2:NSMakePoint(157.000000, 128.238600)];
+//  157.000000 169.000000 lineto
+  [p2 lineToPoint:NSMakePoint(157.000000, 169.000000)];
+//  157.000000 171.761400 154.761400 174.000000 152.000000 174.000000 curveto
+  [p2 curveToPoint:NSMakePoint(152.000000, 174.000000) controlPoint1:NSMakePoint(157.000000, 171.761400) controlPoint2:NSMakePoint(154.761400, 174.000000)];
+//  closepath
+  [p2 closePath];
+//  114.000000 174.000000 moveto
+  
+  NSMutableDictionary *shape2 = [NSMutableDictionary dictionary];
+  [shape2 setObject:p2 forKey:@"path"];
+  [shape2 setObject:[self colorWithIndex:3] forKey:@"color"];
+  
+  [theShapes addObject:shape2];
 }
 
 - (IBAction)setTwoRoundedRectangles:(id)sender;
