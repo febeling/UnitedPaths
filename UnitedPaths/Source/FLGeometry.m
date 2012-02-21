@@ -10,7 +10,7 @@
 #import "FLIntersection.h"
 
 #define N_SEGMENTS              50 // TODO find a sensible number of sections, involving calculating curve length.
-#define CLOSE_DIST              1.0e-5
+#define CLOSE_DIST              1.0e-4
 #define MAX_INTERSECTIONS_CUBIC 3
 
 inline
@@ -226,7 +226,6 @@ NSArray *FLIntersectionsCurveAndCurve(NSPoint start1, NSPoint *points1, NSPoint 
   return array;
 }
 
-static
 NSArray *PathSegmentIntersectionsArray(FLPathSegment *segment, FLPathSegment *modifier, NSArray **info)
 {
   // TODO check for overlapping as shortcut
@@ -255,7 +254,7 @@ NSArray *PathSegmentIntersectionsArray(FLPathSegment *segment, FLPathSegment *mo
 NSUInteger FLPathSegmentIntersectionCount(FLPathSegment *segment, FLPathSegment *modifier)
 {
   NSArray *array = PathSegmentIntersectionsArray(segment, modifier, nil);
-  
+  NSLog(@"intersections found: %@", array);
   return [array count];
 }
 

@@ -42,6 +42,7 @@ BOOL FLTimeIsCloseBeginningOrEnd(CGFloat t);
 BOOL FLPointsAreClose(NSPoint p1, NSPoint p2);
 NSPoint FLInterpolateCurvePoint(NSPoint segStart, NSPoint segEnd, NSPoint segIntersec, CGFloat segStartT, CGFloat segEndT, NSPoint curveStart, NSPoint *curvePoints);
 CGFloat FLInterpolateCurveT(NSPoint segStart, NSPoint segEnd, NSPoint segIntersec, CGFloat segStartT, CGFloat segEndT, NSPoint curveStart, NSPoint *curvePoints);
+NSArray *PathSegmentIntersectionsArray(FLPathSegment *segment, FLPathSegment *modifier, NSArray **info);
 NSUInteger FLPathSegmentIntersectionCount(FLPathSegment *segment, FLPathSegment *modifier);
 NSArray *FLPathSegmentIntersections(FLPathSegment *segment, FLPathSegment *modifier);
 NSArray *FLPathElementIntersections(NSBezierPathElement element1,

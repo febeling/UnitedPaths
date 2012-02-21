@@ -71,6 +71,12 @@
   NSPoint lastEndPoint = [[unassembled objectAtIndex:0] startPoint];
 
   while((nextSegment = [self searchSegmentWithStartPointClose:lastEndPoint segments:unassembled])) {
+//    for(FLPathSegment *seg in unassembled) {
+//      NSLog(@"after search: --");
+//      NSLog(@"unassembled startPoint: %@", NSStringFromPoint([seg startPoint]));
+//    }
+//    NSLog(@"- next segments: %@", nextSegment);
+    
     [assembled addObject:nextSegment];
     lastEndPoint = [nextSegment endPoint];
   } 
@@ -90,25 +96,27 @@
   [FLPathSegment markUnionOf:segments withModifiers:segmentsModifier outsidePoint:outsidePoint];
   [FLPathSegment markUnionOf:segmentsModifier withModifiers:segments outsidePoint:outsidePoint];
   
-  // NSLog(@"segments ****");
-  // for(id seg in segments) {
-  //   NSLog(@"%@", seg);
-  // }
+  NSLog(@"segments ****");
+  for(id seg in segments) {
+    NSLog(@"%@", seg);
+  }
   
-  // NSLog(@"segmentsModifier ****");
-  // for(id seg in segmentsModifier) {
-  //   NSLog(@"%@", seg);
-  // }
+  NSLog(@"segmentsModifier ****");
+  for(id seg in segmentsModifier) {
+    NSLog(@"%@", seg);
+  }
   
+//  NSArray *segmentsToKeep = [segments filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"keep == YES"]];
+//  NSArray *segmentsModifierToKeep = [segmentsModifier filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"keep == YES"]];
   [segments filterUsingPredicate:[NSPredicate predicateWithFormat:@"keep == YES"]];
   [segmentsModifier filterUsingPredicate:[NSPredicate predicateWithFormat:@"keep == YES"]];
 
   NSMutableArray *unionSegments = [self reassembleSegments:segments modifier:segmentsModifier];
 
-  // NSLog(@"union segments ****");
-  // for(id seg in unionSegments) {
-  //   NSLog(@"%@", seg);
-  // }
+  NSLog(@"union segments ****");
+  for(id seg in unionSegments) {
+    NSLog(@"%@", seg);
+  }
   
   return unionSegments;
 }
