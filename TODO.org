@@ -20,3 +20,6 @@
 | not             | difference (relative complement)                  |
 | xor             | symmetric difference (union without intersection) |
   
+MAYBE DO
+* Use generic hit detection for inside/outside check
+* Find curve length with generic flatten
