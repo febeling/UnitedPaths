@@ -38,9 +38,9 @@
 {
   NSRect boundingBox = NSUnionRect([self bounds], [modifier bounds]);
 
-  // Small margins resulted in rounding errors which made intersection points
-  // appear outside of one or both involved line segments.
-  CGFloat margin = NSHeight(boundingBox);
+  // Without some odd coefficient, the test case with two squares side-by-side fails,
+  // because the one (de-duplicated) intersection is not recognized as a tangential point.
+  CGFloat margin = NSHeight(boundingBox)*M_E;
   
   return NSMakePoint(NSMidX(boundingBox), NSMaxY(boundingBox) + margin);
 }
