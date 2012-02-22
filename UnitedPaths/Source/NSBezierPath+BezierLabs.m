@@ -40,7 +40,7 @@
 
   // Without some odd coefficient, the test case with two squares side-by-side fails,
   // because the one (de-duplicated) intersection is not recognized as a tangential point.
-  CGFloat margin = NSHeight(boundingBox)*M_E;
+  CGFloat margin = NSHeight(boundingBox)*M_PI;
   
   return NSMakePoint(NSMidX(boundingBox), NSMaxY(boundingBox) + margin);
 }
