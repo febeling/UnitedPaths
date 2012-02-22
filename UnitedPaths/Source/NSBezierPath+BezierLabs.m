@@ -55,7 +55,7 @@
       return segment;
     }
   }
-       
+
   return nil;
 }
 
