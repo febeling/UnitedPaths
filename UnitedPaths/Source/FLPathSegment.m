@@ -82,7 +82,7 @@
         for(NSValue *knownPoint in validCrossingPoints) {
           if(FLPointsAreClose([newPoint pointValue], [knownPoint pointValue])) {
             seen = YES;
-//            NSLog(@"DROP DUPLICATE");
+            NSLog(@"DROP DUPLICATE (%@) [modSeg: %@][lineToOutside: %@]", newPoint, modSegment, lineToOutside);
             break;
           }
         }
