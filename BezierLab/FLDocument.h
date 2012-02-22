@@ -25,11 +25,13 @@
 - (IBAction)setKeyboardShapes:(id)sender;
 - (IBAction)setFlatnessShapes:(id)sender;
 - (IBAction)setTShapeRectangles:(id)sender;
-- (IBAction)setRoundedRectOverRect:(id)sender;
+- (IBAction)setRectNextToRoundedRect:(id)sender;
 - (IBAction)setCircleOverSquareSide:(id)sender;
 - (IBAction)setSquareOverCircleCorner:(id)sender;
 - (IBAction)setSquareOverCircleSide:(id)sender;
 - (IBAction)setSquareNextToSquare:(id)sender;
+- (IBAction)setSquareAtopSquare:(id)sender;
+- (IBAction)setRoundedRectangleOverCornerOfRectangle:(id)sender;
 
 @property (strong) IBOutlet FLCanvas *canvas;
 @property (strong) NSMutableArray *shapes;

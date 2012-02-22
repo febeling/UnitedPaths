@@ -3,12 +3,12 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1070</int>
 		<string key="IBDocument.SystemVersion">11D50</string>
-		<string key="IBDocument.InterfaceBuilderVersion">1938</string>
+		<string key="IBDocument.InterfaceBuilderVersion">2177</string>
 		<string key="IBDocument.AppKitVersion">1138.32</string>
 		<string key="IBDocument.HIToolboxVersion">568.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">1938</string>
+			<string key="NS.object.0">2177</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>NSMenu</string>
@@ -946,7 +946,7 @@
 								</object>
 								<object class="NSMenuItem" id="628367731">
 									<reference key="NSMenu" ref="666945448"/>
-									<string key="NSTitle">Rounded Rectangle over Rectangle</string>
+									<string key="NSTitle">Rectangle next to Rounded Rectangle</string>
 									<string key="NSKeyEquiv">6</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -993,6 +993,15 @@
 									<reference key="NSMenu" ref="666945448"/>
 									<string key="NSTitle">Square Atop Square</string>
 									<string key="NSKeyEquiv">1</string>
+									<int key="NSKeyEquivModMask">1179648</int>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="1033313550"/>
+									<reference key="NSMixedImage" ref="310636482"/>
+								</object>
+								<object class="NSMenuItem" id="834235186">
+									<reference key="NSMenu" ref="666945448"/>
+									<string key="NSTitle">Rounded Rectangle over Rectangle</string>
+									<string key="NSKeyEquiv">2</string>
 									<int key="NSKeyEquivModMask">1179648</int>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="1033313550"/>
@@ -1643,14 +1652,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">setSquareOverCircleSide:</string>
-						<reference key="source" ref="1014"/>
-						<reference key="destination" ref="560879575"/>
-					</object>
-					<int key="connectionID">596</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
 						<string key="label">setSquareNextToSquare:</string>
 						<reference key="source" ref="1014"/>
 						<reference key="destination" ref="380675170"/>
@@ -1659,11 +1660,27 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">setRoundedRectOverRect:</string>
+						<string key="label">setRectNextToRoundedRect:</string>
 						<reference key="source" ref="1014"/>
 						<reference key="destination" ref="628367731"/>
 					</object>
-					<int key="connectionID">598</int>
+					<int key="connectionID">603</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">setRoundedRectangleOverCornerOfRectangle:</string>
+						<reference key="source" ref="1014"/>
+						<reference key="destination" ref="834235186"/>
+					</object>
+					<int key="connectionID">604</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">setSquareAtopSquare:</string>
+						<reference key="source" ref="1014"/>
+						<reference key="destination" ref="560879575"/>
+					</object>
+					<int key="connectionID">605</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -2482,6 +2499,7 @@
 							<reference ref="977309437"/>
 							<reference ref="380675170"/>
 							<reference ref="560879575"/>
+							<reference ref="834235186"/>
 						</array>
 						<reference key="parent" ref="15037701"/>
 					</object>
@@ -2548,6 +2566,11 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">595</int>
 						<reference key="object" ref="560879575"/>
+						<reference key="parent" ref="666945448"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">601</int>
+						<reference key="object" ref="834235186"/>
 						<reference key="parent" ref="666945448"/>
 					</object>
 				</array>
@@ -2671,6 +2694,7 @@
 				<string key="585.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="593.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="595.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="601.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="72.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="73.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="74.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2687,7 +2711,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">598</int>
+			<int key="maxID">605</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -2708,7 +2732,9 @@
 						<string key="setCircleOverSquareSide:">id</string>
 						<string key="setFlatnessShapes:">id</string>
 						<string key="setKeyboardShapes:">id</string>
-						<string key="setRoundedRectOverRect:">id</string>
+						<string key="setRectNextToRoundedRect:">id</string>
+						<string key="setRoundedRectangleOverCornerOfRectangle:">id</string>
+						<string key="setSquareAtopSquare:">id</string>
 						<string key="setSquareNextToSquare:">id</string>
 						<string key="setSquareOverCircleCorner:">id</string>
 						<string key="setSquareOverCircleSide:">id</string>
@@ -2737,8 +2763,16 @@
 							<string key="name">setKeyboardShapes:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="setRoundedRectOverRect:">
-							<string key="name">setRoundedRectOverRect:</string>
+						<object class="IBActionInfo" key="setRectNextToRoundedRect:">
+							<string key="name">setRectNextToRoundedRect:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="setRoundedRectangleOverCornerOfRectangle:">
+							<string key="name">setRoundedRectangleOverCornerOfRectangle:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="setSquareAtopSquare:">
+							<string key="name">setSquareAtopSquare:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="setSquareNextToSquare:">
@@ -2798,47 +2832,6 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBUserSource</string>
 						<string key="minorKey"/>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSDocument</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="printDocument:">id</string>
-						<string key="revertDocumentToSaved:">id</string>
-						<string key="runPageLayout:">id</string>
-						<string key="saveDocument:">id</string>
-						<string key="saveDocumentAs:">id</string>
-						<string key="saveDocumentTo:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="printDocument:">
-							<string key="name">printDocument:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="revertDocumentToSaved:">
-							<string key="name">revertDocumentToSaved:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="runPageLayout:">
-							<string key="name">runPageLayout:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="saveDocument:">
-							<string key="name">saveDocument:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="saveDocumentAs:">
-							<string key="name">saveDocumentAs:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="saveDocumentTo:">
-							<string key="name">saveDocumentTo:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/NSDocument.h</string>
 					</object>
 				</object>
 			</array>

@@ -132,6 +132,12 @@
   self.shapes = [NSMutableArray array];
 }
 
+- (void)addShapeWithPath:(NSBezierPath *)path mutableArray:(NSMutableArray *)array
+{
+  NSDictionary *shape = [NSDictionary dictionaryWithObjectsAndKeys:path, @"path", [self colorWithIndex:[array count]], @"color", nil];
+  [array addObject:shape];
+}
+
 - (IBAction)setTwoRectangles:(id)sender;
 {
 //  NSDictionary *rect1 = [NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRect:NSMakeRect(100, 100, 200, 100)], @"path",
@@ -330,7 +336,7 @@
   [shapesProxy addObject:trunk];
 }
 
-- (IBAction)setRoundedRectOverRect:(id)sender
+- (IBAction)setRectNextToRoundedRect:(id)sender
 {
   NSMutableArray *shapesProxy = [self mutableArrayValueForKey:@"shapes"];
   [shapesProxy removeAllObjects];
@@ -390,13 +396,42 @@
   NSDictionary *square = [NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRect:NSMakeRect(70, 100, 150, 150)], @"path",
                           [self colorWithIndex:4], @"color", nil];
   NSDictionary *square2 = [NSDictionary dictionaryWithObjectsAndKeys:[NSBezierPath bezierPathWithRect:NSMakeRect(145, 100, 150, 150)], @"path",
-                          [self colorWithIndex:5], @"color", nil];
+                           [self colorWithIndex:5], @"color", nil];
   
   NSMutableArray *shapesProxy = [self mutableArrayValueForKey:@"shapes"];
   
   [shapesProxy removeAllObjects];
   [shapesProxy addObject:square];
   [shapesProxy addObject:square2];
+}
+
+- (IBAction)setSquareAtopSquare:(id)sender
+{
+  NSBezierPath *square1 = [NSBezierPath bezierPathWithRect:NSMakeRect(90, 120, 180, 180)];
+  NSBezierPath *square2 = [NSBezierPath bezierPathWithRect:NSMakeRect(90, 60, 180, 180)];
+  
+  NSMutableArray *shapesProxy = [self mutableArrayValueForKey:@"shapes"];
+  
+  [shapesProxy removeAllObjects];
+  
+  [self addShapeWithPath:square1 mutableArray:shapesProxy];
+  [self addShapeWithPath:square2 mutableArray:shapesProxy];
+}
+
+- (IBAction)setRoundedRectangleOverCornerOfRectangle:(id)sender
+{
+  NSBezierPath *rectPath = [NSBezierPath bezierPathWithRect:NSMakeRect(0,0,40,20)];
+  NSBezierPath *roundedRectPath = [NSBezierPath bezierPathWithRoundedRect:NSMakeRect(0,0,40,20) xRadius:5 yRadius:5];
+  NSAffineTransform *translation = [NSAffineTransform transform];
+  [translation translateXBy:20 yBy:10];
+  [roundedRectPath transformUsingAffineTransform:translation];
+
+  NSMutableArray *shapesProxy = [self mutableArrayValueForKey:@"shapes"];
+  
+  [shapesProxy removeAllObjects];
+
+  [self addShapeWithPath:rectPath mutableArray:shapesProxy];
+  [self addShapeWithPath:roundedRectPath mutableArray:shapesProxy];
 }
 
 @end
