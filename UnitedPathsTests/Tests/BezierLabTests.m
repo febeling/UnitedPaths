@@ -59,7 +59,7 @@
   
   NSBezierPath *unionPath = [rectPath bezierPathByUnionWith:roundedRectPath];
   
-  STAssertEquals([unionPath elementCount], 11l, nil);
+  STAssertEquals([unionPath elementCount], 13l, nil);
 }
 
 @end
