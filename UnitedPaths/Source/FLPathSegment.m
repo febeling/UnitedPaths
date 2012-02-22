@@ -60,11 +60,9 @@
                      even:(BOOL)even
 {
   for(FLPathSegment *segment in segments) {
-//    NSLog(@"Marking: %@", NSStringFromPoint([segment startPoint]));
     NSUInteger num = 0;
     FLPathSegment *lineToOutside = [FLPathSegment pathSegmentWithStartPoint:[segment midPoint] endPoint:outsidePoint];
     
-//    NSMutableArray *crossingSegs = [NSMutableArray array];
     NSMutableArray *validCrossingPoints = [NSMutableArray array];
 
     for(FLPathSegment *modSegment in segmentsModifier) {
@@ -77,12 +75,12 @@
       NSArray *newFoundPoints = PathSegmentIntersectionsArray(modSegment, lineToOutside, nil);
       
       // Deduplicate intersection points
-      for(NSValue *newPoint in newFoundPoints) { // TODO This should not be a double loop.
+      // Note: Double loop, but unlikely to be large.
+      for(NSValue *newPoint in newFoundPoints) {
         BOOL seen = NO;
         for(NSValue *knownPoint in validCrossingPoints) {
           if(FLPointsAreClose([newPoint pointValue], [knownPoint pointValue])) {
             seen = YES;
-            NSLog(@"DROP DUPLICATE (%@) [modSeg: %@][lineToOutside: %@]", newPoint, modSegment, lineToOutside);
             break;
           }
         }
@@ -92,19 +90,9 @@
         }
       }
       
-//      [validCrossingPoints addObjectsFromArray:newFoundPoints];
-
-//      NSUInteger crossings = FLPathSegmentIntersectionCount(modSegment, lineToOutside);
-
-//      if(crossings > 0) {
-//        [crossingSegs addObject:modSegment];
-//      }
-      
-//      num += crossings;
     }
     num = [validCrossingPoints count];
     
-//    NSLog(@"crossings found: %@", validCrossingPoints);
     segment.crossnum = num;
     segment.keep = segment.keep || (num%2 == even ? NO : YES);
   }
