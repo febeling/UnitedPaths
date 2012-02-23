@@ -13,6 +13,8 @@
   NSPoint startPoint;
   NSPoint endPoint;
   NSMutableArray *clippings;
+  BOOL keep;
+  NSUInteger crossnum;
 }
 
 + (void)clipSegments:(NSMutableArray *)segments modifierSegments:(NSMutableArray *)segmentsModifier;

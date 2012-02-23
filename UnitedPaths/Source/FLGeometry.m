@@ -335,7 +335,7 @@ void FLSplitCurveFromPoints(CGFloat t, NSPoint p, NSPoint *points, FLCurve **spl
   (*splits)[1].controlPoints[2] = p4;
 }
 
-void FLSplitCurve(double t, FLCurve curve, FLCurve **splits)
+void FLSplitCurve(CGFloat t, FLCurve curve, FLCurve **splits)
 {
   FLSplitCurveFromPoints(t, curve.startPoint, curve.controlPoints, splits);
 }
