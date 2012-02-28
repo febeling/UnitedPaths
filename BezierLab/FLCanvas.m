@@ -10,6 +10,17 @@
 
 @implementation FLCanvas
 
+- (void)setShowControlPoints:(BOOL)flag
+{
+  showControlPoints = flag;
+  [self setNeedsDisplay:YES];
+}
+
+- (BOOL)showControlPoints
+{
+  return showControlPoints;
+}
+
 - (void)setShapes:(NSArray *)array
 {
   shapes = array;
@@ -19,6 +30,17 @@
 - (NSArray *)shapes
 {
   return shapes;
+}
+
+- (NSArray *)controlPoints
+{
+  return controlPoints;
+}
+
+- (void)setControlPoints:(NSArray *)array
+{
+  controlPoints = array;
+  [self setNeedsDisplay:YES];
 }
 
 - (id)initWithFrame:(NSRect)frame
@@ -50,6 +72,14 @@
     NSBezierPath *path = [shape valueForKey:@"path"];
     [path fill];
     [path stroke];
+  }
+  
+  [[NSColor blackColor] setFill];
+  
+  if(self.showControlPoints) {
+    for(NSBezierPath *controlPoint in self.controlPoints) {
+      [controlPoint fill];
+    }
   }
   
   [NSGraphicsContext restoreGraphicsState];

@@ -12,8 +12,10 @@
 
 @interface FLDocument : NSDocument
 {
-  FLCanvas *canvas;
   NSMutableArray *shapes;
+  BOOL showControlPoints;
+  
+  FLCanvas *canvas;
   NSArray *colors;
 }
 
@@ -35,6 +37,8 @@
 
 @property (strong) IBOutlet FLCanvas *canvas;
 @property (strong) NSMutableArray *shapes;
+@property (assign) BOOL showControlPoints;
 @property (readonly) NSAttributedString *pathDescription;
+@property (readonly) NSArray *controlPoints;
 
 @end

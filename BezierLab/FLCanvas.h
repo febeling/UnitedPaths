@@ -11,9 +11,13 @@
 @interface FLCanvas : NSView
 {
   NSArray *shapes;
+  NSArray *controlPoints;
   NSAffineTransform *translation;
+  BOOL showControlPoints;
 }
 
 @property (strong) NSArray *shapes;
+@property (strong) NSArray *controlPoints;
+@property (assign) BOOL showControlPoints;
 
 @end
