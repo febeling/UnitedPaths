@@ -12,6 +12,37 @@
 
 @implementation NSBezierPath (BezierLabs)
 
+- (NSBezierPath *)pointPath:(NSPoint)center
+{
+  CGFloat radius = 2.5;
+  NSRect pointRect = NSMakeRect(center.x-radius, center.y-radius, radius*2, radius*2);
+
+  return [NSBezierPath bezierPathWithOvalInRect:pointRect];
+}
+
+- (NSArray *)controlPoints
+{
+  NSPoint points[3];
+
+  NSMutableArray *pathControlPoints = [NSMutableArray array];
+  for(int i = 0; i<[self elementCount]; i++) {
+    NSBezierPathElement element = [self elementAtIndex:i associatedPoints:points];
+    if(NSMoveToBezierPathElement == element || NSLineToBezierPathElement == element) {
+      [pathControlPoints addObject:[self pointPath:points[0]]];
+    }
+
+    if(NSCurveToBezierPathElement == element) {
+      [pathControlPoints addObject:[self pointPath:points[0]]];
+      [pathControlPoints addObject:[self pointPath:points[1]]];
+      [pathControlPoints addObject:[self pointPath:points[2]]];
+    }
+
+    // Closepath doesn't have a point.
+  }
+
+  return pathControlPoints;
+}
+
 - (void)appendBezierPathWithElement:(NSBezierPathElement)element associatedPoints:(NSPointArray)points
 {
   switch(element) {

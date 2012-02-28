@@ -19,35 +19,13 @@
   return [NSSet setWithObject:@"shapes"];
 }
 
-- (NSBezierPath *)pointPath:(NSPoint)center
-{
-  CGFloat radius = 2.5;
-  NSRect pointRect = NSMakeRect(center.x-radius, center.y-radius, radius*2, radius*2);
-  return [NSBezierPath bezierPathWithOvalInRect:pointRect];
-}
-
 - (NSArray *)controlPoints
 {
   NSMutableArray *result = [NSMutableArray array];
-  NSPoint points[3];
-  
+
   for(NSDictionary *shape in self.shapes) {
     NSBezierPath *path = [shape objectForKey:@"path"];
-    
-    for(int i = 0; i<[path elementCount]; i++) {
-      NSBezierPathElement element = [path elementAtIndex:i associatedPoints:points];
-      if(NSMoveToBezierPathElement == element || NSLineToBezierPathElement == element) {
-        [result addObject:[self pointPath:points[0]]];
-      }
-      
-      if(NSCurveToBezierPathElement == element) {
-        [result addObject:[self pointPath:points[0]]];
-        [result addObject:[self pointPath:points[1]]];
-        [result addObject:[self pointPath:points[2]]];
-      }
-      
-      // Closepath doesn't have a point.
-    }
+    [result addObjectsFromArray:[path controlPoints]];
   }
   
   return result;
