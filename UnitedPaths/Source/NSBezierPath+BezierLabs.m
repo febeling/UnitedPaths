@@ -61,7 +61,8 @@
       [self closePath];
       break;
     default:
-      [NSException raise:@"Illegal path element" format:@"element id: %dl", element];
+      // TODO remove unnecessary cast when XC fixed
+      [NSException raise:@"Illegal path element" format:@"element id: %u", (unsigned int)element];
   }
 }
 
