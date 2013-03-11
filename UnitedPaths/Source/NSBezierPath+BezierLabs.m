@@ -147,7 +147,7 @@
 
 - (NSMutableArray *)segments
 {
-  NSPoint currentPoint;
+  NSPoint currentPoint = NSZeroPoint;
   NSPoint pathStartPoint;
   
   NSMutableArray *segments = [NSMutableArray array];
