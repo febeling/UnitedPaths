@@ -143,7 +143,7 @@ NSArray *FLIntersectionsLineAndCurve(NSPoint lineStart, NSPoint lineEnd, NSPoint
         [array addObject:[NSValue valueWithPoint:curve_point]];
 
         if(info) {
-          [intersectionInfo addObject:[NSDictionary dictionaryWithObject:[NSNumber numberWithDouble:x_t] forKey:[NSString stringWithFormat:@"t%d", pos]]];
+          [intersectionInfo addObject:[NSDictionary dictionaryWithObject:[NSNumber numberWithDouble:x_t] forKey:[NSString stringWithFormat:@"t%d", (int)pos]]];
           *info = intersectionInfo;
         }
 
