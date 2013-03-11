@@ -181,7 +181,7 @@
         [segments addObject:segment];
         break;
       default:
-        [NSException raise:@"Illegal path element" format:@"element id: %dl", element];
+        [NSException raise:@"Illegal path element" format:@"element id: %ld", element];
     }
   }
 
