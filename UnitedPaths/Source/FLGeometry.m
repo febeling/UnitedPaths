@@ -1,6 +1,6 @@
 //
 //  FLGeometry.m
-//  BezierLab
+//  UnitedPaths
 //
 //  Created by Florian Ebeling on 25.01.12.
 //  Copyright (c) 2012 40lines. All rights reserved.

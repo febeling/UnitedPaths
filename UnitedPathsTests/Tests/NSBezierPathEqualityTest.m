@@ -7,7 +7,7 @@
 //
 
 #import "NSBezierPathEqualityTest.h"
-#import "NSBezierPath+BezierLabs.h"
+#import "NSBezierPath+UnitedPaths.h"
 
 @implementation NSBezierPathEqualityTest
 

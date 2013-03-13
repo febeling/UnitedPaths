@@ -21,8 +21,6 @@
 		50CA955014EBDC85000A3197 /* FLPathSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 500EBCEE14DC13F700F541D6 /* FLPathSegment.m */; };
 		50CA955114EBDC85000A3197 /* NSArray+CreateDictionaryUsingBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 5078B1F814E280310034D155 /* NSArray+CreateDictionaryUsingBlock.h */; };
 		50CA955214EBDC85000A3197 /* NSArray+CreateDictionaryUsingBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 5078B1F914E280310034D155 /* NSArray+CreateDictionaryUsingBlock.m */; };
-		50CA955314EBDC85000A3197 /* NSBezierPath+BezierLabs.h in Headers */ = {isa = PBXBuildFile; fileRef = 5015CB5E14DAB5E500BE3345 /* NSBezierPath+BezierLabs.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		50CA955414EBDC85000A3197 /* NSBezierPath+BezierLabs.m in Sources */ = {isa = PBXBuildFile; fileRef = 5015CB5F14DAB5E500BE3345 /* NSBezierPath+BezierLabs.m */; };
 		50CA955514EBDD6A000A3197 /* BezierLabTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F8872514CF427F007AEE2E /* BezierLabTests.m */; };
 		50CA955614EBDD73000A3197 /* FLGeometryCurveSplitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D876D14D2D24F0091BB4D /* FLGeometryCurveSplitTest.m */; };
 		50CA955714EBDD8B000A3197 /* FLGeometryCurveToSegmentsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 500FCC0C14D0445A00F8689C /* FLGeometryCurveToSegmentsTest.m */; };
@@ -52,6 +50,8 @@
 		50F8870F14CF427E007AEE2E /* FLDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50F8870D14CF427E007AEE2E /* FLDocument.xib */; };
 		50F8871214CF427F007AEE2E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50F8871014CF427F007AEE2E /* MainMenu.xib */; };
 		50F8873114CF4769007AEE2E /* FLCanvas.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F8873014CF4769007AEE2E /* FLCanvas.m */; };
+		50FB1D9116F09F7300EB5C82 /* NSBezierPath+UnitedPaths.h in Headers */ = {isa = PBXBuildFile; fileRef = 50FB1D8F16F09F7300EB5C82 /* NSBezierPath+UnitedPaths.h */; };
+		50FB1D9216F09F7300EB5C82 /* NSBezierPath+UnitedPaths.m in Sources */ = {isa = PBXBuildFile; fileRef = 50FB1D9016F09F7300EB5C82 /* NSBezierPath+UnitedPaths.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,8 +90,6 @@
 		500FCC0814D02CD600F8689C /* FLGeometryLineIntersectionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLGeometryLineIntersectionTest.m; sourceTree = "<group>"; };
 		500FCC0B14D0445A00F8689C /* FLGeometryCurveToSegmentsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLGeometryCurveToSegmentsTest.h; sourceTree = "<group>"; };
 		500FCC0C14D0445A00F8689C /* FLGeometryCurveToSegmentsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLGeometryCurveToSegmentsTest.m; sourceTree = "<group>"; };
-		5015CB5E14DAB5E500BE3345 /* NSBezierPath+BezierLabs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBezierPath+BezierLabs.h"; sourceTree = "<group>"; };
-		5015CB5F14DAB5E500BE3345 /* NSBezierPath+BezierLabs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBezierPath+BezierLabs.m"; sourceTree = "<group>"; };
 		5047F4A014D198910068AFE4 /* FLGeometryPathElementIntersectionsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLGeometryPathElementIntersectionsTest.h; sourceTree = "<group>"; };
 		5047F4A114D198910068AFE4 /* FLGeometryPathElementIntersectionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLGeometryPathElementIntersectionsTest.m; sourceTree = "<group>"; };
 		505D876C14D2D24F0091BB4D /* FLGeometryCurveSplitTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLGeometryCurveSplitTest.h; sourceTree = "<group>"; };
@@ -147,6 +145,8 @@
 		50F8872514CF427F007AEE2E /* BezierLabTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BezierLabTests.m; sourceTree = "<group>"; };
 		50F8872F14CF4769007AEE2E /* FLCanvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLCanvas.h; sourceTree = "<group>"; };
 		50F8873014CF4769007AEE2E /* FLCanvas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLCanvas.m; sourceTree = "<group>"; };
+		50FB1D8F16F09F7300EB5C82 /* NSBezierPath+UnitedPaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBezierPath+UnitedPaths.h"; sourceTree = "<group>"; };
+		50FB1D9016F09F7300EB5C82 /* NSBezierPath+UnitedPaths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBezierPath+UnitedPaths.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +242,8 @@
 		5078B20E14E28EE00034D155 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				50FB1D8F16F09F7300EB5C82 /* NSBezierPath+UnitedPaths.h */,
+				50FB1D9016F09F7300EB5C82 /* NSBezierPath+UnitedPaths.m */,
 				500FCBFE14D02BF700F8689C /* FLGeometry.h */,
 				500FCBFF14D02BF700F8689C /* FLGeometry.m */,
 				500EBCF214DC146700F541D6 /* FLIntersection.h */,
@@ -250,8 +252,6 @@
 				500EBCEE14DC13F700F541D6 /* FLPathSegment.m */,
 				5078B1F814E280310034D155 /* NSArray+CreateDictionaryUsingBlock.h */,
 				5078B1F914E280310034D155 /* NSArray+CreateDictionaryUsingBlock.m */,
-				5015CB5E14DAB5E500BE3345 /* NSBezierPath+BezierLabs.h */,
-				5015CB5F14DAB5E500BE3345 /* NSBezierPath+BezierLabs.m */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -369,7 +369,7 @@
 				50CA954D14EBDC85000A3197 /* FLIntersection.h in Headers */,
 				50CA954F14EBDC85000A3197 /* FLPathSegment.h in Headers */,
 				50CA955114EBDC85000A3197 /* NSArray+CreateDictionaryUsingBlock.h in Headers */,
-				50CA955314EBDC85000A3197 /* NSBezierPath+BezierLabs.h in Headers */,
+				50FB1D9116F09F7300EB5C82 /* NSBezierPath+UnitedPaths.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,7 +513,7 @@
 				50CA954E14EBDC85000A3197 /* FLIntersection.m in Sources */,
 				50CA955014EBDC85000A3197 /* FLPathSegment.m in Sources */,
 				50CA955214EBDC85000A3197 /* NSArray+CreateDictionaryUsingBlock.m in Sources */,
-				50CA955414EBDC85000A3197 /* NSBezierPath+BezierLabs.m in Sources */,
+				50FB1D9216F09F7300EB5C82 /* NSBezierPath+UnitedPaths.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

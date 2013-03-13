@@ -8,7 +8,7 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 #import "TestHelper.h"
-#import "NSBezierPath+BezierLabs.h"
+#import "NSBezierPath+UnitedPaths.h"
 
 @interface FLPathSegmentMarkUnionOf : SenTestCase
 

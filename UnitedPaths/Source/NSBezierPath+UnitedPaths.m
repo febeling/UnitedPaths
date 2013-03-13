@@ -1,16 +1,16 @@
 //
-//  NSBezierPath+BezierLabs.m
-//  BezierLab
+//  NSBezierPath+UnitedPaths.m
+//  UnitedPaths
 //
 //  Created by Florian Ebeling on 28.01.12.
 //  Copyright (c) 2012 40lines. All rights reserved.
 //
 
-#import "NSBezierPath+BezierLabs.h"
+#import "NSBezierPath+UnitedPaths.h"
 #import "FLGeometry.h"
 #import "FLPathSegment.h"
 
-@implementation NSBezierPath (BezierLabs)
+@implementation NSBezierPath (UnitedPaths)
 
 - (NSBezierPath *)pointPath:(NSPoint)center
 {
@@ -72,7 +72,7 @@
   // Without some odd coefficient, the test case with two squares side-by-side fails,
   // because the one (de-duplicated) intersection is not recognized as a tangential point.
   CGFloat margin = NSHeight(boundingBox)*M_PI;
-  
+
   return NSMakePoint(NSMidX(boundingBox), NSMaxY(boundingBox) + margin);
 }
 
@@ -82,7 +82,7 @@
     FLPathSegment *segment = [segments objectAtIndex:i];
     if(FLPointsAreClose(point, [segment startPoint])) {
       [segments removeObjectAtIndex:i];
-      
+
       return segment;
     }
   }
@@ -104,8 +104,8 @@
   while((nextSegment = [self searchSegmentWithStartPointClose:lastEndPoint segments:unassembled])) {
     [assembled addObject:nextSegment];
     lastEndPoint = [nextSegment endPoint];
-  } 
-  
+  }
+
   return assembled;
 }
 
@@ -120,17 +120,17 @@
 
   [FLPathSegment markUnionOf:segments withModifiers:segmentsModifier outsidePoint:outsidePoint];
   [FLPathSegment markUnionOf:segmentsModifier withModifiers:segments outsidePoint:outsidePoint];
-  
+
 //  NSLog(@"segments ****");
 //  for(id seg in segments) {
 //    NSLog(@"%@", seg);
 //  }
-  
+
 //  NSLog(@"segmentsModifier ****");
 //  for(id seg in segmentsModifier) {
 //    NSLog(@"%@", seg);
 //  }
-  
+
   [segments filterUsingPredicate:[NSPredicate predicateWithFormat:@"keep == YES"]];
   [segmentsModifier filterUsingPredicate:[NSPredicate predicateWithFormat:@"keep == YES"]];
 
@@ -140,7 +140,7 @@
 //  for(id seg in unionSegments) {
 //    NSLog(@"%@", seg);
 //  }
-  
+
   return unionSegments;
 }
 
@@ -148,19 +148,19 @@
 {
   NSPoint currentPoint = NSZeroPoint;
   NSPoint pathStartPoint;
-  
+
   NSMutableArray *segments = [NSMutableArray array];
-  
+
   for(NSInteger i = 0; i < [self elementCount]; i++) {
     NSPoint points[3];
     NSBezierPathElement element = [self elementAtIndex:i associatedPoints:points];
-    
+
     if(i == 0) {
       pathStartPoint = points[0];
     }
 
     FLPathSegment *segment;
-    
+
     switch(element) {
       case NSLineToBezierPathElement:
         segment = [[FLPathLineSegment alloc] initWithStartPoint:currentPoint endPoint:points[0]];
@@ -190,7 +190,7 @@
 - (NSBezierPath *)bezierPathByUnionWith:(NSBezierPath *)modifier
 {
   NSArray *unionSegments = [self unionWithBezierPath:modifier];
-  
+
   NSBezierPath *bezierPath = [FLPathSegment bezierPathWithSegments:unionSegments];
 
   return bezierPath;
@@ -200,7 +200,7 @@
 {
   if(self == aPath) return YES;
   if([self elementCount] != [aPath elementCount]) return NO;
-  
+
   NSPoint pointsSelf[3];
   NSPoint pointsOther[3];
   NSUInteger count = [self elementCount];
@@ -223,7 +223,7 @@
       }
       if(NSMoveToBezierPathElement == elementSelf && !NSEqualPoints(pointsSelf[0], pointsOther[0])) {
         return NO;
-      } 
+      }
       // NSClosePathBezierPathElement has not additional information.
     }
   }

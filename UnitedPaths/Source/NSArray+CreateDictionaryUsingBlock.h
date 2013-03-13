@@ -1,6 +1,6 @@
 //
 //  NSArray+CreateDictionaryUsingBlock.h
-//  BezierLab
+//  UnitedPaths
 //
 //  Created by Florian Ebeling on 07.02.12.
 //  Copyright (c) 2012 40lines. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  FLPathSegment.m
-//  BezierLab
+//  UnitedPaths
 //
 //  Created by Florian Ebeling on 03.02.12.
 //  Copyright (c) 2012 40lines. All rights reserved.
@@ -9,7 +9,7 @@
 #import "FLPathSegment.h"
 #import "FLGeometry.h"
 #import "FLIntersection.h"
-#import "NSBezierPath+BezierLabs.h" // TODO Remove circular dependency
+#import "NSBezierPath+UnitedPaths.h" // TODO Remove circular dependency
 
 #define NSUINT_BIT (CHAR_BIT * sizeof(NSUInteger))
 #define NSUINTROTATE(val, howmuch) ((((NSUInteger)val) << howmuch) | (((NSUInteger)val) >> (NSUINT_BIT - howmuch)))

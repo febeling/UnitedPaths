@@ -7,7 +7,7 @@
 //
 
 #import "NSBezierPathAppendPathWithElementTest.h"
-#import "NSBezierPath+BezierLabs.h"
+#import "NSBezierPath+UnitedPaths.h"
 
 @implementation NSBezierPathAppendPathWithElementTest
 
