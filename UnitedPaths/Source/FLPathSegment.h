@@ -26,7 +26,6 @@
 + (void)markUnionOf:(NSArray *)segments
       withModifiers:(NSArray *)modifiers
        outsidePoint:(NSPoint)point;
-+ (NSBezierPath *)bezierPathWithSegments:(NSArray *)segments;
 + (id)pathSegmentWithStartPoint:(NSPoint)theStartPoint endPoint:(NSPoint)theEndPoint;
 + (id)pathSegmentWithStartPoint:(NSPoint)theStartPoint points:(NSPoint *)points;
 + (id)pathSegmentWithStartPoint:(NSPoint)theStartPoint

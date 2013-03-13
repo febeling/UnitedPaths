@@ -13,6 +13,38 @@
 
 @implementation NSBezierPath (UnitedPaths)
 
++ (NSBezierPath *)bezierPathWithSegments:(NSArray *)segments
+{
+  NSBezierPath *path = [NSBezierPath bezierPath];
+  NSPoint points[3];
+
+  if([segments count] == 0) return path;
+
+  FLPathSegment *firstSegment = [segments objectAtIndex:0];
+
+  NSPoint currentPoint = [firstSegment startPoint];
+  [path moveToPoint:currentPoint];
+
+  for(int i = 0; i<[segments count]-1; i++) {
+    FLPathSegment *segment = [segments objectAtIndex:i];
+    [segment points:points];
+    [path appendBezierPathWithElement:[segment element] associatedPoints:points];
+    currentPoint = [segment endPoint];
+  }
+
+  FLPathSegment *lastSegment = [segments lastObject];
+  if([lastSegment element] == NSLineToBezierPathElement && NSEqualPoints([lastSegment endPoint], [firstSegment startPoint])) {
+    [path closePath];
+    [path appendBezierPathWithElement:NSClosePathBezierPathElement associatedPoints:NULL];
+    [path moveToPoint:[lastSegment endPoint]];
+  } else {
+    [lastSegment points:points];
+    [path appendBezierPathWithElement:[lastSegment element] associatedPoints:points];
+  }
+
+  return path;
+}
+
 - (NSBezierPath *)pointPath:(NSPoint)center
 {
   CGFloat radius = 2.5;
@@ -192,7 +224,7 @@
 {
   NSArray *unionSegments = [self unionWithBezierPath:modifier];
 
-  NSBezierPath *bezierPath = [FLPathSegment bezierPathWithSegments:unionSegments];
+  NSBezierPath *bezierPath = [NSBezierPath bezierPathWithSegments:unionSegments];
 
   return bezierPath;
 }

@@ -19,6 +19,7 @@
 
 // Private extensions
 
++ (NSBezierPath *)bezierPathWithSegments:(NSArray *)segments;
 - (NSArray *)controlPoints;
 - (NSMutableArray *)segments;
 - (NSPoint)externalPointWithModifier:(NSBezierPath *)modifier;

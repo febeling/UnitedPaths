@@ -15,7 +15,7 @@
 
 - (void)testBezierPathWithSegments_EmptyPath
 {
-  NSBezierPath *path = [FLPathSegment bezierPathWithSegments:[NSArray array]];
+  NSBezierPath *path = [NSBezierPath bezierPathWithSegments:[NSArray array]];
   
   STAssertTrue([path isKindOfClass:[NSBezierPath class]], nil);
 }
@@ -24,7 +24,7 @@
 {
   NSBezierPath *rect = [NSBezierPath bezierPathWithRect:NSMakeRect(1,1,3,2)];
   NSArray *segments = [rect segments];
-  NSBezierPath *newRect = [FLPathSegment bezierPathWithSegments:segments];
+  NSBezierPath *newRect = [NSBezierPath bezierPathWithSegments:segments];
 
   STAssertTrue([newRect isEqualToBezierPath:rect], nil);
 }
@@ -37,7 +37,7 @@
   [path lineToPoint:NSMakePoint(4,4)];
   
   NSArray *segments = [path segments];
-  NSBezierPath *newPath = [FLPathSegment bezierPathWithSegments:segments];
+  NSBezierPath *newPath = [NSBezierPath bezierPathWithSegments:segments];
   
   STAssertTrue([newPath isEqualToBezierPath:path], nil);
 }
@@ -51,7 +51,7 @@
   [path lineToPoint:NSMakePoint(1,1)];
   
   NSArray *segments = [path segments];
-  NSBezierPath *newPath = [FLPathSegment bezierPathWithSegments:segments];
+  NSBezierPath *newPath = [NSBezierPath bezierPathWithSegments:segments];
   
   STAssertEquals([newPath elementCount], 5l, nil);
   STAssertEquals([newPath elementAtIndex:3], (NSBezierPathElement)NSClosePathBezierPathElement, nil);
@@ -66,7 +66,7 @@
   [path curveToPoint:NSMakePoint(1,1) controlPoint1:NSMakePoint(3,4) controlPoint2:NSMakePoint(1,2)];
   
   NSArray *segments = [path segments];
-  NSBezierPath *newPath = [FLPathSegment bezierPathWithSegments:segments];
+  NSBezierPath *newPath = [NSBezierPath bezierPathWithSegments:segments];
   
   STAssertEquals([newPath elementCount], 4l, nil);
   STAssertEquals([newPath elementAtIndex:3], (NSBezierPathElement)NSCurveToBezierPathElement, nil);

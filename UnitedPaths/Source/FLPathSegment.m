@@ -9,7 +9,6 @@
 #import "FLPathSegment.h"
 #import "FLGeometry.h"
 #import "FLIntersection.h"
-#import "NSBezierPath+UnitedPaths.h" // TODO Remove circular dependency
 #import "NSBezierPath+UnitedPathsInternal.h"
 
 #define NSUINT_BIT (CHAR_BIT * sizeof(NSUInteger))
@@ -104,38 +103,6 @@
        outsidePoint:(NSPoint)point
 {
   [self markCombinationOf:segments withModifier:segmentsModifier outsidePoint:point even:YES];
-}
-
-+ (NSBezierPath *)bezierPathWithSegments:(NSArray *)segments
-{
-  NSBezierPath *path = [NSBezierPath bezierPath];
-  NSPoint points[3];
-
-  if([segments count] == 0) return path;
-  
-  FLPathSegment *firstSegment = [segments objectAtIndex:0];
-  
-  NSPoint currentPoint = [firstSegment startPoint];
-  [path moveToPoint:currentPoint];
-  
-  for(int i = 0; i<[segments count]-1; i++) {
-    FLPathSegment *segment = [segments objectAtIndex:i];
-    [segment points:points];
-    [path appendBezierPathWithElement:[segment element] associatedPoints:points];
-    currentPoint = [segment endPoint];
-  }
-  
-  FLPathSegment *lastSegment = [segments lastObject];
-  if([lastSegment element] == NSLineToBezierPathElement && NSEqualPoints([lastSegment endPoint], [firstSegment startPoint])) {
-    [path closePath];
-    [path appendBezierPathWithElement:NSClosePathBezierPathElement associatedPoints:NULL];
-    [path moveToPoint:[lastSegment endPoint]];
-  } else {
-    [lastSegment points:points];
-    [path appendBezierPathWithElement:[lastSegment element] associatedPoints:points];
-  }
-
-  return path;
 }
 
 + (id)pathSegmentWithStartPoint:(NSPoint)theStartPoint endPoint:(NSPoint)theEndPoint
