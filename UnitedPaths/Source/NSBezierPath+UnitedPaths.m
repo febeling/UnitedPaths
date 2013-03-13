@@ -180,17 +180,12 @@
 - (NSMutableArray *)segments
 {
   NSPoint currentPoint = NSZeroPoint;
-  NSPoint pathStartPoint;
 
   NSMutableArray *segments = [NSMutableArray array];
 
   for(NSInteger i = 0; i < [self elementCount]; i++) {
     NSPoint points[3];
     NSBezierPathElement element = [self elementAtIndex:i associatedPoints:points];
-
-    if(i == 0) {
-      pathStartPoint = points[0];
-    }
 
     FLPathSegment *segment;
 
@@ -209,7 +204,8 @@
         currentPoint = points[0];
         break;
       case NSClosePathBezierPathElement:
-        segment = [[FLPathLineSegment alloc] initWithStartPoint:currentPoint endPoint:pathStartPoint];
+        [self elementAtIndex:0 associatedPoints:points];
+        segment = [[FLPathLineSegment alloc] initWithStartPoint:currentPoint endPoint:points[0]];
         [segments addObject:segment];
         break;
       default:
