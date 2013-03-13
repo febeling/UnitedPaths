@@ -13,11 +13,11 @@
 		50CA953314EBDC14000A3197 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50F8871914CF427F007AEE2E /* SenTestingKit.framework */; };
 		50CA953414EBDC14000A3197 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50F886F814CF427E007AEE2E /* Cocoa.framework */; };
 		50CA953D14EBDC14000A3197 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50CA953B14EBDC14000A3197 /* InfoPlist.strings */; };
-		50CA954B14EBDC85000A3197 /* FLGeometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 500FCBFE14D02BF700F8689C /* FLGeometry.h */; };
+		50CA954B14EBDC85000A3197 /* FLGeometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 500FCBFE14D02BF700F8689C /* FLGeometry.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		50CA954C14EBDC85000A3197 /* FLGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 500FCBFF14D02BF700F8689C /* FLGeometry.m */; };
-		50CA954D14EBDC85000A3197 /* FLIntersection.h in Headers */ = {isa = PBXBuildFile; fileRef = 500EBCF214DC146700F541D6 /* FLIntersection.h */; };
+		50CA954D14EBDC85000A3197 /* FLIntersection.h in Headers */ = {isa = PBXBuildFile; fileRef = 500EBCF214DC146700F541D6 /* FLIntersection.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		50CA954E14EBDC85000A3197 /* FLIntersection.m in Sources */ = {isa = PBXBuildFile; fileRef = 500EBCF314DC146700F541D6 /* FLIntersection.m */; };
-		50CA954F14EBDC85000A3197 /* FLPathSegment.h in Headers */ = {isa = PBXBuildFile; fileRef = 500EBCED14DC13F700F541D6 /* FLPathSegment.h */; };
+		50CA954F14EBDC85000A3197 /* FLPathSegment.h in Headers */ = {isa = PBXBuildFile; fileRef = 500EBCED14DC13F700F541D6 /* FLPathSegment.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		50CA955014EBDC85000A3197 /* FLPathSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 500EBCEE14DC13F700F541D6 /* FLPathSegment.m */; };
 		50CA955114EBDC85000A3197 /* NSArray+CreateDictionaryUsingBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 5078B1F814E280310034D155 /* NSArray+CreateDictionaryUsingBlock.h */; };
 		50CA955214EBDC85000A3197 /* NSArray+CreateDictionaryUsingBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 5078B1F914E280310034D155 /* NSArray+CreateDictionaryUsingBlock.m */; };
@@ -52,6 +52,7 @@
 		50F8873114CF4769007AEE2E /* FLCanvas.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F8873014CF4769007AEE2E /* FLCanvas.m */; };
 		50FB1D9116F09F7300EB5C82 /* NSBezierPath+UnitedPaths.h in Headers */ = {isa = PBXBuildFile; fileRef = 50FB1D8F16F09F7300EB5C82 /* NSBezierPath+UnitedPaths.h */; };
 		50FB1D9216F09F7300EB5C82 /* NSBezierPath+UnitedPaths.m in Sources */ = {isa = PBXBuildFile; fileRef = 50FB1D9016F09F7300EB5C82 /* NSBezierPath+UnitedPaths.m */; };
+		50FB1D9716F0EAE000EB5C82 /* NSBezierPath+UnitedPathsInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 50FB1D9316F0D25100EB5C82 /* NSBezierPath+UnitedPathsInternal.h */; settings = {ATTRIBUTES = (Private, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -372,6 +373,7 @@
 				50CA954F14EBDC85000A3197 /* FLPathSegment.h in Headers */,
 				50CA955114EBDC85000A3197 /* NSArray+CreateDictionaryUsingBlock.h in Headers */,
 				50FB1D9116F09F7300EB5C82 /* NSBezierPath+UnitedPaths.h in Headers */,
+				50FB1D9716F0EAE000EB5C82 /* NSBezierPath+UnitedPathsInternal.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

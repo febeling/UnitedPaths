@@ -19,5 +19,6 @@ enum FLPathOperation {
 @interface NSBezierPath (UnitedPaths)
 
 - (NSBezierPath *)bezierPathByUnionWith:(NSBezierPath *)modifier;
+- (NSArray *)controlPoints;
 
 @end
