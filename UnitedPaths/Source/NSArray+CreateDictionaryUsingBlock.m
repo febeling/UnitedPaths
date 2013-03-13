@@ -13,9 +13,9 @@
 - (NSDictionary *)dictionaryWithKeysUsing:(id (^)(id obj))block
 {
   NSUInteger n = [self count];
-  __autoreleasing id *keys = (__autoreleasing id *)malloc(n*sizeof(id));
-  __autoreleasing id *objects = (__autoreleasing id *)malloc(n*sizeof(id));
-  
+  __strong id *keys = (__strong id *)calloc(sizeof(id), n);
+  __strong id *objects = (__strong id *)calloc(sizeof(id), n);
+
   for(int i = 0; i<n; i++) {
     id object = [self objectAtIndex:i];
     keys[i] = block(object);
