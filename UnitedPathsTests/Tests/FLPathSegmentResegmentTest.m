@@ -8,6 +8,8 @@
 
 #import "FLPathSegmentResegmentTest.h"
 #import "TestHelper.h"
+#import "NSBezierPath+UnitedPathsInternal.h"
+
 
 @implementation FLPathSegmentResegmentTest
 

@@ -8,6 +8,8 @@
 
 #import "NSBezierPathEqualityTest.h"
 #import "NSBezierPath+UnitedPaths.h"
+#import "NSBezierPath+UnitedPathsInternal.h"
+
 
 @implementation NSBezierPathEqualityTest
 

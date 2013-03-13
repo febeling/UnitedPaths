@@ -9,6 +9,7 @@
 #import "NSBezierPath+UnitedPaths.h"
 #import "FLGeometry.h"
 #import "FLPathSegment.h"
+#import "NSBezierPath+UnitedPathsInternal.h"
 
 @implementation NSBezierPath (UnitedPaths)
 

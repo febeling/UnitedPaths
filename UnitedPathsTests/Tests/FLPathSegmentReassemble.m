@@ -9,6 +9,7 @@
 #import "FLPathSegmentReassemble.h"
 #import "TestHelper.h"
 #import "NSBezierPath+UnitedPaths.h"
+#import "NSBezierPath+UnitedPathsInternal.h"
 
 @implementation FLPathSegmentReassemble
 

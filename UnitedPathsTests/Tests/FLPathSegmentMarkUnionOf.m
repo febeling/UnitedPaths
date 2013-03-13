@@ -8,6 +8,8 @@
 
 #import "FLPathSegmentMarkUnionOf.h"
 #import "FLPathSegment.h"
+#import "NSBezierPath+UnitedPathsInternal.h"
+
 
 @implementation FLPathSegmentMarkUnionOf
 

@@ -10,6 +10,7 @@
 #import "FLGeometry.h"
 #import "FLIntersection.h"
 #import "NSBezierPath+UnitedPaths.h" // TODO Remove circular dependency
+#import "NSBezierPath+UnitedPathsInternal.h"
 
 #define NSUINT_BIT (CHAR_BIT * sizeof(NSUInteger))
 #define NSUINTROTATE(val, howmuch) ((((NSUInteger)val) << howmuch) | (((NSUInteger)val) >> (NSUINT_BIT - howmuch)))

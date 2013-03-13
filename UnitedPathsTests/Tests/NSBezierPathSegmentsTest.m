@@ -7,6 +7,8 @@
 //
 
 #import "NSBezierPathSegmentsTest.h"
+#import "NSBezierPath+UnitedPathsInternal.h"
+
 
 @implementation NSBezierPathSegmentsTest
 

@@ -8,6 +8,8 @@
 
 #import "NSBezierPathAppendPathWithElementTest.h"
 #import "NSBezierPath+UnitedPaths.h"
+#import "NSBezierPath+UnitedPathsInternal.h"
+
 
 @implementation NSBezierPathAppendPathWithElementTest
 

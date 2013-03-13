@@ -9,6 +9,7 @@
 #import <SenTestingKit/SenTestingKit.h>
 #import <Cocoa/Cocoa.h>
 #import "NSBezierPath+UnitedPaths.h"
+#import "NSBezierPath+UnitedPathsInternal.h"
 
 @interface BezierLabTests : SenTestCase
 {

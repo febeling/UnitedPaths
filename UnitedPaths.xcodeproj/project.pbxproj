@@ -147,6 +147,7 @@
 		50F8873014CF4769007AEE2E /* FLCanvas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLCanvas.m; sourceTree = "<group>"; };
 		50FB1D8F16F09F7300EB5C82 /* NSBezierPath+UnitedPaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBezierPath+UnitedPaths.h"; sourceTree = "<group>"; };
 		50FB1D9016F09F7300EB5C82 /* NSBezierPath+UnitedPaths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBezierPath+UnitedPaths.m"; sourceTree = "<group>"; };
+		50FB1D9316F0D25100EB5C82 /* NSBezierPath+UnitedPathsInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBezierPath+UnitedPathsInternal.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +243,7 @@
 		5078B20E14E28EE00034D155 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				50FB1D9316F0D25100EB5C82 /* NSBezierPath+UnitedPathsInternal.h */,
 				50FB1D8F16F09F7300EB5C82 /* NSBezierPath+UnitedPaths.h */,
 				50FB1D9016F09F7300EB5C82 /* NSBezierPath+UnitedPaths.m */,
 				500FCBFE14D02BF700F8689C /* FLGeometry.h */,
