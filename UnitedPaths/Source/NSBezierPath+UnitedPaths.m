@@ -208,8 +208,6 @@
         segment = [[FLPathLineSegment alloc] initWithStartPoint:currentPoint endPoint:points[0]];
         [segments addObject:segment];
         break;
-      default:
-        [NSException raise:@"Illegal path element" format:@"element id: %ld", element];
     }
   }
 
