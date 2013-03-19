@@ -50,7 +50,7 @@
 		50F8870F14CF427E007AEE2E /* FLDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50F8870D14CF427E007AEE2E /* FLDocument.xib */; };
 		50F8871214CF427F007AEE2E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50F8871014CF427F007AEE2E /* MainMenu.xib */; };
 		50F8873114CF4769007AEE2E /* FLCanvas.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F8873014CF4769007AEE2E /* FLCanvas.m */; };
-		50FB1D9116F09F7300EB5C82 /* NSBezierPath+UnitedPaths.h in Headers */ = {isa = PBXBuildFile; fileRef = 50FB1D8F16F09F7300EB5C82 /* NSBezierPath+UnitedPaths.h */; };
+		50FB1D9116F09F7300EB5C82 /* NSBezierPath+UnitedPaths.h in Headers */ = {isa = PBXBuildFile; fileRef = 50FB1D8F16F09F7300EB5C82 /* NSBezierPath+UnitedPaths.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		50FB1D9216F09F7300EB5C82 /* NSBezierPath+UnitedPaths.m in Sources */ = {isa = PBXBuildFile; fileRef = 50FB1D9016F09F7300EB5C82 /* NSBezierPath+UnitedPaths.m */; };
 		50FB1D9716F0EAE000EB5C82 /* NSBezierPath+UnitedPathsInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 50FB1D9316F0D25100EB5C82 /* NSBezierPath+UnitedPathsInternal.h */; settings = {ATTRIBUTES = (Private, ); }; };
 /* End PBXBuildFile section */
