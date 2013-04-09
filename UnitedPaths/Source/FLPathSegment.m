@@ -71,7 +71,8 @@
         segment.keep = YES;
         break;
       }
-      
+
+      // TODO This function call needs to become a method on this class
       NSArray *newFoundPoints = PathSegmentIntersectionsArray(modSegment, lineToOutside, nil);
       
       // Deduplicate intersection points

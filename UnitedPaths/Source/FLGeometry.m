@@ -226,6 +226,7 @@ NSArray *FLIntersectionsCurveAndCurve(NSPoint start1, NSPoint *points1, NSPoint 
   return array;
 }
 
+// TODO move to PathSegment class
 NSArray *PathSegmentIntersectionsArray(FLPathSegment *segment, FLPathSegment *modifier, NSArray **info)
 {
   // TODO check for overlapping as shortcut
@@ -288,6 +289,8 @@ NSArray *FLPathElementIntersections(NSBezierPathElement element0,
   return array;
 }
 
+// TODO This uses OOP inside again
+//      - refactor: move this as method to PathSegment class
 NSArray *FLPathSegmentIntersections(FLPathSegment *segment, FLPathSegment *modifier)
 {
   NSArray *info;
