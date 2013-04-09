@@ -374,19 +374,30 @@
          ^ NSUINTROTATE([NSStringFromPoint(controlPoint1) hash], i++ * NSUINT_BIT / 3);
 }
 
+- (BOOL)isNewIntersection:(CGFloat)t0
+{
+  return !FLTimeIsCloseBeginningOrEnd(t0)
+      && ([[self clippings] count] == 0
+          || !FLFloatIsClose(t0, [(FLIntersection *)[[self clippings] lastObject] time]));
+}
+
 // TODO test
-- (void)addClippingsWithIntersections:(NSArray *)intersections info:(NSArray *)info isFirst:(BOOL)first
+- (void)addClippingsWithIntersections:(NSArray *)intersections
+                                 info:(NSArray *)info
+                              isFirst:(BOOL)first
 {
   NSString *timeKey = first ? @"t0" : @"t1";
 
   for(int i = 0; i < [intersections count]; i++) {
     NSPoint point = [[intersections objectAtIndex:i] pointValue];
     CGFloat t0 = [[[info objectAtIndex:i] objectForKey:timeKey] doubleValue];
-    if(!FLTimeIsCloseBeginningOrEnd(t0) && 
-       ([[self clippings] count] == 0 || !FLFloatIsClose(t0, [(FLIntersection *)[[self clippings] lastObject] time]))) {
-      FLIntersection *intersection = [[FLIntersection alloc] initWithPoint:point time:t0];
-      [[self clippings] addObject:intersection];
+
+    if(![self isNewIntersection:t0]) {
+      continue;
     }
+
+    FLIntersection *intersection = [[FLIntersection alloc] initWithPoint:point time:t0];
+    [[self clippings] addObject:intersection];
   }
 }
 
