@@ -297,7 +297,10 @@
 
 - (id)initWithStartPoint:(NSPoint)theStartPoint points:(NSPoint *)points
 {
-  return [self initWithStartPoint:theStartPoint controlPoint1:points[0] controlPoint2:points[1] endPoint:points[2]];
+  return [self initWithStartPoint:theStartPoint
+                    controlPoint1:points[0]
+                    controlPoint2:points[1]
+                         endPoint:points[2]];
 }
 
 - (NSBezierPathElement)element
