@@ -10,7 +10,7 @@
 #import "FLIntersection.h"
 
 #define N_SEGMENTS              50 // TODO find a sensible number of sections, involving calculating curve length.
-#define CLOSE_DIST              1.0e-4
+#define CLOSE_DIST              1.0e-4 // 0.01%
 #define MAX_INTERSECTIONS_CUBIC 3
 
 inline
