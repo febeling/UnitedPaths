@@ -18,7 +18,9 @@
   NSBezierPath *path = [NSBezierPath bezierPath];
   NSPoint points[3];
 
-  if([segments count] == 0) return path;
+  if([segments count] == 0) {
+    return path;
+  }
 
   FLPathSegment *firstSegment = [segments objectAtIndex:0];
 
