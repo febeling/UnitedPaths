@@ -368,11 +368,10 @@
 
 - (NSUInteger)hash
 {
-  int i = 0;
   NSUInteger value = [super hash];
-  return NSUINTROTATE(value, i++ * NSUINT_BIT / 3) 
-         ^ NSUINTROTATE([NSStringFromPoint(controlPoint1) hash], i++ * NSUINT_BIT / 3)
-         ^ NSUINTROTATE([NSStringFromPoint(controlPoint1) hash], i++ * NSUINT_BIT / 3);
+  return value
+         ^ NSUINTROTATE([NSStringFromPoint(controlPoint1) hash], 1 * NSUINT_BIT / 3)
+         ^ NSUINTROTATE([NSStringFromPoint(controlPoint1) hash], 2 * NSUINT_BIT / 3);
 }
 
 - (BOOL)isNewIntersection:(CGFloat)t0
