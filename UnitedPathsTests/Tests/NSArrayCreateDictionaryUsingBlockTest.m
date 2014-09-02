@@ -27,9 +27,10 @@
 
 - (void)testDictionaryByValueForKey
 {
-  NSArray *foo = [NSDictionary dictionaryWithObject:@"foo" forKey:@"name"];
-  NSArray *bar = [NSDictionary dictionaryWithObject:@"bar" forKey:@"name"];
-  NSArray *baz = [NSDictionary dictionaryWithObject:@"baz" forKey:@"name"];
+  NSDictionary *foo = [NSDictionary dictionaryWithObject:@"foo" forKey:@"name"];
+  NSDictionary *bar = [NSDictionary dictionaryWithObject:@"bar" forKey:@"name"];
+  NSDictionary *baz = [NSDictionary dictionaryWithObject:@"baz" forKey:@"name"];
+
   NSArray *array = [NSArray arrayWithObjects:foo, bar, baz, nil];
 
   NSDictionary *expected = [NSDictionary dictionaryWithObjectsAndKeys:
