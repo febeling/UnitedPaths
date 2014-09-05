@@ -15,7 +15,7 @@
 // Possible public extensions
 
 - (BOOL)isEqualToBezierPath:(NSBezierPath *)aPath;
-- (void)appendBezierPathWithElement:(NSBezierPathElement)element associatedPoints:(NSPointArray)points;
+- (void)appendElement:(NSBezierPathElement)element associatedPoints:(NSPointArray)points;
 
 // Private extensions
 

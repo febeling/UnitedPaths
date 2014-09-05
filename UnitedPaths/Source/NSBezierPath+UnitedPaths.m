@@ -30,18 +30,18 @@
   for(int i = 0; i<[segments count]-1; i++) {
     FLPathSegment *segment = [segments objectAtIndex:i];
     [segment points:points];
-    [path appendBezierPathWithElement:[segment element] associatedPoints:points];
+    [path appendElement:[segment element] associatedPoints:points];
     currentPoint = [segment endPoint];
   }
 
   FLPathSegment *lastSegment = [segments lastObject];
   if([lastSegment element] == NSLineToBezierPathElement && NSEqualPoints([lastSegment endPoint], [firstSegment startPoint])) {
     [path closePath];
-    [path appendBezierPathWithElement:NSClosePathBezierPathElement associatedPoints:NULL];
+    [path appendElement:NSClosePathBezierPathElement associatedPoints:NULL];
     [path moveToPoint:[lastSegment endPoint]];
   } else {
     [lastSegment points:points];
-    [path appendBezierPathWithElement:[lastSegment element] associatedPoints:points];
+    [path appendElement:[lastSegment element] associatedPoints:points];
   }
 
   return path;
@@ -78,7 +78,7 @@
   return pathControlPoints;
 }
 
-- (void)appendBezierPathWithElement:(NSBezierPathElement)element associatedPoints:(NSPointArray)points
+- (void)appendElement:(NSBezierPathElement)element associatedPoints:(NSPointArray)points
 {
   switch(element) {
     case NSLineToBezierPathElement:
